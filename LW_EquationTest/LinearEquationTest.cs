@@ -93,5 +93,13 @@ namespace LW_EquationTest
 
             Assert.IsInstanceOfType(result, typeof(ArgumentOutOfRangeException));
         }
+
+        [TestMethod]
+        public void LinearEquationTestMultiply()
+        {
+            LinearEquation a = new LinearEquation(1, 2);
+            LinearEquation b = a * 10;
+            Assert.AreEqual(b[1], 20);
+        }
     }
 }
