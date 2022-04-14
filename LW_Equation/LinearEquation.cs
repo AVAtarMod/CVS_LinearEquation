@@ -28,6 +28,14 @@ namespace LW_Equation
             equation.coefficients[0] *= second;
             return equation;
         }
+
+        static public LinearEquation operator *(LinearEquation first, float second)
+        {
+            LinearEquation equation = first;
+            for (int i = 0; i<first.Size; i++)
+                equation.coefficients[i] *= second;
+            return equation;
+        }
         static public LinearEquation operator -(LinearEquation first, float second)
         {
             LinearEquation equation = first;
