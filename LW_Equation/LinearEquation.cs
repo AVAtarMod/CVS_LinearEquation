@@ -202,6 +202,12 @@ namespace LW_Equation
             }
             return a;
         }
+        public static implicit operator List<double>(LinearEquation a)
+        {
+            List<double> list = a.coefficient;
+            //list.Reverse();
+            return list;
+        }
     }
 
 }

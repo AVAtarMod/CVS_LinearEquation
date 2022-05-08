@@ -1,6 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LW_Equation;
 using System;
+using System.Collections.Generic;
+
 
 namespace LW_EquationTest
 {
@@ -152,5 +154,13 @@ namespace LW_EquationTest
             var linear2 = new LinearEquation(-1, -2, -3, -4);
             Assert.AreEqual((-linear1).ToString(), linear2.ToString());
         }
+        [TestMethod]
+        public void CorrectList()
+        {
+            var linear1 = new LinearEquation(1, 2, 3, 4);
+            List<double> correct = new() { 4, 3, 2, 1 };
+            Assert.AreEqual(((List<double>)linear1).ToString(), correct.ToString());
+        }
+
     }
 }
