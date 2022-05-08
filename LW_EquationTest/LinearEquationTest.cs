@@ -93,5 +93,40 @@ namespace LW_EquationTest
 
             Assert.IsInstanceOfType(result, typeof(ArgumentOutOfRangeException));
         }
+        [TestMethod]
+        public void Correctplus()
+        {
+            var linear1 = new LinearEquation(1, 2, 3, 4);
+            var linear2 = new LinearEquation(1, 2, 3, 4, 5, 6);
+            var lineartrue = new LinearEquation(1, 2, 4, 6, 8, 10);
+            Assert.AreEqual((linear1 + linear2).ToString(), lineartrue.ToString());
+        }
+        [TestMethod]
+        public void Correctminus()
+        {
+            var linear1 = new LinearEquation(1, 2, 3, 4, 5, 6);
+            var linear2 = new LinearEquation(1, 2, 3, 4);
+            var linear3 = new LinearEquation(1, 2, 2, 2, 4);
+            var lineartrue1 = new LinearEquation(1, 2, 2, 2, 2, 2);
+            var lineartrue2 = new LinearEquation(-1, -1, 0, 1, 0);
+            Assert.AreEqual((linear1 - linear2).ToString(), lineartrue1.ToString());
+            Assert.AreEqual((linear2 - linear3).ToString(), lineartrue2.ToString());
+        }
+        [TestMethod]
+        public void Falsetest()
+        {
+            var linear = new LinearEquation(0, 0, 3);
+            bool l = true;
+            if (linear)
+                l = false;
+            Assert.AreEqual(false, l);
+        }
+        [TestMethod]
+        public void CorrectCompare()
+        {
+            var linear1 = new LinearEquation(1, 2, 3, 4);
+            var linear2 = new LinearEquation(1, 2, 3, 4);
+            Assert.AreEqual(linear2 == linear1, true);
+        }
     }
 }

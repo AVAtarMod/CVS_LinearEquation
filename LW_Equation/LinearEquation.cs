@@ -97,7 +97,62 @@ namespace LW_Equation
         }
         public double this[int i]
         {
-            get { return coefficient[coefficient.Count - i]; }
+            get { return coefficient[coefficient.Count - i - 1]; }
+        }
+        public static LinearEquation operator -(LinearEquation a, LinearEquation b)
+        {
+            int max = Math.Max(a.Length, b.Length);
+            int min = Math.Min(a.Length, b.Length);
+            LinearEquation count = FillSame(max, 0);
+            if (max == a.Length)
+            {
+                for (int i = 0; i < b.Length; i++)
+                {
+                    count.coefficient[i] = a.coefficient[i] - b.coefficient[i];
+                }
+                for (int j = b.Length; j < a.Length; j++)
+                {
+                    count.coefficient[j] = a.coefficient[j];
+                }
+            }
+            else if (max == b.Length)
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    count.coefficient[i] = a.coefficient[i] - b.coefficient[i];
+                }
+                for (int j = a.Length; j < b.Length; j++)
+                {
+                    count.coefficient[j] = -b.coefficient[j];
+                }
+            }
+            return count;
+        }
+        public static bool operator false(LinearEquation a)
+        {
+            int count = 0;
+            if (a.coefficient[a.Length - 1] != 0)
+                for (int i = 0; i < a.Length - 1; i++)
+                {
+                    if (a.coefficient[i] == 0) count++;
+                }
+            if (count == a.Length - 1)
+                return true;
+            else
+                return false;
+        }
+        public static bool operator true(LinearEquation a)
+        {
+            int count = 0;
+            if (a.coefficient[0] != 0)
+                for (int i = 0; i < a.Length - 1; i++)
+                {
+                    if (a.coefficient[i] == 0) count++;
+                }
+            if (count == a.Length - 2)
+                return true;
+            else
+                return false;
         }
     }
 }
