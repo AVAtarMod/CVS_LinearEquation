@@ -145,5 +145,12 @@ namespace LW_EquationTest
             Assert.AreEqual((linear1 * r).ToString(), linear2.ToString());
             Assert.AreEqual((r * linear3).ToString(), linear2.ToString());
         }
+        [TestMethod]
+        public void Correctminusmulti()
+        {
+            var linear1 = new LinearEquation(1, 2, 3, 4);
+            var linear2 = new LinearEquation(-1, -2, -3, -4);
+            Assert.AreEqual((-linear1).ToString(), linear2.ToString());
+        }
     }
 }

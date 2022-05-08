@@ -194,6 +194,14 @@ namespace LW_Equation
             }
             return result;
         }
+        public static LinearEquation operator -(LinearEquation a)
+        {
+            for (int i = 0; i < a.Length; i++)
+            {
+                a.coefficient[i] *= -1;
+            }
+            return a;
+        }
     }
 
 }
