@@ -8,58 +8,96 @@ namespace LW_Equation
 {
     public class LinearEquation
     {
-        List<float> coefficients;
-        public int Size => coefficients.Count;
-        public LinearEquation(float b, float aN, params float[] coefficients)
+        List<double> coefficient = new();
+        Random rand;
+        public LinearEquation(params double[] coef)
         {
-            this.coefficients = new List<float>();
-            this.coefficients.Add(aN);
-            this.coefficients.Add(b);
-            this.coefficients.AddRange(coefficients);
+            //int cout = 0;
+            Array.Reverse(coef);
+            coefficient.InsertRange(0, coef);
+            //cout++;
         }
-        public LinearEquation(List<float> coefficients)
+        public LinearEquation(List<double> list)
         {
-            this.coefficients = new List<float>();
-            this.coefficients = coefficients;
+            list.Reverse();
+            coefficient = list;
         }
-        static public LinearEquation operator +(LinearEquation first, float second)
+        public LinearEquation(string str)
         {
-            LinearEquation equation = first;
-            equation.coefficients[0] *= second;
-            return equation;
+            string[] ar = str.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            for (int i = ar.Length - 1; i > -1; i--)
+            {
+                coefficient.Add(double.Parse(ar[i]));
+            }
         }
-        static public LinearEquation operator -(LinearEquation first, float second)
+        public static LinearEquation FillSame(int n, int k)
         {
-            LinearEquation equation = first;
-            equation.coefficients[0] /= second;
-            return equation;
+            LinearEquation Same = new();
+            for (int i = 0; i < n; i++)
+            {
+                Same.coefficient.Add(k);
+            }
+            return Same;
+        }
+        public int Length { get { return coefficient.Count; } }
+        public void Round()
+        {
+            LinearEquation result = this;
+            for (int i = 0; i < this.coefficient.Count; i++)
+            {
+                this.coefficient[i] = Math.Round(this.coefficient[i], 1);
+            }
+        }
+        public static LinearEquation operator +(LinearEquation a, LinearEquation b)
+        {
+            int max = Math.Max(a.Length, b.Length);
+            int min = Math.Min(a.Length, b.Length);
+            LinearEquation count = FillSame(max, 0);
+            for (int i = 0; i < min; i++)
+            {
+                count.coefficient[i] = a.coefficient[i] + b.coefficient[i];
+            }
+            if (max == a.Length)
+                for (int j = min; j < max; j++)
+                {
+                    count.coefficient[j] = a.coefficient[j];
+                }
+            else if (max == b.Length)
+                for (int j = min; j < max; j++)
+                    count.coefficient[j] = b.coefficient[j];
+            return count;
         }
         public override bool Equals(object obj)
         {
-            if (obj is LinearEquation equation)
+            return base.Equals(obj);
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+        public static bool operator ==(LinearEquation a, LinearEquation b)
+        {
+            if (a.Length != b.Length)
             {
-                if (Size != equation.Size)
-                    return true;
-                for (int i = 0; i < Size; i++)
-                {
-                    if (this.coefficients[i] != equation.coefficients[i])
-                        return true;
-                }
                 return false;
+            }
+            else
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    if (a.coefficient[i] != b.coefficient[i])
+                        return false;
+                }
             }
             return true;
         }
-        static public bool operator ==(LinearEquation first, LinearEquation second)
+        public static bool operator !=(LinearEquation a, LinearEquation b)
         {
-            return first.Equals(second);
+            return !(a == b);
         }
-        static public bool operator !=(LinearEquation first, LinearEquation second)
+        public double this[int i]
         {
-            return !first.Equals(second);
-        }
-        public float this[int i]
-        {
-            get { return 0; }
+            get { return coefficient[coefficient.Count - i]; }
         }
     }
 }
