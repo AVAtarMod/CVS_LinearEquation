@@ -30,6 +30,16 @@ namespace LW_Equation
                 coefficient.Add(double.Parse(ar[i]));
             }
         }
+        public LinearEquation RandomFilling(int n)
+        {
+            rand = new Random();
+            LinearEquation randlist = new();
+            for (int i = 0; i < n; i++)
+            {
+                coefficient.Add(rand.Next(100));
+            }
+            return randlist;
+        }
         public static LinearEquation FillSame(int n, int k)
         {
             LinearEquation Same = new();
@@ -154,5 +164,36 @@ namespace LW_Equation
             else
                 return false;
         }
+        public override string ToString()
+        {
+            string str = "";
+            double d = 0;
+            for (int i = coefficient.Count - 1; i > -1; i--)
+            {
+                d = coefficient[i];
+                string doub = d.ToString();
+                str += doub;
+            }
+            return str;
+        }
+        public static LinearEquation operator *(LinearEquation a, double r)
+        {
+            LinearEquation result = FillSame(a.Length, 0);
+            for (int i = 0; i < a.Length; i++)
+            {
+                result.coefficient[i] = a.coefficient[i] * r;
+            }
+            return result;
+        }
+        public static LinearEquation operator *(double r, LinearEquation a)
+        {
+            LinearEquation result = FillSame(a.Length, 0);
+            for (int i = 0; i < a.Length; i++)
+            {
+                result.coefficient[i] = a.coefficient[i] * r;
+            }
+            return result;
+        }
     }
+
 }
