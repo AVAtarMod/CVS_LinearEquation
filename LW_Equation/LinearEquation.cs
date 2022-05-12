@@ -8,22 +8,25 @@ namespace LW_Equation
 {
     public class LinearEquation
     {
-        List<double> coefficient = new();
-        Random rand;
+        List<double> coefficient;
+
         public LinearEquation(params double[] coef)
         {
             //int cout = 0;
+            coefficient = new();
             Array.Reverse(coef);
             coefficient.InsertRange(0, coef);
             //cout++;
         }
         public LinearEquation(List<double> list)
         {
+            coefficient = new();
             list.Reverse();
             coefficient = list;
         }
         public LinearEquation(string str)
         {
+            coefficient = new();
             string[] ar = str.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             for (int i = ar.Length - 1; i > -1; i--)
             {
@@ -32,7 +35,7 @@ namespace LW_Equation
         }
         public LinearEquation RandomFilling(int n)
         {
-            rand = new Random();
+            Random rand = new Random();
             LinearEquation randlist = new();
             for (int i = 0; i < n; i++)
             {
@@ -52,7 +55,6 @@ namespace LW_Equation
         public int Length { get { return coefficient.Count; } }
         public void Round()
         {
-            LinearEquation result = this;
             for (int i = 0; i < this.coefficient.Count; i++)
             {
                 this.coefficient[i] = Math.Round(this.coefficient[i], 1);
