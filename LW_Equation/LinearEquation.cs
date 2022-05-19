@@ -75,7 +75,12 @@ namespace LW_Equation
         }
         public List<double> ToList()
         {
-            return new List<double>();
+            List<double> ans = new List<double>();
+
+            for (int i = 0; i < this.Size; i++)
+                ans.Add((double)this.coefficients[i]);
+
+            return ans;
         }
     }
 }
