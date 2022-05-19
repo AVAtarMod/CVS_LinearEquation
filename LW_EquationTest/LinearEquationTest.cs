@@ -215,5 +215,17 @@ namespace LW_EquationTest
                         (result[2] == equation[2]);
             Assert.IsTrue(ans);
         }
+        [TestMethod]
+        public void LinearEquationTestOperatorMinus()
+        {
+            LinearEquation a = new LinearEquation(-1, 1, 0);
+            LinearEquation result = -a;
+            LinearEquation correct = new LinearEquation(1, -1, 0);
+
+            bool b = result.Equals(correct);
+
+            Assert.IsTrue(b);
+        }
+
     }
 }
