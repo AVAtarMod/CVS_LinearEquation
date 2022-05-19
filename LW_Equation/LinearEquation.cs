@@ -82,5 +82,11 @@ namespace LW_Equation
 
             return ans;
         }
+        public LinearEquation MultiplyByNumber(float val)
+        {
+            LinearEquation ans = new LinearEquation();
+
+            return ans;
+        }
     }
 }
