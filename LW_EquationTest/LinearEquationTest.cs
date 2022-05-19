@@ -207,9 +207,13 @@ namespace LW_EquationTest
         [TestMethod]
         public void LinearEquationTestToList()
         {
-            LinearEquation a = new LinearEquation(1, (float)1.2, (float)3.4);
-
-            Assert.AreEqual(a.ToList(), new List<double>() { 1, 1.2, 3.4 });
+            LinearEquation a = new LinearEquation(1F, 1.2F, 3.4F);
+            List<double> result = new List<double>() { 1F, 1.2F, 3.4F };
+            List<double> equation = a.ToList();
+            bool ans =  (result[0] == equation[0]) &&
+                        (result[1] == equation[1]) &&
+                        (result[2] == equation[2]);
+            Assert.IsTrue(ans);
         }
     }
 }
