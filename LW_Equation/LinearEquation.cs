@@ -72,6 +72,7 @@ namespace LW_Equation
         public float this[int i]
         {
             get { return this.coefficients[i]; }
+            set { this.coefficients[i] = value; }
         }
         public List<double> ToList()
         {
@@ -84,7 +85,12 @@ namespace LW_Equation
         }
         public LinearEquation MultiplyByNumber(float val)
         {
-            LinearEquation ans = new LinearEquation();
+            LinearEquation ans = new LinearEquation(this.coefficients);
+
+            for (int i = 0; i < ans.Size; i++)
+            {
+                ans[i] *= val;
+            }
 
             return ans;
         }
