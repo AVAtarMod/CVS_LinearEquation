@@ -72,13 +72,17 @@ namespace LW_Equation
         static public LinearEquation operator -(LinearEquation first)
         {
             LinearEquation ans = first;
-
+            for (int i = 0; i < ans.Size; i++)
+            {
+                ans[i] *= -1;
+            }
             return ans;
         }
 
         public float this[int i]
         {
             get { return this.coefficients[i]; }
+            set { this.coefficients[i] = value; }
         }
         public List<double> ToList()
         {
