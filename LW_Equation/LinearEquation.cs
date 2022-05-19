@@ -17,11 +17,9 @@ namespace LW_Equation
         /// <param name="b">Свободный член</param>
         /// <param name="aN">Последний коэффициент</param>
         /// <param name="coefficients">Остальные коэффициенты</param>
-        public LinearEquation(float b, float aN, params float[] coefficients)
+        public LinearEquation(params float[] coefficients)
         {
             this.coefficients = new List<float>();
-            this.coefficients.Add(aN);
-            this.coefficients.Add(b);
             this.coefficients.AddRange(coefficients);
         }
         public LinearEquation(List<float> coefficients)
