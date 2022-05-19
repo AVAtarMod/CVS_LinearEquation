@@ -73,5 +73,9 @@ namespace LW_Equation
         {
             get { return this.coefficients[i]; }
         }
+        public List<double> ToList()
+        {
+            return new List<double>();
+        }
     }
 }
