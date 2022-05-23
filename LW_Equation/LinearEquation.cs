@@ -73,7 +73,7 @@ namespace LW_Equation
         }
         public float this[int i]
         {
-            get { return 0; }
+            get { return coefficients[i]; }
         }
     }
 }
