@@ -31,17 +31,16 @@ namespace LW_Equation
         /// <summary>
         /// Суммирует свободный член first с second
         /// </summary>
-        static public LinearEquation operator +(LinearEquation first, float second)
+        static public LinearEquation operator+ (LinearEquation first, float second)
         {
             LinearEquation equation = first;
             equation.coefficients[equation.Size - 1] += second;
             return equation;
         }
-
         /// <summary>
         /// Вычитает second из свободного члена first
         /// </summary>
-        static public LinearEquation operator -(LinearEquation first, float second)
+        static public LinearEquation operator- (LinearEquation first, float second)
         {
             LinearEquation equation = first;
             equation.coefficients[equation.Size - 1] -= second;
