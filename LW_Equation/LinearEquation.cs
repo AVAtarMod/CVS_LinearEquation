@@ -17,11 +17,9 @@ namespace LW_Equation
         /// <param name="b">Свободный член</param>
         /// <param name="aN">Последний коэффициент</param>
         /// <param name="coefficients">Остальные коэффициенты</param>
-        public LinearEquation(float b, float aN, params float[] coefficients)
+        public LinearEquation(params float[] coefficients)
         {
             this.coefficients = new List<float>();
-            this.coefficients.Add(b);
-            this.coefficients.Add(aN);
             this.coefficients.AddRange(coefficients);
         }
         public LinearEquation(List<float> coefficients)
@@ -33,19 +31,20 @@ namespace LW_Equation
         /// <summary>
         /// Суммирует свободный член first с second
         /// </summary>
-        static public LinearEquation operator+ (LinearEquation first, float second)
+        static public LinearEquation operator +(LinearEquation first, float second)
         {
             LinearEquation equation = first;
-            equation.coefficients[0] *= second;
+            equation.coefficients[equation.Size - 1] += second;
             return equation;
         }
+
         /// <summary>
         /// Вычитает second из свободного члена first
         /// </summary>
-        static public LinearEquation operator- (LinearEquation first, float second)
+        static public LinearEquation operator -(LinearEquation first, float second)
         {
             LinearEquation equation = first;
-            equation.coefficients[0] /= second;
+            equation.coefficients[equation.Size - 1] -= second;
             return equation;
         }
         public override bool Equals(object obj)
@@ -71,9 +70,40 @@ namespace LW_Equation
         {
             return !first.Equals(second);
         }
+        static public LinearEquation operator -(LinearEquation first)
+        {
+            LinearEquation ans = first;
+            for (int i = 0; i < ans.Size; i++)
+            {
+                ans[i] *= -1;
+            }
+            return ans;
+        }
+
         public float this[int i]
         {
-            get { return coefficients[i]; }
+            get { return this.coefficients[i]; }
+            set { this.coefficients[i] = value; }
+        }
+        public List<double> ToList()
+        {
+            List<double> ans = new List<double>();
+
+            for (int i = 0; i < this.Size; i++)
+                ans.Add((double)this.coefficients[i]);
+
+            return ans;
+        }
+        public LinearEquation MultiplyByNumber(float val)
+        {
+            LinearEquation ans = new LinearEquation(this.coefficients);
+
+            for (int i = 0; i < ans.Size; i++)
+            {
+                ans[i] *= val;
+            }
+
+            return ans;
         }
     }
 }
