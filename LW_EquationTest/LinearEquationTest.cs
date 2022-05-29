@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LW_Equation;
 using System;
+using System.Collections.Generic;
 
 namespace LW_EquationTest
 {
