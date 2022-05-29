@@ -203,5 +203,27 @@ namespace LW_EquationTest
 
             Assert.AreEqual(new LinearEquation(1, 2F), result);
         }
+
+
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqMinusEq()
+        {
+            LinearEquation a = new LinearEquation(3, 4);
+            LinearEquation b = new LinearEquation(1, 3);
+
+            LinearEquation result = a - b;
+
+            Assert.AreEqual(new LinearEquation(2, 1), result);
+        }
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqPlusEq()
+        {
+            LinearEquation a = new LinearEquation(1, 3);
+            LinearEquation b = new LinearEquation(1, 3);
+
+            LinearEquation result = a + b;
+
+            Assert.AreEqual(new LinearEquation(2, 6), result);
+        }
     }
 }
