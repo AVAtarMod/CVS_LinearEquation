@@ -69,6 +69,26 @@ namespace LW_Equation
         {
             return !first.Equals(second);
         }
+        static public LinearEquation operator *(LinearEquation left, LinearEquation right)
+        {
+            LinearEquation ans = new LinearEquation();
+
+            return ans;
+        }
+        static public LinearEquation operator -(LinearEquation left, LinearEquation right)
+        {
+            LinearEquation ans = new LinearEquation();
+
+            return ans;
+        }
+        static public LinearEquation operator +(LinearEquation left, LinearEquation right)
+        {
+            int size = Math.Max(left.Size, right.Size);
+            LinearEquation ans = new LinearEquation(true, size, 0);
+
+            return ans;
+        }
+
         public float this[int i]
         {
             get { return this.coefficients[i]; }
