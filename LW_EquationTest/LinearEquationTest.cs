@@ -229,7 +229,7 @@ namespace LW_EquationTest
         [TestMethod]
         public void LinearEquationTestInitRandom()
         {
-            LinearEquation a = new LinearEquation(3, 5);
+            LinearEquation a = new LinearEquation(true, 3);
             bool ans = a != null;
             Assert.IsTrue(ans);
         }
