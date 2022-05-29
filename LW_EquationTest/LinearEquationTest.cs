@@ -215,5 +215,11 @@ namespace LW_EquationTest
                         (result[2] == equation[2]);
             Assert.IsTrue(ans);
         }
+        [TestMethod]
+        public void LinearEquationTestToString()
+        {
+            LinearEquation a = new LinearEquation(1, 2, 3, 4, 5);
+            bool ans = a.ToString() == "1,2,3,4,5";
+            Assert.IsTrue(ans);
+        }
     }
-}
