@@ -210,7 +210,7 @@ namespace LW_EquationTest
             LinearEquation a = new LinearEquation(1F, 1.2F, 3.4F);
             List<double> result = new List<double>() { 1F, 1.2F, 3.4F };
             List<double> equation = a.ToList();
-            bool ans =  (result[0] == equation[0]) &&
+            bool ans = (result[0] == equation[0]) &&
                         (result[1] == equation[1]) &&
                         (result[2] == equation[2]);
             Assert.IsTrue(ans);
@@ -287,5 +287,12 @@ namespace LW_EquationTest
             Assert.IsTrue(b);
         }
 
+        [TestMethod]
+        public void LinearEquationTestToString()
+        {
+            LinearEquation a = new LinearEquation(1, 2, 3, 4, 5);
+            bool ans = a.ToString() == "1,2,3,4,5";
+            Assert.IsTrue(ans);
+        }
     }
 }

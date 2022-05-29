@@ -185,6 +185,17 @@ namespace LW_Equation
 
             return ans;
         }
+        public override String ToString()
+        {
+            String ans = "";
+            for (int i = 0; i < this.Size - 1; i++)
+            {
+                ans += this[i].ToString();
+                ans += ",";
+            }
+            ans += this[this.Size - 1].ToString();
+            return ans;
+        }
         public LinearEquation MultiplyByNumber(float val)
         {
             LinearEquation ans = new LinearEquation(this.coefficients);
