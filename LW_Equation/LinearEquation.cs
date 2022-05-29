@@ -42,6 +42,7 @@ namespace LW_Equation
         }
 
 
+
         /// <summary>
         /// Суммирует свободный член first с second
         /// </summary>
@@ -89,6 +90,83 @@ namespace LW_Equation
             for (int i = 0; i < ans.Size; i++)
             {
                 ans[i] *= -1;
+            }
+            return ans;
+        }
+
+        static public LinearEquation operator *(LinearEquation left, LinearEquation right)
+        {
+            int size = Math.Max(left.Size, right.Size);
+            LinearEquation ans = new LinearEquation(true, size, 0);
+
+            for (int i = 1; i <= size; i++)
+            {
+                if ((left.Size - i) < 0 && (right.Size - i) >= 0)
+                {
+                    ans[ans.Size - i] = 0;
+                }
+                else if ((left.Size - i) >= 0 && (right.Size - i) < 0)
+                {
+                    ans[ans.Size - i] = 0;
+                }
+                else
+                {
+                    ans[ans.Size - i] = left[left.Size - i] * right[right.Size - i];
+                }
+            }
+            List<double> c = new List<double>();
+            c = ans.ToList();
+            while (c[0] == 0)
+            {
+                c.RemoveAt(0);
+            }
+            size = c.Count;
+            ans = new LinearEquation(true, size, 0);
+            for (int i = 0; i < ans.Size; i++)
+            {
+                ans[i] = (float)c[i];
+            }
+            return ans;
+        }
+        static public LinearEquation operator -(LinearEquation left, LinearEquation right)
+        {
+            int size = Math.Max(left.Size, right.Size);
+            LinearEquation ans = new LinearEquation(true, size, 0);
+            for (int i = 1; i <= size; i++)
+            {
+                if ((left.Size - i) < 0 && (right.Size - i) >= 0)
+                {
+                    ans[ans.Size - i] = -right[right.Size - i];
+                }
+                else if ((left.Size - i) >= 0 && (right.Size - i) < 0)
+                {
+                    ans[ans.Size - i] = left[left.Size - i];
+                }
+                else
+                {
+                    ans[ans.Size - i] = left[left.Size - i] - right[right.Size - i];
+                }
+            }
+            return ans;
+        }
+        static public LinearEquation operator +(LinearEquation left, LinearEquation right)
+        {
+            int size = Math.Max(left.Size, right.Size);
+            LinearEquation ans = new LinearEquation(true, size, 0);
+            for (int i= 1; i <= size; i++)
+            {
+                if ((left.Size - i) < 0 && (right.Size - i) >= 0)
+                {
+                    ans[ans.Size - i] = right[right.Size - i];
+                }
+                else if ((left.Size - i) >= 0 && (right.Size - i) < 0)
+                {
+                    ans[ans.Size - i] = left[left.Size - i];
+                }
+                else
+                {
+                    ans[ans.Size - i] = left[left.Size - i] + right[right.Size - i];
+                }
             }
             return ans;
         }
