@@ -238,5 +238,12 @@ namespace LW_EquationTest
             var res = new LinearEquation(1, 5, 3).GetDesicion().Contains("1*(1) + 5*(2) + 3*(3) = 0");
             Assert.AreEqual(res, true);
         }
+        [TestMethod]
+        public void MultOnNum()
+        {
+            var res = new LinearEquation(1, 5, 3);
+            res.MultOnNum(3);
+            Assert.AreEqual(res, new LinearEquation(3,15,9));
+        }
     }
 }

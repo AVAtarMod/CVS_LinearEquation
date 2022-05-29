@@ -151,6 +151,13 @@ namespace LW_Equation
             str += "= 0";
             return str;
         }
+        public void MultOnNum(float num)
+        {
+            for(int i = 0; i < coefficients.Count; i++)
+            {
+                coefficients[i] *= num;
+            }
+        }
     }
 
 }
