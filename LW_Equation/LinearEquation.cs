@@ -29,6 +29,18 @@ namespace LW_Equation
             this.coefficients = new List<float>();
             this.coefficients = coefficients;
         }
+        public LinearEquation()
+        {
+            var random = new Random();
+            int count = random.Next(1, 10);
+            this.coefficients = new List<float>();
+            for (int i = 0; i < count; i++)
+            {
+                float num = random.Next(1, 10) / (random.Next(1, 10) * 1.0F);
+                this.coefficients.Add(num);
+            }
+
+        }
 
         /// <summary>
         /// Суммирует свободный член first с second
