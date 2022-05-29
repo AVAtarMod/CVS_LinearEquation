@@ -1,7 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LW_Equation;
 using System;
-using System.Collections.Generic;
 
 namespace LW_EquationTest
 {
@@ -234,24 +233,10 @@ namespace LW_EquationTest
             Assert.AreEqual(res, -4.0);
         }
         [TestMethod]
-        public void CanDeside()
+        public void GetEq()
         {
-            LinearEquation a = new LinearEquation(1, 5, 3);
-            LinearEquation b = new LinearEquation(1, 5, 2, 3);
-            LinearEquation c = new LinearEquation(1, 5, 9, 3);
-            var list = new List<LinearEquation>(){ a,b,c};
-            var res = a.CanDeside(list);
+            var res = new LinearEquation(1, 5, 3).GetDesicion().Contains("1*(1) + 5*(2) + 3*(3) = 0");
             Assert.AreEqual(res, true);
-        }
-        [TestMethod]
-        public void NotCanDeside()
-        {
-            LinearEquation a = new LinearEquation(1, 5, 3,3,5,2,1);
-            LinearEquation b = new LinearEquation(1, 5, 2, 3);
-            LinearEquation c = new LinearEquation(1, 5, 9, 3);
-            var list = new List<LinearEquation>() { a, b, c };
-            var res = a.CanDeside(list);
-            Assert.AreEqual(res, false);
         }
     }
 }
