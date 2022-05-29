@@ -178,6 +178,15 @@ namespace LW_Equation
                 coefficients[i] *= num;
             }
         }
+        public List<double> GetDoubleList()
+        {
+            var list = new List<double>();
+            foreach (var coefficient in coefficients)
+            {
+                list.Add(coefficient);
+            }
+            return list;
+        }
     }
 
 }
