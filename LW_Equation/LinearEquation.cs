@@ -45,7 +45,7 @@ namespace LW_Equation
         static public LinearEquation operator- (LinearEquation first, float second)
         {
             LinearEquation equation = first;
-            equation.coefficients[0] /= second;
+            equation.coefficients[0] -= second;
             return equation;
         }
         public override bool Equals(object obj)
