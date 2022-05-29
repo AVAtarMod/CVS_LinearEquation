@@ -138,22 +138,5 @@ namespace LW_Equation
             }
             return (-sum) / coefficients.Last();
         }
-
-        public bool CanDeside(List<LinearEquation> equations)
-        {
-            var maxNums = equations.First().coefficients.Count;
-            foreach(var e in equations)
-            {
-                if(maxNums < e.coefficients.Count)
-                {
-                    maxNums = e.Size;
-                }
-            }
-            maxNums--;
-            if (equations.Count < maxNums)
-                return false;
-            else
-                return true;
-        }
     }
 }
