@@ -245,5 +245,11 @@ namespace LW_EquationTest
             res.MultOnNum(3);
             Assert.AreEqual(res, new LinearEquation(3,15,9));
         }
+        [TestMethod]
+        public void GetRandNumbs()
+        {
+            var arr = new LinearEquation();
+            Assert.AreEqual(arr.Size >= 1, true);
+        }
     }
 }
