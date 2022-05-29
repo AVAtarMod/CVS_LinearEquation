@@ -251,5 +251,11 @@ namespace LW_EquationTest
             var arr = new LinearEquation();
             Assert.AreEqual(arr.Size >= 1, true);
         }
+        [TestMethod]
+        public void MinusNumber()
+        {
+            var arr = new LinearEquation(1,3,5);
+            Assert.AreEqual(-arr, new LinearEquation(-1, -3, -5));
+        }
     }
 }
