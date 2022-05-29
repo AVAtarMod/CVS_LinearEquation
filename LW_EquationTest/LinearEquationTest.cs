@@ -11,18 +11,8 @@ namespace LW_EquationTest
         [TestMethod]
         public void LinearEquationTestEquals()
         {
-            LinearEquation a = new LinearEquation(1, 2);
+            LinearEquation a = new LinearEquation(1, 3);
             LinearEquation b = new LinearEquation(1, 2);
-
-            bool result = a == b;
-
-            Assert.IsTrue(result);
-        }
-        [TestMethod]
-        public void LinearEquationTestEquals2()
-        {
-            LinearEquation a = new LinearEquation(1, 2);
-            LinearEquation b = new LinearEquation(1, 3);
 
             bool result = a == b;
 
