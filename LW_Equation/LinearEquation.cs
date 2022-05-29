@@ -27,6 +27,20 @@ namespace LW_Equation
             this.coefficients = new List<float>();
             this.coefficients = coefficients;
         }
+        public LinearEquation(bool t, int size)
+        {
+            Random rng = new Random();
+            this.coefficients = new List<float>();
+            for (int i = 0; i < size; i++)
+                coefficients.Add((float)rng.NextDouble() * 100);
+        }
+        public LinearEquation(bool t, int size, float a)
+        {
+            this.coefficients = new List<float>();
+            for (int i = 0; i < size; i++)
+                coefficients.Add(a);
+        }
+
 
         /// <summary>
         /// Суммирует свободный член first с second
