@@ -13,8 +13,8 @@ namespace LW_Equation
         public LinearEquation(float b, float aN, params float[] coefficients)
         {
             this.coefficients = new List<float>();
-            this.coefficients.Add(aN);
             this.coefficients.Add(b);
+            this.coefficients.Add(aN);
             this.coefficients.AddRange(coefficients);
         }
         public LinearEquation(List<float> coefficients)
@@ -22,32 +22,56 @@ namespace LW_Equation
             this.coefficients = new List<float>();
             this.coefficients = coefficients;
         }
-        static public LinearEquation operator +(LinearEquation first, float second)
+        public LinearEquation()
+        {
+            var random = new Random();
+            int count = random.Next(1, 10);
+            this.coefficients = new List<float>();
+            for (int i = 0; i < count; i++)
+            {
+                float num = random.Next(1, 10) / (random.Next(1, 10) * 1.0F);
+                this.coefficients.Add(num);
+            }
+
+        }
+
+        /// <summary>
+        /// Суммирует свободный член first с second
+        /// </summary>
+        static public LinearEquation operator+ (LinearEquation first, float second)
         {
             LinearEquation equation = first;
-            equation.coefficients[0] *= second;
+            equation.coefficients[equation.Size - 1] += second;
             return equation;
         }
         static public LinearEquation operator -(LinearEquation first, float second)
         {
             LinearEquation equation = first;
-            equation.coefficients[0] /= second;
+            equation.coefficients[equation.Size - 1] -= second;
             return equation;
+        }
+        public static LinearEquation operator -(LinearEquation a)
+        {
+            for (int i = 0; i < a.coefficients.Count; i++)
+            {
+                a.coefficients[i] = a[i] * -1;
+            }
+            return a;
         }
         public override bool Equals(object obj)
         {
             if (obj is LinearEquation equation)
             {
                 if (Size != equation.Size)
-                    return true;
+                    return false;
                 for (int i = 0; i < Size; i++)
                 {
                     if (this.coefficients[i] != equation.coefficients[i])
-                        return true;
+                        return false;
                 }
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
         static public bool operator ==(LinearEquation first, LinearEquation second)
         {
@@ -59,7 +83,100 @@ namespace LW_Equation
         }
         public float this[int i]
         {
-            get { return 0; }
+            get { return coefficients[i]; }
+        }
+
+
+        static public LinearEquation operator -(LinearEquation first, LinearEquation second)
+        {
+            for(int i = 0; i < first.Size; i++)
+            {
+                for(int k = 0; k < second.Size; k++)
+                {
+                    first.coefficients[i] = first[i] - second[i];
+                    i++;
+                    if(i >= first.Size)
+                    {
+                        break;
+                    }
+                }
+                if (i >= first.Size)
+                {
+                    break;
+                }
+            }
+            return first;
+        }
+        static public LinearEquation operator +(LinearEquation first, LinearEquation second)
+        {
+            for (int i = 0; i < first.Size; i++)
+            {
+                for (int k = 0; k < second.Size; k++)
+                {
+                    first.coefficients[i] = first[i] + second[i];
+                    i++;
+                    if (i >= first.Size)
+                    {
+                        break;
+                    }
+                }
+                if (i >= first.Size)
+                {
+                    break;
+                }
+            }
+            return first;
+        }
+        public double IsDesided(params float[] nums)
+        {
+            if (nums.Length != Size - 1)
+                return 0;
+
+            bool stNums = false;
+            var sum = coefficients[0];
+            for (int i = 1; i < Size - 1; i++)
+            {
+                if (!stNums)
+                    for (int k = 0; k < nums.Length; k++)
+                    {
+                        sum += nums[k] * coefficients[i];
+                        i++;
+                    }
+                stNums = true;
+                if (i < Size - 1)
+                    sum += coefficients[i];
+            }
+            return (-sum) / coefficients.Last();
+        }
+        public string GetDesicion()
+        {
+            var str = "";
+            for (int i = 0; i < coefficients.Count; i++)
+            {
+                if (i == coefficients.Count - 1)
+                    str += $"{coefficients[i]}*({i + 1}) ";
+                else
+                    str += $"{coefficients[i]}*({i + 1}) + ";
+            }
+            str += "= 0";
+            return str;
+        }
+        public void MultOnNum(float num)
+        {
+            for(int i = 0; i < coefficients.Count; i++)
+            {
+                coefficients[i] *= num;
+            }
+        }
+        public List<double> GetDoubleList()
+        {
+            var list = new List<double>();
+            foreach (var coefficient in coefficients)
+            {
+                list.Add(coefficient);
+            }
+            return list;
         }
     }
+
 }
