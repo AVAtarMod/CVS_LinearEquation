@@ -266,18 +266,6 @@ namespace LW_EquationTest
         }
 
         [TestMethod]
-        public void LinearEquationTestOperatorMinus()
-        {
-            LinearEquation a = new LinearEquation(-1, 1, 0);
-            LinearEquation result = -a;
-            LinearEquation correct = new LinearEquation(1, -1, 0);
-
-            bool b = result.Equals(correct);
-
-            Assert.IsTrue(b);
-        }
-
-        [TestMethod]
         public void LinearEquationTestMultiplyByNumber1()
         {
             LinearEquation a = new LinearEquation(1, 2, 3);
