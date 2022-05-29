@@ -60,6 +60,14 @@ namespace LW_Equation
             equation.coefficients[equation.Size - 1] -= second;
             return equation;
         }
+        public static LinearEquation operator -(LinearEquation a)
+        {
+            for (int i = 0; i < a.coefficients.Count; i++)
+            {
+                a.coefficients[i] = a[i] * -1;
+            }
+            return a;
+        }
         public override bool Equals(object obj)
         {
             if (obj is LinearEquation equation)
