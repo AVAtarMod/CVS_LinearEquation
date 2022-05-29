@@ -257,5 +257,11 @@ namespace LW_EquationTest
             var arr = new LinearEquation(1,3,5);
             Assert.AreEqual(-arr, new LinearEquation(-1, -3, -5));
         }
+        [TestMethod]
+        public void DoubleList()
+        {
+            var list = new LinearEquation(1, 2, 3).GetDoubleList();
+            Assert.AreEqual(list.GetType(), typeof(List<double>));
+        }
     }
 }
