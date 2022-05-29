@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LW_Equation;
 using System;
+using System.Collections.Generic;
 
 namespace LW_EquationTest
 {
@@ -231,6 +232,26 @@ namespace LW_EquationTest
             LinearEquation a = new LinearEquation(1, 5, 3);
             var res = a.IsDesided(1, 2);
             Assert.AreEqual(res, -4.0);
+        }
+        [TestMethod]
+        public void CanDeside()
+        {
+            LinearEquation a = new LinearEquation(1, 5, 3);
+            LinearEquation b = new LinearEquation(1, 5, 2, 3);
+            LinearEquation c = new LinearEquation(1, 5, 9, 3);
+            var list = new List<LinearEquation>(){ a,b,c};
+            var res = a.CanDeside(list);
+            Assert.AreEqual(res, true);
+        }
+        [TestMethod]
+        public void NotCanDeside()
+        {
+            LinearEquation a = new LinearEquation(1, 5, 3,3,5,2,1);
+            LinearEquation b = new LinearEquation(1, 5, 2, 3);
+            LinearEquation c = new LinearEquation(1, 5, 9, 3);
+            var list = new List<LinearEquation>() { a, b, c };
+            var res = a.CanDeside(list);
+            Assert.AreEqual(res, false);
         }
     }
 }
