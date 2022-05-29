@@ -117,5 +117,26 @@ namespace LW_Equation
             }
             return first;
         }
+        public double IsDesided(params float[] nums)
+        {
+            if (nums.Length != Size - 1)
+                return 0;
+
+            bool stNums = false;
+            var sum = coefficients[0];
+            for (int i = 1; i < Size - 1; i++)
+            {
+                if (!stNums)
+                    for (int k = 0; k < nums.Length; k++)
+                    {
+                        sum += nums[k] * coefficients[i];
+                        i++;
+                    }
+                stNums = true;
+                if (i < Size - 1)
+                    sum += coefficients[i];
+            }
+            return (-sum) / coefficients.Last();
+        }
     }
 }

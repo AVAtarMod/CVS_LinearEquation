@@ -225,5 +225,12 @@ namespace LW_EquationTest
 
             Assert.AreEqual(new LinearEquation(2, 6), result);
         }
+        [TestMethod]
+        public void EqHasDesicion()
+        {
+            LinearEquation a = new LinearEquation(1, 5, 3);
+            var res = a.IsDesided(1, 2);
+            Assert.AreEqual(res, -4.0);
+        }
     }
 }
