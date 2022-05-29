@@ -219,7 +219,12 @@ namespace LW_EquationTest
         public void LinearEquationTestOperatorTrue()
         {
             LinearEquation a = new LinearEquation(0, 0, 0, 1);
-            bool ans = (a);
+            bool ans = false;
+            if (a)
+                ans = true;
+            else
+                ans = false;
+
             Assert.IsFalse(ans);
         }
     }
