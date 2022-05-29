@@ -210,10 +210,17 @@ namespace LW_EquationTest
             LinearEquation a = new LinearEquation(1F, 1.2F, 3.4F);
             List<double> result = new List<double>() { 1F, 1.2F, 3.4F };
             List<double> equation = a.ToList();
-            bool ans =  (result[0] == equation[0]) &&
+            bool ans = (result[0] == equation[0]) &&
                         (result[1] == equation[1]) &&
                         (result[2] == equation[2]);
             Assert.IsTrue(ans);
+        }
+        [TestMethod]
+        public void LinearEquationTestOperatorTrue()
+        {
+            LinearEquation a = new LinearEquation(0, 0, 0, 1);
+            bool ans = (a);
+            Assert.IsFalse(ans);
         }
     }
 }
