@@ -232,5 +232,11 @@ namespace LW_EquationTest
             var res = a.IsDesided(1, 2);
             Assert.AreEqual(res, -4.0);
         }
+        [TestMethod]
+        public void GetEq()
+        {
+            var res = new LinearEquation(1, 5, 3).GetDesicion().Contains("1*(1) + 5*(2) + 3*(3) = 0");
+            Assert.AreEqual(res, true);
+        }
     }
 }

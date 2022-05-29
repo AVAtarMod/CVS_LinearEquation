@@ -138,5 +138,19 @@ namespace LW_Equation
             }
             return (-sum) / coefficients.Last();
         }
+        public string GetDesicion()
+        {
+            var str = "";
+            for (int i = 0; i < coefficients.Count; i++)
+            {
+                if (i == coefficients.Count - 1)
+                    str += $"{coefficients[i]}*({i + 1}) ";
+                else
+                    str += $"{coefficients[i]}*({i + 1}) + ";
+            }
+            str += "= 0";
+            return str;
+        }
     }
+
 }
