@@ -75,5 +75,47 @@ namespace LW_Equation
         {
             get { return coefficients[i]; }
         }
+
+
+        static public LinearEquation operator -(LinearEquation first, LinearEquation second)
+        {
+            for(int i = 0; i < first.Size; i++)
+            {
+                for(int k = 0; k < second.Size; k++)
+                {
+                    first.coefficients[i] = first[i] - second[i];
+                    i++;
+                    if(i >= first.Size)
+                    {
+                        break;
+                    }
+                }
+                if (i >= first.Size)
+                {
+                    break;
+                }
+            }
+            return first;
+        }
+        static public LinearEquation operator +(LinearEquation first, LinearEquation second)
+        {
+            for (int i = 0; i < first.Size; i++)
+            {
+                for (int k = 0; k < second.Size; k++)
+                {
+                    first.coefficients[i] = first[i] + second[i];
+                    i++;
+                    if (i >= first.Size)
+                    {
+                        break;
+                    }
+                }
+                if (i >= first.Size)
+                {
+                    break;
+                }
+            }
+            return first;
+        }
     }
 }
