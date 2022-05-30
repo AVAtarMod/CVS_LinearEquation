@@ -10,7 +10,7 @@ namespace LW_Equation
     {
         List<float> coefficients;
         public int Size => coefficients.Count;
-        public LinearEquation(float b, float aN, params float[] coefficients)
+        public LinearEquation(params float[] coefficients)
         {
             this.coefficients = new List<float>();
             this.coefficients.AddRange(coefficients);
@@ -20,7 +20,6 @@ namespace LW_Equation
             this.coefficients = new List<float>();
             this.coefficients = coefficients;
         }
-        static public LinearEquation operator +(LinearEquation first, float second)
         public LinearEquation(bool t, int size)
         {
             Random rng = new Random();
@@ -34,9 +33,6 @@ namespace LW_Equation
             for (int i = 0; i < size; i++)
                 coefficients.Add(a);
         }
-
-
-
         /// <summary>
         /// Суммирует свободный член first с second
         /// </summary>
