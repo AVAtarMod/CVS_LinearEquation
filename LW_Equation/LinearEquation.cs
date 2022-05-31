@@ -35,7 +35,7 @@ namespace LW_Equation
                 coefficients.Add(a);
         }
 
-        static public LinearEquation operator+ (LinearEquation first, float second)
+        static public LinearEquation operator +(LinearEquation first, float second)
         {
             LinearEquation equation = first;
             equation.coefficients[equation.Size - 1] += second;
@@ -118,5 +118,32 @@ namespace LW_Equation
             get { return this.coefficients[i]; }
             set { this.coefficients[i] = value; }
         }
+        static public bool operator true(LinearEquation eq)
+        {
+            int count = 0;
+            for (int i = 0; i < eq.Size; i++)
+            {
+                if (eq[i] == 0)
+                    count++;
+            }
+            if (count == eq.Size - 2 && eq[eq.Size - 1] != 0)
+                return true;
+            else
+                return false;
+        }
+        static public bool operator false(LinearEquation eq)
+        {
+            int count = 0;
+            for (int i = 0; i < eq.Size; i++)
+            {
+                if (eq[i] == 0)
+                    count++;
+            }
+            if (count == eq.Size - 1)
+                return true;
+            else
+                return false;
+        }
+
     }
 }
