@@ -195,6 +195,14 @@ namespace LW_Equation
             ans += this[this.Size - 1].ToString();
             return ans;
         }
+        public List<double> ToList()
+        {
+            List<double> ans = new List<double>();
 
+            for (int i = 0; i < this.Size; i++)
+                ans.Add((double)this.coefficients[i]);
+
+            return ans;
+        }
     }
 }
