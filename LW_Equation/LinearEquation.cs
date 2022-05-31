@@ -46,6 +46,48 @@ namespace LW_Equation
             equation.coefficients[equation.Size - 1] -= second;
             return equation;
         }
+        static public LinearEquation operator -(LinearEquation left, LinearEquation right)
+        {
+            int size = Math.Max(left.Size, right.Size);
+            LinearEquation ans = new LinearEquation(true, size, 0);
+            for (int i = 1; i <= size; i++)
+            {
+                if ((left.Size - i) < 0 && (right.Size - i) >= 0)
+                {
+                    ans[ans.Size - i] = -right[right.Size - i];
+                }
+                else if ((left.Size - i) >= 0 && (right.Size - i) < 0)
+                {
+                    ans[ans.Size - i] = left[left.Size - i];
+                }
+                else
+                {
+                    ans[ans.Size - i] = left[left.Size - i] - right[right.Size - i];
+                }
+            }
+            return ans;
+        }
+        static public LinearEquation operator +(LinearEquation left, LinearEquation right)
+        {
+            int size = Math.Max(left.Size, right.Size);
+            LinearEquation ans = new LinearEquation(true, size, 0);
+            for (int i = 1; i <= size; i++)
+            {
+                if ((left.Size - i) < 0 && (right.Size - i) >= 0)
+                {
+                    ans[ans.Size - i] = right[right.Size - i];
+                }
+                else if ((left.Size - i) >= 0 && (right.Size - i) < 0)
+                {
+                    ans[ans.Size - i] = left[left.Size - i];
+                }
+                else
+                {
+                    ans[ans.Size - i] = left[left.Size - i] + right[right.Size - i];
+                }
+            }
+            return ans;
+        }
         public override bool Equals(object obj)
         {
             if (obj is LinearEquation equation)
