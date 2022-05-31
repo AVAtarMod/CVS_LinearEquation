@@ -89,7 +89,18 @@ namespace LW_Equation
             }
             return ans;
         }
-        
+        public LinearEquation MultiplyByNumber(float val)
+        {
+            LinearEquation ans = new LinearEquation(this.coefficients);
+
+            for (int i = 0; i < ans.Size; i++)
+            {
+                ans[i] *= val;
+            }
+
+            return ans;
+        }
+
         public override bool Equals(object obj)
         {
             if (obj is LinearEquation equation)
