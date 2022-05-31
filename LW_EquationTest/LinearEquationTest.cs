@@ -243,6 +243,18 @@ namespace LW_EquationTest
             bool ans = a != null;
             Assert.IsTrue(ans);
         }
+        [TestMethod]
+        public void LinearEquationTestOperatorTrue()
+        {
+            LinearEquation a = new LinearEquation(0, 0, 0, 1);
+            bool ans = false;
+            if (a)
+                ans = true;
+            else
+                ans = false;
+
+            Assert.IsFalse(ans);
+        }
 
     }
 }
