@@ -203,5 +203,28 @@ namespace LW_EquationTest
 
             Assert.AreEqual(new LinearEquation(1, 2F), result);
         }
+
+        [TestMethod]
+        public void LinearEquationTestOperatorAdd()
+        {
+            LinearEquation a = new LinearEquation(1, 2, 3, 4);
+            LinearEquation b = new LinearEquation(2, 1, 0, 5, 1);
+            LinearEquation res = a + b;
+            LinearEquation correct = new LinearEquation(2, 2, 2, 8, 5);
+            bool ans = (res == correct);
+            Assert.IsTrue(ans);
+        }
+        [TestMethod]
+        public void LinearEquationTestOperatorMinus()
+        {
+            LinearEquation a = new LinearEquation(1, 2, 3, 4);
+            LinearEquation b = new LinearEquation(2, 1, 0, 5, 1);
+            LinearEquation res = a - b;
+            LinearEquation correct = new LinearEquation(-2, 0, 2, -2, 3);
+            bool ans = (res == correct);
+            Assert.IsTrue(ans);
+        }
+
+
     }
 }
