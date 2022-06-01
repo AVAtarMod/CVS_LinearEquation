@@ -6,6 +6,20 @@ using System.Threading.Tasks;
 
 namespace LW_Equation
 {
+    public class EquationSize
+    {
+        int size;
+        public EquationSize(int size)
+        {
+            Size = size;
+        }
+        public static implicit operator int(EquationSize size) => size.Size;
+        public int Size 
+        { 
+            get => size;
+            set => size = value; 
+        }
+    }
     public class LinearEquation
     {
         List<float> coefficients;
@@ -21,14 +35,14 @@ namespace LW_Equation
             this.coefficients = new List<float>();
             this.coefficients = coefficients;
         }
-        public LinearEquation(bool t, int size)
+        public LinearEquation(EquationSize size)
         {
             Random rng = new Random();
             this.coefficients = new List<float>();
             for (int i = 0; i < size; i++)
                 coefficients.Add((float)rng.NextDouble() * 100);
         }
-        public LinearEquation(bool t, int size, float a)
+        public LinearEquation(EquationSize size, float a)
         {
             this.coefficients = new List<float>();
             for (int i = 0; i < size; i++)
@@ -50,7 +64,7 @@ namespace LW_Equation
         static public LinearEquation operator -(LinearEquation left, LinearEquation right)
         {
             int size = Math.Max(left.Size, right.Size);
-            LinearEquation ans = new LinearEquation(true, size, 0);
+            LinearEquation ans = new LinearEquation(new EquationSize(size), 0);
             for (int i = 1; i <= size; i++)
             {
                 if ((left.Size - i) < 0 && (right.Size - i) >= 0)
@@ -71,7 +85,7 @@ namespace LW_Equation
         static public LinearEquation operator +(LinearEquation left, LinearEquation right)
         {
             int size = Math.Max(left.Size, right.Size);
-            LinearEquation ans = new LinearEquation(true, size, 0);
+            LinearEquation ans = new LinearEquation(new EquationSize(size), 0);
             for (int i = 1; i <= size; i++)
             {
                 if ((left.Size - i) < 0 && (right.Size - i) >= 0)
