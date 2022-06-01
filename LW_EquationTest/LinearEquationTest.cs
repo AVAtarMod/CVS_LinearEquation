@@ -241,7 +241,13 @@ namespace LW_EquationTest
         public void LinearEquationTestInitRandom()
         {
             LinearEquation a = new LinearEquation(new EquationSize(3));
-            bool ans = a != null;
+            int cnt = 1;
+            for (int i = 1; i < a.Size; i++)
+            {
+                if (a[i] == a[0])
+                    cnt++;
+            }
+            bool ans = (cnt != a.Size - 1);
             Assert.IsTrue(ans);
         }
         [TestMethod]
