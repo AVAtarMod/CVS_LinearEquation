@@ -219,7 +219,7 @@ namespace LW_EquationTest
         [TestMethod]
         public void LinearEquationTestInitSame()
         {
-            LinearEquation a = new LinearEquation(true, 3, 5);
+            LinearEquation a = new LinearEquation(new EquationSize(3), 5);
             LinearEquation res = new LinearEquation(5, 5, 5);
             bool ans = (a[0] == res[0]) &&
                        (a[1] == res[1]) &&
@@ -230,7 +230,7 @@ namespace LW_EquationTest
         [TestMethod]
         public void LinearEquationTestInitRandom()
         {
-            LinearEquation a = new LinearEquation(true, 3);
+            LinearEquation a = new LinearEquation(new EquationSize(3));
             bool ans = a != null;
             Assert.IsTrue(ans);
         }
