@@ -205,5 +205,23 @@ namespace LW_Equation
             }
             return randlist;
         }
+        public static LinearEquation operator *(LinearEquation a, double r)
+        {
+            LinearEquation result = FillSame(a.Length, 0);
+            for (int i = 0; i < a.Length; i++)
+            {
+                result.coefficient[i] = a.coefficient[i] * r;
+            }
+            return result;
+        }
+        public static LinearEquation operator *(double r, LinearEquation a)
+        {
+            LinearEquation result = FillSame(a.Length, 0);
+            for (int i = 0; i < a.Length; i++)
+            {
+                result.coefficient[i] = a.coefficient[i] * r;
+            }
+            return result;
+        }
     }
 }

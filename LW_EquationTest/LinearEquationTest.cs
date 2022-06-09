@@ -56,13 +56,14 @@ namespace LW_EquationTest
             Assert.AreEqual(linear1.ToString(), "1234");
         }
         [TestMethod]
-        public void LinearEquationTestIndexer2()
+        public void Correctmuti()
         {
-            LinearEquation a = new LinearEquation(1, 2, 3);
-
-            bool result = a[2] == 3;
-
-            Assert.IsTrue(result);
+            var linear1 = new LinearEquation(1, 2, 3, 4);
+            var linear3 = new LinearEquation(1, 2, 3, 4);
+            double r = 2;
+            var linear2 = new LinearEquation(2, 4, 6, 8);
+            Assert.AreEqual((linear1 * r).ToString(), linear2.ToString());
+            Assert.AreEqual((r * linear3).ToString(), linear2.ToString());
         }
         [TestMethod]
         public void LinearEquationTestIndexer3()
