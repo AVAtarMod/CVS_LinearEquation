@@ -40,14 +40,13 @@ namespace LW_EquationTest
             Assert.AreEqual((linear2 - linear3).ToString(), lineartrue2.ToString());
         }
         [TestMethod]
-        public void LinearEquationTestNotEqualsDiffSize()
+        public void Falsetest()
         {
-            LinearEquation a = new LinearEquation(1, 2, 3);
-            LinearEquation b = new LinearEquation(1, 2);
-
-            bool result = a != b;
-
-            Assert.IsTrue(result);
+            var linear = new LinearEquation(0, 0, 3);
+            bool l = true;
+            if (linear)
+                l = false;
+            Assert.AreEqual(false, l);
         }
         [TestMethod]
         public void LinearEquationTestIndexer()

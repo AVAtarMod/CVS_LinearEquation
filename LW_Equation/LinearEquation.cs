@@ -156,5 +156,31 @@ namespace LW_Equation
             }
             return count;
         }
+        public static bool operator false(LinearEquation a)
+        {
+            int count = 0;
+            if (a.coefficient[a.Length - 1] != 0)
+                for (int i = 0; i < a.Length - 1; i++)
+                {
+                    if (a.coefficient[i] == 0) count++;
+                }
+            if (count == a.Length - 1)
+                return true;
+            else
+                return false;
+        }
+        public static bool operator true(LinearEquation a)
+        {
+            int count = 0;
+            if (a.coefficient[0] != 0)
+                for (int i = 0; i < a.Length - 1; i++)
+                {
+                    if (a.coefficient[i] == 0) count++;
+                }
+            if (count == a.Length - 2)
+                return true;
+            else
+                return false;
+        }
     }
 }
