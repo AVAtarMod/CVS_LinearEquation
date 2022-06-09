@@ -61,29 +61,39 @@ namespace LW_Equation
                     count.coefficient[j] = b.coefficient[j];
             return count;
         }
+        public void Round()
+        {
+            LinearEquation result = this;
+            for (int i = 0; i < this.coefficient.Count; i++)
+            {
+                this.coefficient[i] = Math.Round(this.coefficient[i], 1);
+            }
+        }
         /// <summary>
         /// Вычитает second из свободного члена first
         /// </summary>
-        static public LinearEquation operator- (LinearEquation first, float second)
+        public static LinearEquation operator /(LinearEquation a, double r)
         {
-            LinearEquation equation = first;
-            equation.coefficients[0] /= second;
-            return equation;
-        }
-        public override bool Equals(object obj)
-        {
-            if (obj is LinearEquation equation)
+            LinearEquation result = FillSame(a.Length, 0);
+            for (int i = 0; i < a.Length; i++)
             {
-                if (Size != equation.Size)
-                    return true;
-                for (int i = 0; i < Size; i++)
-                {
-                    if (this.coefficients[i] != equation.coefficients[i])
-                        return true;
-                }
-                return false;
+                double ha = a.coefficient[i] / r;
+                if (ha > -Double.Epsilon && ha < Double.Epsilon) ha = 0;
+                Math.Round(ha, 1);
+                result.coefficient[i] = ha;
             }
-            return true;
+            return result;
+        }
+        public static LinearEquation operator /(double r, LinearEquation a)
+        {
+            LinearEquation result = FillSame(a.Length, 0);
+            for (int i = 0; i < a.Length; i++)
+            {
+                double ha = a.coefficient[i] / r;
+                if (ha > -Double.Epsilon && ha < Double.Epsilon) ha = 0;
+                result.coefficient[i] = ha;
+            }
+            return result;
         }
         static public bool operator ==(LinearEquation first, LinearEquation second)
         {
