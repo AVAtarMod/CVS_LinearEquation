@@ -30,9 +30,9 @@ namespace LW_Equation
             coefficient = list;
         }
 
-        public static Linearequation FillSame(int n, int k)
+        public static LinearEquation FillSame(int n, int k)
         {
-            Linearequation Same = new();
+            LinearEquation Same = new();
             for (int i = 0; i < n; i++)
             {
                 Same.coefficient.Add(k);
@@ -126,6 +126,35 @@ namespace LW_Equation
         public double this[int i]
         {
             get { return coefficient[i]; }
+        }
+        public static LinearEquation operator -(LinearEquation a, LinearEquation b)
+        {
+            int max = Math.Max(a.Length, b.Length);
+            int min = Math.Min(a.Length, b.Length);
+            LinearEquation count = FillSame(max, 0);
+            if (max == a.Length)
+            {
+                for (int i = 0; i < b.Length; i++)
+                {
+                    count.coefficient[i] = a.coefficient[i] - b.coefficient[i];
+                }
+                for (int j = b.Length; j < a.Length; j++)
+                {
+                    count.coefficient[j] = a.coefficient[j];
+                }
+            }
+            else if (max == b.Length)
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    count.coefficient[i] = a.coefficient[i] - b.coefficient[i];
+                }
+                for (int j = a.Length; j < b.Length; j++)
+                {
+                    count.coefficient[j] = -b.coefficient[j];
+                }
+            }
+            return count;
         }
     }
 }

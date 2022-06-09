@@ -8,44 +8,36 @@ namespace LW_EquationTest
     public class LinearEquationTests
     {
         [TestMethod]
-        public void LinearEquationTestEquals()
+        public void CorrectLength()
         {
-            LinearEquation a = new LinearEquation(1, 2);
-            LinearEquation b = new LinearEquation(1, 2);
-
-            bool result = a == b;
-
-            Assert.IsTrue(result);
+            var linear = new LinearEquation(1, 2, 3, 4);
+            Assert.AreEqual(4, linear.Length);
         }
         [TestMethod]
-        public void LinearEquationTestEquals2()
+        public void Correctplus()
         {
-            LinearEquation a = new LinearEquation(1, 2);
-            LinearEquation b = new LinearEquation(1, 3);
-
-            bool result = a == b;
-
-            Assert.IsFalse(result);
+            var linear1 = new LinearEquation(1, 2, 3, 4);
+            var linear2 = new LinearEquation(1, 2, 3, 4, 5, 6);
+            var lineartrue = new LinearEquation(1, 2, 4, 6, 8, 10);
+            Assert.AreEqual((linear1 + linear2).ToString(), lineartrue.ToString());
         }
         [TestMethod]
-        public void LinearEquationTestEqualsDiffSize()
+        public void CorrectCompare()
         {
-            LinearEquation a = new LinearEquation(1, 2, 3);
-            LinearEquation b = new LinearEquation(1, 2);
-
-            bool result = a == b;
-
-            Assert.IsFalse(result);
+            var linear1 = new LinearEquation(1, 2, 3, 4);
+            var linear2 = new LinearEquation(1, 2, 3, 4);
+            Assert.AreEqual(linear2 == linear1, true);
         }
         [TestMethod]
-        public void LinearEquationTestNotEquals()
+        public void Correctminus()
         {
-            LinearEquation a = new LinearEquation(1, 3);
-            LinearEquation b = new LinearEquation(1, 2);
-
-            bool result = a != b;
-
-            Assert.IsTrue(result);
+            var linear1 = new LinearEquation(1, 2, 3, 4, 5, 6);
+            var linear2 = new LinearEquation(1, 2, 3, 4);
+            var linear3 = new LinearEquation(1, 2, 2, 2, 4);
+            var lineartrue1 = new LinearEquation(1, 2, 2, 2, 2, 2);
+            var lineartrue2 = new LinearEquation(-1, -1, 0, 1, 0);
+            Assert.AreEqual((linear1 - linear2).ToString(), lineartrue1.ToString());
+            Assert.AreEqual((linear2 - linear3).ToString(), lineartrue2.ToString());
         }
         [TestMethod]
         public void LinearEquationTestNotEqualsDiffSize()
