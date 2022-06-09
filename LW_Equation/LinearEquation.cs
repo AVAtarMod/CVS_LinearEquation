@@ -223,13 +223,19 @@ namespace LW_Equation
             }
             return result;
         }
-        public static Linearequation operator -(Linearequation a)
+        public static LinearEquation operator -(LinearEquation a)
         {
             for (int i = 0; i < a.Length; i++)
             {
                 a.coefficient[i] *= -1;
             }
             return a;
+        }
+        public static implicit operator List<double>(LinearEquation a)
+        {
+            List<double> list = a.coefficient;
+            //list.Reverse();
+            return list;
         }
     }
 }
