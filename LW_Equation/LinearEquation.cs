@@ -95,17 +95,37 @@ namespace LW_Equation
             }
             return result;
         }
-        static public bool operator ==(LinearEquation first, LinearEquation second)
+        public override bool Equals(object obj)
         {
-            return first.Equals(second);
+            return base.Equals(obj);
         }
-        static public bool operator !=(LinearEquation first, LinearEquation second)
+        public override int GetHashCode()
         {
-            return !first.Equals(second);
+            return base.GetHashCode();
         }
-        public float this[int i]
+        public static bool operator ==(LinearEquation a, LinearEquation b)
         {
-            get { return 0; }
+            if (a.Length != b.Length)
+            {
+                return false;
+            }
+            else
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    if (a.coefficient[i] != b.coefficient[i])
+                        return false;
+                }
+            }
+            return true;
+        }
+        public static bool operator !=(LinearEquation a, LinearEquation b)
+        {
+            return !(a == b);
+        }
+        public double this[int i]
+        {
+            get { return coefficient[i]; }
         }
     }
 }
