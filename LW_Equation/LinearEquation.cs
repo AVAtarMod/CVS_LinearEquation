@@ -194,5 +194,16 @@ namespace LW_Equation
             }
             return str;
         }
+        public LinearEquation RandomFilling(int n)
+        {
+            Random rand;
+            rand = new Random();
+            LinearEquation randlist = new();
+            for (int i = 0; i < n; i++)
+            {
+                coefficient.Add(rand.Next(100));
+            }
+            return randlist;
+        }
     }
 }
