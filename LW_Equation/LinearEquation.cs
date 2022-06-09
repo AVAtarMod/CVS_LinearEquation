@@ -223,5 +223,13 @@ namespace LW_Equation
             }
             return result;
         }
+        public static Linearequation operator -(Linearequation a)
+        {
+            for (int i = 0; i < a.Length; i++)
+            {
+                a.coefficient[i] *= -1;
+            }
+            return a;
+        }
     }
 }
