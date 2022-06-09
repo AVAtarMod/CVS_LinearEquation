@@ -49,13 +49,11 @@ namespace LW_EquationTest
             Assert.AreEqual(false, l);
         }
         [TestMethod]
-        public void LinearEquationTestIndexer()
+        public void Str()
         {
-            LinearEquation a = new LinearEquation(1, 2, 3);
-
-            bool result = a[1] == 2;
-
-            Assert.IsTrue(result);
+            var linear1 = new LinearEquation(1, 2, 3, 4);
+            //string str = "1 2 3 4 ";
+            Assert.AreEqual(linear1.ToString(), "1234");
         }
         [TestMethod]
         public void LinearEquationTestIndexer2()

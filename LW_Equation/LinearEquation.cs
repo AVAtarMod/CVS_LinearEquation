@@ -182,5 +182,17 @@ namespace LW_Equation
             else
                 return false;
         }
+        public override string ToString()
+        {
+            string str = "";
+            double d = 0;
+            for (int i = coefficient.Count - 1; i > -1; i--)
+            {
+                d = coefficient[i];
+                string doub = d.ToString();
+                str += doub;
+            }
+            return str;
+        }
     }
 }
