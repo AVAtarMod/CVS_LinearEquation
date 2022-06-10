@@ -127,7 +127,7 @@ namespace LW_Equation
         }
         public double this[int i]
         {
-            get { return coefficient[i]; }
+            get { return coefficient[coefficient.Count - i - 1]; }
         }
         public static LinearEquation operator -(LinearEquation a, LinearEquation b)
         {
