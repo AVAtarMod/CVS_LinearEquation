@@ -10,14 +10,12 @@ namespace LW_EquationTest
         [TestMethod]
         public void CorrectLength()
         {
-<<<<<<< HEAD
             LinearEquation a = new LinearEquation(1, 3);
             LinearEquation b = new LinearEquation(1, 2);
 
             bool result = a == b;
 
             Assert.IsFalse(result);
-=======
             var linear = new LinearEquation(1, 2, 3, 4);
             Assert.AreEqual(4, linear.Length);
         }
@@ -28,7 +26,6 @@ namespace LW_EquationTest
             var linear2 = new LinearEquation(1, 2, 3, 4, 5, 6);
             var lineartrue = new LinearEquation(1, 2, 4, 6, 8, 10);
             Assert.AreEqual((linear1 + linear2).ToString(), lineartrue.ToString());
->>>>>>> dev
         }
         [TestMethod]
         public void CorrectCompare()

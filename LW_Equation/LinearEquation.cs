@@ -8,11 +8,6 @@ namespace LW_Equation
 {
     public class LinearEquation
     {
-<<<<<<< HEAD
-        List<float> coefficients;
-        public int Size => coefficients.Count;
-        public LinearEquation(float b, float aN, params float[] coefficients)
-=======
         List<double> coefficient;
         public int Length { get { return coefficient.Count; } }
 
@@ -23,7 +18,6 @@ namespace LW_Equation
         /// <param name="aN">Последний коэффициент</param>
         /// <param name="coefficients">Остальные коэффициенты</param>
         public LinearEquation(params double[] coef)
->>>>>>> dev
         {
             coefficient = new List<double>();
             //int cout = 0;
@@ -37,9 +31,6 @@ namespace LW_Equation
             list.Reverse();
             coefficient = list;
         }
-<<<<<<< HEAD
-        static public LinearEquation operator +(LinearEquation first, float second)
-=======
 
         public static LinearEquation FillSame(int n, int k)
         {
@@ -54,7 +45,6 @@ namespace LW_Equation
         /// Суммирует свободный член first с second
         /// </summary>
         public static LinearEquation operator +(LinearEquation a, LinearEquation b)
->>>>>>> dev
         {
             int max = Math.Max(a.Length, b.Length);
             int min = Math.Min(a.Length, b.Length);
@@ -81,14 +71,10 @@ namespace LW_Equation
                 this.coefficient[i] = Math.Round(this.coefficient[i], 1);
             }
         }
-<<<<<<< HEAD
-        static public LinearEquation operator -(LinearEquation first, float second)
-=======
         /// <summary>
         /// Вычитает second из свободного члена first
         /// </summary>
         public static LinearEquation operator /(LinearEquation a, double r)
->>>>>>> dev
         {
             LinearEquation result = FillSame(a.Length, 0);
             for (int i = 0; i < a.Length; i++)
