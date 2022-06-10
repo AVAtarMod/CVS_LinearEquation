@@ -1,0 +1,157 @@
+[33mcommit cb7d43bca6297a1de143c50784fb250bf3c52d79[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Thu Apr 14 22:40:22 2022 +0300
+
+    Rename CI config file
+
+[33mcommit e5c1c0bbab5fe57d22fd3394766a77aec7b4c2a8[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Thu Apr 14 22:28:17 2022 +0300
+
+    Fix CI config misspeling
+
+[33mcommit 74e2b9b43bf4cfef02950d9800c0927632b5f820[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Thu Apr 14 22:20:05 2022 +0300
+
+    remove path filter from CI config
+
+[33mcommit 504d233ed0419f2992bc9d9591a018ceaff51a10[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Thu Apr 14 22:04:27 2022 +0300
+
+    Revert "add comments...","add tests" for fix merge conflict
+    
+    This reverts commits ef420163d513f6528d836e2407d5b33f1fcb0bca,e747983b544f9771e738e0716d3ef39814b54922.
+
+[33mcommit 12b07dcccae8bfbd50cb60c610306099fb8c8127[m
+Merge: b4a9e78 f8b42f9
+Author: Grigory Stupnikov <Respawner289@gmail.com>
+Date:   Thu Apr 14 21:17:36 2022 +0300
+
+    Merge pull request #4 from AVAtarMod/dev
+    
+    Update CI from 'dev'
+
+[33mcommit f8b42f9e3595693d31787c90f1e73a9d46ff442f[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Thu Apr 14 21:15:02 2022 +0300
+
+    add config for CI to test pull
+
+[33mcommit a3a11766664cb8810fcd89317638d8baf487e05d[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Thu Apr 14 21:13:31 2022 +0300
+
+    add config for CI to test pull-requests
+
+[33mcommit 97d6745fcae1df45ab9700a9138786097fa416c6[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Thu Apr 14 21:12:06 2022 +0300
+
+    remove not needed CI config
+
+[33mcommit e747983b544f9771e738e0716d3ef39814b54922[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Thu Apr 14 20:14:42 2022 +0300
+
+    add tests for operator+, operator-, operator== ; refactor TestEquals()
+
+[33mcommit ef420163d513f6528d836e2407d5b33f1fcb0bca[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Thu Apr 14 20:11:50 2022 +0300
+
+    add comments to constructor, operator+, operator-
+
+[33mcommit b4a9e78abfa9582cd8cfa9b9b5f8b6e36abef59d[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Sun Apr 10 21:24:36 2022 +0300
+
+    switch to new cache version
+    Now cache also work if task fails.
+
+[33mcommit f597845b7def4d70fce0b6b5e149c8d5aaa363ea[m
+Merge: f998fed a401d4c
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Sun Apr 10 20:35:02 2022 +0300
+
+    fix CI config
+
+[33mcommit f998fed4e8bc12f89bdc57e4c16ac2cd51c84b8f[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Sun Apr 10 20:29:36 2022 +0300
+
+    add restore-key to CI
+
+[33mcommit a401d4c56a1b6cda80e3b99103d5a4c93d96c3f4[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Sun Apr 10 20:29:36 2022 +0300
+
+    add restore-key to CI
+
+[33mcommit 781eb2fb28ce2ba7600b86f19a893b7dbc8dd62d[m
+Merge: fdeca2d 520ff2e
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Sun Apr 10 20:23:46 2022 +0300
+
+    Merge branch 'dev'
+
+[33mcommit fdeca2d14756815e3d7133ee7410a1b4492a1634[m
+Author: Grigory Stupnikov <37958026+AVAtarMod@users.noreply.github.com>
+Date:   Sun Apr 10 20:07:59 2022 +0300
+
+    add LICENSE (GPL v.3)
+
+[33mcommit 520ff2e858dee2de92b71d0a4434cec60c0ac442[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Sun Apr 10 19:36:48 2022 +0300
+
+    update Github workflow
+
+[33mcommit 02f59d3a718d856112163a09fd0c1618bf21fc61[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Sun Apr 10 16:58:39 2022 +0300
+
+    update .gitignore
+
+[33mcommit 0707ae489420b629a33cfb817cf461413ba64e40[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Sun Apr 10 16:57:59 2022 +0300
+
+    rename Github workflow name
+
+[33mcommit 2f87ad7af4b73e3b049236bc1058dba8e65493d4[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Sun Apr 10 16:56:49 2022 +0300
+
+    add caching feature to Github workflow (CI)
+
+[33mcommit 4ebf599979080401bf391f0799f4f2859c9ad98a[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Sun Apr 10 14:33:12 2022 +0300
+
+    Fix GitHub workflow verbosity
+
+[33mcommit 061cfe17e33eb6d981c27aca5063b9ea4975b921[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Sun Apr 10 14:25:52 2022 +0300
+
+    Add GitHub workflow (CI)
+
+[33mcommit 39ac8bf24748c901eaac2e6cfd5b01cfba238590[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Sun Apr 10 13:39:28 2022 +0300
+
+    fix git behavior on VStudio files
+
+[33mcommit 2255114f3676dabca485e5a158db9addf56e4331[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Sun Apr 10 13:29:46 2022 +0300
+
+    Add project files.
+
+[33mcommit f37ff703120d4a351c3a7f6fdf86bb6f1ab12e23[m
+Author: AVAtarMod <Respawner289@gmail.com>
+Date:   Sun Apr 10 13:29:44 2022 +0300
+
+    Add .gitignore and .gitattributes.
