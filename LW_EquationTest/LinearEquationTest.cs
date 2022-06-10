@@ -79,7 +79,7 @@ namespace LW_EquationTest
         {
             LinearEquation a = new LinearEquation(1, 2, 3);
 
-            bool result = a[0] == 1;
+            bool result = a[a.Length - 1] == 1;
 
             Assert.IsTrue(result);
         }

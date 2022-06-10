@@ -25,6 +25,7 @@ namespace LW_Equation
         public LinearEquation(params double[] coef)
 >>>>>>> dev
         {
+            coefficient = new List<double>();
             //int cout = 0;
             Array.Reverse(coef);
             coefficient.InsertRange(0, coef);
@@ -32,6 +33,7 @@ namespace LW_Equation
         }
         public LinearEquation(List<double> list)
         {
+            coefficient = new List<double>();
             list.Reverse();
             coefficient = list;
         }
