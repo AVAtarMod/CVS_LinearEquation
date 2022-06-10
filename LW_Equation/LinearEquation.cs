@@ -239,5 +239,11 @@ namespace LW_Equation
             //list.Reverse();
             return list;
         }
+        public double SolvEqution()
+        {
+            double result = 0;
+            result = this.coefficient[0] / this.coefficient[1];
+            return result;
+        }
     }
 }
