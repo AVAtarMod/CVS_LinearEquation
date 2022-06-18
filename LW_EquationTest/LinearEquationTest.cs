@@ -229,7 +229,7 @@ namespace LW_EquationTest
         [TestMethod]
         public void LinearEquationTestHasSolution1()
         {
-            LinearEquation a = new LinearEquation(new List<float>(2));
+            LinearEquation a = new LinearEquation(new List<float>() { 2 });
             Assert.IsFalse(a.HasSolution());
         }
     }

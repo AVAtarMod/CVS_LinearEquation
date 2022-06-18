@@ -101,7 +101,15 @@ namespace LW_Equation
         }
         public bool HasSolution()
         {
-            return true;
+            if (coefficients[0] == 0) return true;
+            else
+            {
+                for (int i = 1; i < coefficients.Count; i++)
+                {
+                    if (coefficients[i] != 0) return true;
+                }
+                return false;
+            }
         }
     }
 }
