@@ -270,5 +270,12 @@ namespace LW_EquationTest
             Assert.AreEqual(8, a[2]);
 
         }
+        [TestMethod]
+        public void LinearEquationTestOperatirEqMultFloat()
+        {
+            LinearEquation a = new LinearEquation(1, 2, 3);
+            a = a * 2F;
+            Assert.AreEqual(4F, a[1]);
+        }
     }
 }

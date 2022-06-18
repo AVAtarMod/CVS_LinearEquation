@@ -147,5 +147,9 @@ namespace LW_Equation
             }
             return this;
         }
+        static public LinearEquation operator*(LinearEquation e, float f)
+        {
+            return e;
+        }
     }
 }
