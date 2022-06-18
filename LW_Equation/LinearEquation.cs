@@ -20,9 +20,9 @@ namespace LW_Equation
         public LinearEquation(float b, float aN, params float[] coefficients)
         {
             this.coefficients = new List<float>();
-            this.coefficients.AddRange(coefficients);
-            this.coefficients.Add(aN);
             this.coefficients.Add(b);
+            this.coefficients.Add(aN);
+            this.coefficients.AddRange(coefficients);          
         }
         public LinearEquation(List<float> coefficients)
         {
@@ -73,7 +73,7 @@ namespace LW_Equation
         }
         public float this[int i]
         {
-            get { return 0; }
+            get { return coefficients[i]; }
         }
     }
 }
