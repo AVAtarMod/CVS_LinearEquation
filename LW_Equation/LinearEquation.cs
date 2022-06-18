@@ -226,7 +226,7 @@ namespace LW_Equation
         {
             List<double> ans = new List<double>();
 
-            for (int i = 0; i <= this.Size; i++)
+            for (int i = 0; i < this.Size; i++)
                 ans.Add((double)this.coefficients[i]);
 
             return ans;
