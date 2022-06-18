@@ -122,7 +122,13 @@ namespace LW_Equation
 
         public override string ToString()
         {
-            return "";
+            string result = "";
+            for(int i = Size - 1; i > 0; i--)
+            {
+                result += coefficients[i].ToString() + "*" + ((char)('a' - i + Size - 1)).ToString() + " + ";
+            }
+            result += coefficients[0].ToString() + " = 0";
+            return result;
         }
     }
 }
