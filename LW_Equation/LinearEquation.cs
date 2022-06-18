@@ -164,5 +164,9 @@ namespace LW_Equation
             }
             return a;
         }
+        public List<double> ToDouble()
+        {
+            return new List<double>();
+        }
     }
 }

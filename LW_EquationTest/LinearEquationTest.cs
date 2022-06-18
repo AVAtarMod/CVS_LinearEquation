@@ -291,6 +291,13 @@ namespace LW_EquationTest
             a = -a;
             Assert.AreEqual(0, a[1]);
         }
+        [TestMethod]
+        public void LinearEquationTestToDouble()
+        {
+            LinearEquation a = new LinearEquation(9, 8);
+            List<double> res = a.ToDouble();
+            Assert.AreEqual(new List<double>() { 9, 8 }, res);
+        }
 
     }
 }
