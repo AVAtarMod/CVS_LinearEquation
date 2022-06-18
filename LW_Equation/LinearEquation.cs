@@ -75,5 +75,15 @@ namespace LW_Equation
         {
             get { return coefficients[i]; }
         }
+        static public LinearEquation operator+(LinearEquation a, LinearEquation b)
+        {
+            LinearEquation result = a;
+            return result;
+        }
+        static public LinearEquation operator- (LinearEquation a, LinearEquation b)
+        {
+            LinearEquation result = a;
+            return result;
+        }
     }
 }
