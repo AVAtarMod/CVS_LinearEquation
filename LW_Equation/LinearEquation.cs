@@ -111,5 +111,9 @@ namespace LW_Equation
                 return false;
             }
         }
+        public float Solution()
+        {
+            return 0F;
+        }
     }
 }

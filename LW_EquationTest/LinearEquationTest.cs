@@ -232,5 +232,18 @@ namespace LW_EquationTest
             LinearEquation a = new LinearEquation(new List<float>() { 2 });
             Assert.IsFalse(a.HasSolution());
         }
+        [TestMethod]
+        public void LinearEquationTestSolution()
+        {
+            LinearEquation a = new LinearEquation(1, 2);
+            float res = a.Solution();
+            Assert.AreEqual(-0.5F, res);
+        }
+        [TestMethod]
+        public void LinearEquationTestSolution1()
+        {
+            LinearEquation a = new LinearEquation(new List<float>() { 1 });
+            AssertFailedException.Equals(a.Solution(), new Exception());
+        }
     }
 }
