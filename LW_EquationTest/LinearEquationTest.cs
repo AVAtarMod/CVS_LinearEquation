@@ -206,7 +206,7 @@ namespace LW_EquationTest
 
         //свои тестики
         [TestMethod]
-        public void LinearEquationTestOperatorAdd()
+        public void LinearEquationTestOperatorAdd()//1
         {
             LinearEquation a = new LinearEquation(1, 2, 3, 4);
             LinearEquation b = new LinearEquation(2, 1, 0, 5, 1);
@@ -216,7 +216,7 @@ namespace LW_EquationTest
             Assert.IsTrue(ans);
         }
         [TestMethod]
-        public void LinearEquationTestOperatorMinus()
+        public void LinearEquationTestOperatorMinus()//1
         {
             LinearEquation a = new LinearEquation(1, 2, 3, 4);
             LinearEquation b = new LinearEquation(2, 1, 0, 5, 1);
@@ -225,6 +225,17 @@ namespace LW_EquationTest
             bool ans = (res == correct);
             Assert.IsTrue(ans);
         }
+        [TestMethod]
+        public void LinearEquationTestOperatorTrue()//2
+        {
+            LinearEquation a = new LinearEquation(0, 0, 0, 1);
+            bool ans = false;
+            if (a)
+                ans = true;
+            else
+                ans = false;
 
+            Assert.IsFalse(ans);
+        }
     }
 }
