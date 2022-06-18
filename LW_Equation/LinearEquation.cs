@@ -168,12 +168,12 @@ namespace LW_Equation
                 return false;
         }
 
-        public bool Solve(out float ans)//3
+        public bool Solve(out float ans)
         {
             ans = 0;
             int counter = 0;
             int ind = -1;
-            for (int i = Size - 1; i > 0; i--)
+            for (int i = Size - 1; i >= 0; i--)
             {
                 if (this[i] == 0) counter++;
                 else ind = i;
@@ -184,7 +184,6 @@ namespace LW_Equation
                 ans = (0 - this[Size - 1]) / (this[ind]);
                 return true;
             }
-
             return false;
         }
     }
