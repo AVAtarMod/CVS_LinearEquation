@@ -130,5 +130,13 @@ namespace LW_Equation
             result += coefficients[0].ToString() + " = 0";
             return result;
         }
+        public LinearEquation SetRandom()
+        {
+            return new LinearEquation(0, 0);
+        }
+        public LinearEquation SetSame(int val)
+        {
+            return new LinearEquation(0, 0);
+        }
     }
 }

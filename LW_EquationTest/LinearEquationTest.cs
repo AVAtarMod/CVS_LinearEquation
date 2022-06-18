@@ -253,5 +253,22 @@ namespace LW_EquationTest
             string res = a.ToString();
             Assert.AreEqual("4*a + 3*b + 2*c + 1 = 0", res);
         }
+        [TestMethod]
+        public void LinearEquationTestInitRand()
+        {
+            LinearEquation a = new LinearEquation(1,1,1);
+            LinearEquation b = new LinearEquation(1,1,1);
+            a = a.SetRandom();
+            b = b.SetRandom();
+            Assert.AreNotEqual(a, b);
+        }
+        [TestMethod]
+        public void LinearEquationTestInitSame()
+        {
+            LinearEquation a = new LinearEquation(1, 2, 3);
+            a = a.SetSame(8);
+            Assert.AreEqual(8, a[2]);
+
+        }
     }
 }
