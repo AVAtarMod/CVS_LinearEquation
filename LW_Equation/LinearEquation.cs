@@ -149,6 +149,10 @@ namespace LW_Equation
         }
         static public LinearEquation operator*(LinearEquation e, float f)
         {
+            for (int i = 0; i < e.Size; i++)
+            {
+                e.coefficients[i] *= f;
+            }
             return e;
         }
     }
