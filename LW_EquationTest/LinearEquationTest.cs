@@ -240,10 +240,11 @@ namespace LW_EquationTest
             Assert.AreEqual(-0.5F, res);
         }
         [TestMethod]
+        [ExpectedException(typeof(Exception))]
         public void LinearEquationTestSolution1()
         {
             LinearEquation a = new LinearEquation(new List<float>() { 1 });
-            AssertFailedException.Equals(a.Solution(), new Exception());
+            Assert.Equals(a.Solution(), new Exception());
         }
     }
 }
