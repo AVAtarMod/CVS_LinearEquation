@@ -98,7 +98,7 @@ namespace LW_Equation
         }
 
         //свои функции
-        static public LinearEquation operator -(LinearEquation left, LinearEquation right)
+        static public LinearEquation operator -(LinearEquation left, LinearEquation right)//1
         {
             int size = Math.Max(left.Size, right.Size);
             LinearEquation ans = new LinearEquation(new EquationSize(size), 0);
@@ -119,7 +119,7 @@ namespace LW_Equation
             }
             return ans;
         }
-        static public LinearEquation operator +(LinearEquation left, LinearEquation right)
+        static public LinearEquation operator +(LinearEquation left, LinearEquation right)//1
         {
             int size = Math.Max(left.Size, right.Size);
             LinearEquation ans = new LinearEquation(new EquationSize(size), 0);
@@ -141,7 +141,7 @@ namespace LW_Equation
             return ans;
         }
 
-        static public bool operator true(LinearEquation eq)
+        static public bool operator true(LinearEquation eq)//2
         {
             int count = 0;
             for (int i = 0; i < eq.Size; i++)
@@ -154,7 +154,7 @@ namespace LW_Equation
             else
                 return false;
         }
-        static public bool operator false(LinearEquation eq)
+        static public bool operator false(LinearEquation eq)//2
         {
             int count = 0;
             for (int i = 0; i < eq.Size; i++)
@@ -166,6 +166,26 @@ namespace LW_Equation
                 return true;
             else
                 return false;
+        }
+
+        public bool Solve(out float ans)//3
+        {
+            ans = 0;
+            int counter = 0;
+            int ind = -1;
+            for (int i = Size - 1; i > 0; i--)
+            {
+                if (this[i] == 0) counter++;
+                else ind = i;
+            }
+
+            if (counter == Size - 2 && this[Size - 1] != 0)
+            {
+                ans = (0 - this[Size - 1]) / (this[ind]);
+                return true;
+            }
+
+            return false;
         }
     }
 }
