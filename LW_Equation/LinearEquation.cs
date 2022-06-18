@@ -202,7 +202,7 @@ namespace LW_Equation
         static public LinearEquation operator -(LinearEquation first)//6
         {
             LinearEquation ans = first;
-            for (int i = 0; i <= ans.Size; i++)
+            for (int i = 0; i < ans.Size; i++)
             {
                 ans[i] *= -1;
             }
