@@ -59,7 +59,7 @@ namespace LW_Equation
                     if (this.coefficients[i] != equation.coefficients[i])
                         return false;
                 }
-                return false;
+                return true;
             }
             return false;
         }
