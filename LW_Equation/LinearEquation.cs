@@ -77,13 +77,27 @@ namespace LW_Equation
         }
         static public LinearEquation operator+(LinearEquation a, LinearEquation b)
         {
-            LinearEquation result = a;
-            return result;
+            List<float> first = a.Size > b.Size ? a.coefficients : b.coefficients;
+            List<float> second = a.Size <= b.Size ? a.coefficients : b.coefficients;
+
+            for (int i = second.Count - 1, j = first.Count - 1; i > 0; i--, j--)
+            {
+                first[j] += second[i];
+            }
+            first[0] += second[0];
+            return new LinearEquation(first);
         }
         static public LinearEquation operator- (LinearEquation a, LinearEquation b)
         {
-            LinearEquation result = a;
-            return result;
+            List<float> first = a.Size > b.Size ? a.coefficients : b.coefficients;
+            List<float> second = a.Size <= b.Size ? a.coefficients : b.coefficients;
+
+            for (int i = second.Count - 1, j = first.Count - 1; i > 0; i--, j--)
+            {
+                first[j] -= second[i];
+            }
+            first[0] -= second[0];
+            return new LinearEquation(first);
         }
     }
 }
