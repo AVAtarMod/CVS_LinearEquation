@@ -248,5 +248,12 @@ namespace LW_EquationTest
             bool t = ans.CompareTo(trueans) == 0;
             Assert.IsTrue(t);
         }
+        [TestMethod]
+        public void LinearEquationTestToString()//4
+        {
+            LinearEquation a = new LinearEquation(1, 2, 3, 4, 5);
+            bool ans = a.ToString() == "1,2,3,4,5";
+            Assert.IsTrue(ans);
+        }
     }
 }

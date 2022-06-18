@@ -168,7 +168,7 @@ namespace LW_Equation
                 return false;
         }
 
-        public bool Solve(out float ans)
+        public bool Solve(out float ans)//3
         {
             ans = 0;
             int counter = 0;
@@ -185,6 +185,18 @@ namespace LW_Equation
                 return true;
             }
             return false;
+        }
+
+        public override String ToString()//4
+        {
+            String ans = "";
+            for (int i = 0; i < this.Size - 1; i++)
+            {
+                ans += this[i].ToString();
+                ans += ",";
+            }
+            ans += this[this.Size].ToString();
+            return ans;
         }
     }
 }
