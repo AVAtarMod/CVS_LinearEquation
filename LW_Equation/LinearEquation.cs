@@ -195,7 +195,7 @@ namespace LW_Equation
                 ans += this[i].ToString();
                 ans += ",";
             }
-            ans += this[this.Size].ToString();
+            ans += this[this.Size - 1].ToString();
             return ans;
         }
     }
