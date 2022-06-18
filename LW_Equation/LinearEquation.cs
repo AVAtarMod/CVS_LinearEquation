@@ -208,5 +208,17 @@ namespace LW_Equation
             }
             return ans;
         }
+
+        public LinearEquation MultiplyByNumber(float val)//7
+        {
+            LinearEquation ans = new LinearEquation(this.coefficients);
+
+            for (int i = 0; i <= ans.Size; i++)
+            {
+                ans[i] *= val;
+            }
+
+            return ans;
+        }
     }
 }
