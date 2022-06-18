@@ -150,9 +150,9 @@ namespace LW_Equation
                     count++;
             }
             if (count == eq.Size - 2 && eq[eq.Size - 1] != 0)
-                return false;
-            else
                 return true;
+            else
+                return false;
         }
         static public bool operator false(LinearEquation eq)
         {
@@ -163,9 +163,9 @@ namespace LW_Equation
                     count++;
             }
             if (count == eq.Size - 1)
-                return false;
-            else
                 return true;
+            else
+                return false;
         }
     }
 }
