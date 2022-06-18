@@ -35,18 +35,13 @@ namespace LW_Equation
             this.coefficients = new List<float>();
             this.coefficients = coefficients;
         }
-        public LinearEquation(EquationSize size)
+        public LinearEquation(EquationSize size)//5
         {
-            Random rng = new Random();
-            this.coefficients = new List<float>();
-            for (int i = 0; i < size; i++)
-                coefficients.Add((float)rng.NextDouble() * 100);
+            
         }
-        public LinearEquation(EquationSize size, float a)
+        public LinearEquation(EquationSize size, float a)//5
         {
-            this.coefficients = new List<float>();
-            for (int i = 0; i < size; i++)
-                coefficients.Add(a);
+            
         }
 
 
@@ -198,5 +193,7 @@ namespace LW_Equation
             ans += this[this.Size - 1].ToString();
             return ans;
         }
+
+
     }
 }

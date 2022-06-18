@@ -255,5 +255,30 @@ namespace LW_EquationTest
             bool ans = a.ToString() == "1,2,3,4,5";
             Assert.IsTrue(ans);
         }
+
+        [TestMethod]
+        public void LinearEquationTestInitSame()//5
+        {
+            LinearEquation a = new LinearEquation(new EquationSize(3), 5);
+            LinearEquation res = new LinearEquation(5, 5, 5);
+            bool ans = (a[0] == res[0]) &&
+                       (a[1] == res[1]) &&
+                       (a[2] == res[2]);
+            Assert.IsTrue(ans);
+        }
+
+        [TestMethod]
+        public void LinearEquationTestInitRandom()//5
+        {
+            LinearEquation a = new LinearEquation(new EquationSize(3));
+            int cnt = 1;
+            for (int i = 1; i < a.Size; i++)
+            {
+                if (a[i] == a[0])
+                    cnt++;
+            }
+            bool ans = (cnt != a.Size - 1);
+            Assert.IsTrue(ans);
+        }
     }
 }
