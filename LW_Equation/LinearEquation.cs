@@ -113,7 +113,11 @@ namespace LW_Equation
         }
         public float Solution()
         {
-            return 0F;
+            if (HasSolution() && Size == 2)
+            {
+                return -(coefficients[0] / coefficients[1]);
+            }
+            else throw new Exception();
         }
     }
 }
