@@ -155,5 +155,10 @@ namespace LW_Equation
             }
             return e;
         }
+
+        static public LinearEquation operator-(LinearEquation a)
+        {
+            return a;
+        }
     }
 }
