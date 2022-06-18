@@ -295,8 +295,15 @@ namespace LW_EquationTest
         public void LinearEquationTestToDouble()
         {
             LinearEquation a = new LinearEquation(9, 8);
+
+            Assert.AreEqual(typeof(List<double>), a.ToDouble().GetType());
+        }
+        [TestMethod]
+        public void LinearEquationTestToDouble1()
+        {
+            LinearEquation a = new LinearEquation(9, 8);
             List<double> res = a.ToDouble();
-            Assert.AreEqual(new List<double>() { 9, 8 }, res);
+            Assert.AreEqual(9, res[0]);
         }
 
     }
