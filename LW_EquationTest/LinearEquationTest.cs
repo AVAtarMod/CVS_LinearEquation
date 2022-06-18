@@ -280,5 +280,15 @@ namespace LW_EquationTest
             bool ans = (cnt != a.Size - 1);
             Assert.IsTrue(ans);
         }
+        [TestMethod]
+        public void LinearEquationTestOpMinus()//6
+        {
+            LinearEquation a = new LinearEquation(2, -2, 4);
+            LinearEquation result = -a;
+            LinearEquation correct = new LinearEquation(-2, 2, -4);
+            bool b = result.Equals(correct);
+
+            Assert.IsTrue(b);
+        }
     }
 }
