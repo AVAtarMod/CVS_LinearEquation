@@ -213,7 +213,7 @@ namespace LW_Equation
         {
             LinearEquation ans = new LinearEquation(this.coefficients);
 
-            for (int i = 0; i <= ans.Size; i++)
+            for (int i = 0; i < ans.Size; i++)
             {
                 ans[i] *= val;
             }
