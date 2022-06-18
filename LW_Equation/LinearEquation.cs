@@ -119,5 +119,10 @@ namespace LW_Equation
             }
             else throw new Exception();
         }
+
+        public override string ToString()
+        {
+            return "";
+        }
     }
 }

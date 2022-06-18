@@ -246,5 +246,12 @@ namespace LW_EquationTest
             LinearEquation a = new LinearEquation(new List<float>() { 1 });
             Assert.Equals(a.Solution(), new Exception());
         }
+        [TestMethod]
+        public void LinearEquationTestToString()
+        {
+            LinearEquation a = new LinearEquation(1, 2, 3, 4);
+            string res = a.ToString();
+            Assert.AreEqual("4*a + 3*b + 2*c + 1 = 0", res);
+        }
     }
 }
