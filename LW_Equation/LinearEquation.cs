@@ -220,5 +220,16 @@ namespace LW_Equation
 
             return ans;
         }
+
+
+        public List<double> ToList()//8
+        {
+            List<double> ans = new List<double>();
+
+            for (int i = 0; i <= this.Size; i++)
+                ans.Add((double)this.coefficients[i]);
+
+            return ans;
+        }
     }
 }
