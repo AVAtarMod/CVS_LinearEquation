@@ -99,5 +99,9 @@ namespace LW_Equation
             first[0] -= second[0];
             return new LinearEquation(first);
         }
+        public bool HasSolution()
+        {
+            return true;
+        }
     }
 }

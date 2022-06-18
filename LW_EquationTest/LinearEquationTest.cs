@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 using LW_Equation;
 using System;
 
@@ -218,6 +219,18 @@ namespace LW_EquationTest
             LinearEquation b = new LinearEquation(4, 5);
             LinearEquation result = a - b;
             Assert.AreEqual(new LinearEquation(-3, 2, -2), result);
+        }
+        [TestMethod]
+        public void LinearEquationTestHasSolution()
+        {
+            LinearEquation a = new LinearEquation(1, 2, 3);
+            Assert.IsTrue(a.HasSolution());
+        }
+        [TestMethod]
+        public void LinearEquationTestHasSolution1()
+        {
+            LinearEquation a = new LinearEquation(new List<float>(2));
+            Assert.IsFalse(a.HasSolution());
         }
     }
 }
