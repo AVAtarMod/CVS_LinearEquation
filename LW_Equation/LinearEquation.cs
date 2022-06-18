@@ -6,22 +6,28 @@ using System.Threading.Tasks;
 
 namespace LW_Equation
 {
+    public class EquationSize
+    {
+        int size;
+        public EquationSize(int size)
+        {
+            Size = size;
+        }
+        public static implicit operator int(EquationSize size) => size.Size;
+        public int Size
+        {
+            get => size;
+            set => size = value;
+        }
+    }
     public class LinearEquation
     {
         List<float> coefficients;
         public int Size => coefficients.Count;
 
-        /// <summary>
-        /// Конструирует уравнение вида coefficients[0]x + ... + coefficients[N-2]y + (aN)z + b = 0
-        /// </summary>
-        /// <param name="b">Свободный член</param>
-        /// <param name="aN">Последний коэффициент</param>
-        /// <param name="coefficients">Остальные коэффициенты</param>
-        public LinearEquation(float b, float aN, params float[] coefficients)
+        public LinearEquation(params float[] coefficients)
         {
             this.coefficients = new List<float>();
-            this.coefficients.Add(aN);
-            this.coefficients.Add(b);
             this.coefficients.AddRange(coefficients);
         }
         public LinearEquation(List<float> coefficients)
@@ -29,6 +35,20 @@ namespace LW_Equation
             this.coefficients = new List<float>();
             this.coefficients = coefficients;
         }
+        public LinearEquation(EquationSize size)
+        {
+            Random rng = new Random();
+            this.coefficients = new List<float>();
+            for (int i = 0; i < size; i++)
+                coefficients.Add((float)rng.NextDouble() * 100);
+        }
+        public LinearEquation(EquationSize size, float a)
+        {
+            this.coefficients = new List<float>();
+            for (int i = 0; i < size; i++)
+                coefficients.Add(a);
+        }
+
 
         /// <summary>
         /// Суммирует свободный член first с second
