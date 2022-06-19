@@ -131,8 +131,8 @@ namespace LW_EquationTest
         public void LinearEquationTestBool()
         {
             LinearEquation a = new LinearEquation(0, 3);
-            if(a) Assert.IsTrue(true);
-            else Assert.IsTrue(false);
+           bool tmp = (a)? true:false;
+           Assert.IsTrue(tmp);
         }
         [TestMethod]
         public void LinearEquationTestSolve()
