@@ -143,5 +143,16 @@ namespace LW_Equation
 
             return false;
         }
+        public override String ToString()
+        {
+            String ans = "";
+            for (int i = 0; i < this.Size - 1; i++)
+            {
+                ans += this[i].ToString();
+                ans += ",";
+            }
+            ans += this[this.Size - 1].ToString();
+            return ans;
+        }
     }
 }
