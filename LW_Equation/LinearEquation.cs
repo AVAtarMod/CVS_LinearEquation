@@ -159,5 +159,20 @@ namespace LW_Equation
             ans += this[this.Size - 1].ToString();
             return ans;
         }
+        
+        public LinearEquation(bool t, int size)
+        {
+            Random rng = new Random();
+            this.coefficients = new List<float>();
+            for (int i = 0; i < size; i++)
+                coefficients.Add((float)rng.NextDouble() * 100);
+        }
+        public LinearEquation(bool t, int size, float a)
+        {
+            this.coefficients = new List<float>();
+            for (int i = 0; i < size; i++)
+                coefficients.Add(a);
+        }
+        
     }
 }
