@@ -168,5 +168,16 @@ namespace LW_Equation
             for (int i = 0; i < size; i++)
                 coefficients.Add(a);
         }
+        public LinearEquation MultiplyByNumber(float val)
+        {
+            LinearEquation ans = new LinearEquation(this.coefficients);
+
+            for (int i = 0; i < ans.Size; i++)
+            {
+                ans[i] *= val;
+            }
+
+            return ans;
+        }
     }
 }

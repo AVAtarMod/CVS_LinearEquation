@@ -169,5 +169,27 @@ namespace LW_EquationTest
             bool ans = a != null;
             Assert.IsTrue(ans);
         }
+
+        [TestMethod]
+        public void LinearEquationTestMultiplyByNumber1()
+        {
+            LinearEquation a = new LinearEquation(1, 2, 3);
+            LinearEquation result = a.MultiplyByNumber(2);
+            LinearEquation correct = new LinearEquation(2, 4, 6);
+            bool b = result.Equals(correct);
+
+            Assert.IsTrue(b);
+        }
+
+        [TestMethod]
+        public void LinearEquationTestMultiplyByNumber2()
+        {
+            LinearEquation a = new LinearEquation(2, 2, 4);
+            LinearEquation result = a.MultiplyByNumber(1.5F);
+            LinearEquation correct = new LinearEquation(3, 3, 6);
+            bool b = result.Equals(correct);
+
+            Assert.IsTrue(b);
+        }
     }
 }
