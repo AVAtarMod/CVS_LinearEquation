@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LW_Equation;
 using System;
+using System.Collections.Generic;
 
 namespace LW_EquationTest
 {
@@ -200,6 +201,17 @@ namespace LW_EquationTest
             bool b = result.Equals(correct);
 
             Assert.IsTrue(b);
+        }
+        [TestMethod]
+        public void LinearEquationTestToList()
+        {
+            LinearEquation a = new LinearEquation(1F, 1.2F, 3.4F);
+            List<double> result = new List<double>() { 1F, 1.2F, 3.4F };
+            List<double> equation = a.ToList();
+            bool ans = (result[0] == equation[0]) &&
+                        (result[1] == equation[1]) &&
+                        (result[2] == equation[2]);
+            Assert.IsTrue(ans);
         }
     }
 }
