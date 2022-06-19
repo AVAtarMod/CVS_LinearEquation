@@ -112,5 +112,17 @@ namespace LW_Equation
             Normalization(ref coef);
             return new LinearEquation(coef);
         }
+        static public bool operator true(LinearEquation eq)
+        {
+            if (eq.Size == 0) return true;
+            else if (eq[0] == 0) return true;
+            else return false;
+        }
+        static public bool operator false(LinearEquation eq)
+        {
+            if (eq.Size == 0) return false;
+            else if (eq[0] == 0) return false;
+            else return true;
+        }
     }
 }
