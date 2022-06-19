@@ -220,6 +220,17 @@ namespace LW_EquationTest
             LinearEquation result = a - b;
             Assert.AreEqual(new LinearEquation(-2, 2, -3), result);
         }
-        
+        [TestMethod]
+        public void LinearEquationTestOperatorTrue()
+        {
+            LinearEquation a = new LinearEquation(0, 0, 0, 1);
+            bool ans = false;
+            if (a)
+                ans = true;
+            else
+                ans = false;
+
+            Assert.IsFalse(ans);
+        }
     }
 }
