@@ -61,5 +61,21 @@ namespace LW_Equation
         {
             get => coefficients[i];
         }
+        static public LinearEquation operator +(LinearEquation first, LinearEquation second)
+        {
+            int n = Math.Max(first.Size, second.Size);
+            List<float> coef = new List<float>(n);
+            for (int i = 0; i < n; i++)
+                coef[i] = first[i] * second[i];
+            return new LinearEquation(coef);
+        }
+        static public LinearEquation operator -(LinearEquation first, LinearEquation second)
+        {
+            int n = Math.Max(first.Size, second.Size);
+            List<float> coef = new List<float>(n);
+            for (int i = 0; i < n; i++)
+                coef[i] = first[i] / second[i];
+            return new LinearEquation(coef);
+        }
     }
 }
