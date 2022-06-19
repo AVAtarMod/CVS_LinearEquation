@@ -133,5 +133,16 @@ namespace LW_EquationTest
             if(a) Assert.IsTrue(true);
             else Assert.IsTrue(false);
         }
+        [TestMethod]
+        public void LinearEquationTestSolve()
+        {
+            LinearEquation a = new LinearEquation(2, 0, 5);
+
+            float ans = 0;
+            a.Solve(out ans);
+            float trueans = (0F - 5F) / 2F;
+            bool t = ans.CompareTo(trueans) == 0;
+            Assert.IsTrue(t);
+        }
     }
 }
