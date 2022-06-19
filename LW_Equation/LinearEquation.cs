@@ -101,5 +101,33 @@ namespace LW_Equation
             first[0] -= second[0];
             return new LinearEquation(first);
         }
+        
+        static public bool operator true(LinearEquation eq)
+        {
+            int count = 0;
+            for (int i = 0; i < eq.Size; i++)
+            {
+                if (eq[i] == 0)
+                    count++;
+            }
+            if (count == eq.Size - 2 && eq[eq.Size - 1] != 0)
+                return true;
+            else
+                return false;
+        }
+        static public bool operator false(LinearEquation eq)
+        {
+            int count = 0;
+            for (int i = 0; i < eq.Size; i++)
+            {
+                if (eq[i] == 0)
+                    count++;
+            }
+            if (count == eq.Size - 1)
+                return true;
+            else
+                return false;
+        }
+        
     }
 }
