@@ -4,7 +4,10 @@
     <projectFile>LW_Equation/LW_Equation.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e14f4ec8-25c3-4270-b9db-6cad5b0f1b9f" name="Changes" comment="" />
+    <list default="true" id="e14f4ec8-25c3-4270-b9db-6cad5b0f1b9f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LW_Equation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LW_Equation/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LW_EquationTest/LinearEquationTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LW_EquationTest/LinearEquationTest.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +35,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="fix" />
+                        <option value="dev" />
                       </list>
                     </value>
                   </entry>
