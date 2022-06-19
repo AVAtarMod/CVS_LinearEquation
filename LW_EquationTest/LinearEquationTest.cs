@@ -252,6 +252,23 @@ namespace LW_EquationTest
             bool ans = a.ToString() == "1,2,3,4,5";
             Assert.IsTrue(ans);
         }
-        
+        [TestMethod]
+        public void LinearEquationTestInitSame()
+        {
+            LinearEquation a = new LinearEquation(true, 3, 5);
+            LinearEquation res = new LinearEquation(5, 5, 5);
+            bool ans = (a[0] == res[0]) &&
+                       (a[1] == res[1]) &&
+                       (a[2] == res[2]);
+            Assert.IsTrue(ans);
+        }
+
+        [TestMethod]
+        public void LinearEquationTestInitRandom()
+        {
+            LinearEquation a = new LinearEquation(true, 3);
+            bool ans = a != null;
+            Assert.IsTrue(ans);
+        }
     }
 }
