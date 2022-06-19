@@ -219,7 +219,7 @@ namespace LW_EquationTest
             LinearEquation a = new LinearEquation(1, 2, 3);
             LinearEquation b = new LinearEquation(4, 5);
             LinearEquation result = a - b;
-            Assert.AreEqual(new LinearEquation(-2, 2, -3), result);
+            Assert.AreEqual(new LinearEquation(-3, 2, -2), result);
         }
         [TestMethod]
         public void LinearEquationTestOperatorTrue()
@@ -271,16 +271,6 @@ namespace LW_EquationTest
             bool ans = a != null;
             Assert.IsTrue(ans);
         }
-        [TestMethod]
-        public void LinearEquationTestMultiplyByNumber1()
-        {
-            LinearEquation a = new LinearEquation(1, 2, 3);
-            LinearEquation result = a.MultiplyByNumber(2);
-            LinearEquation correct = new LinearEquation(2, 4, 6);
-            bool b = result.Equals(correct);
-
-            Assert.IsTrue(b);
-        }
 
         [TestMethod]
         public void LinearEquationTestOperatirEqMultFloat()
@@ -310,14 +300,6 @@ namespace LW_EquationTest
             LinearEquation a = new LinearEquation(9, 8);
 
             Assert.AreEqual(typeof(List<double>), a.ToDouble().GetType());
-        }
-        [TestMethod]
-        public void LinearEquationTestToDouble1()
-        {
-            LinearEquation a = new LinearEquation(9, 8);
-            List<double> res = a.ToDouble();
-            Assert.AreEqual(new List<double>() { 9, 8 }, res);
-            Assert.AreEqual(9, res[0]);
         }
     }
 }

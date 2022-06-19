@@ -61,23 +61,4 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/LW_EquationTest/LinearEquationTest.cs</url>
-          <line>227</line>
-          <properties documentPath="C:\Users\fedor\Desktop\lab\LW_EquationTest\LinearEquationTest.cs" initialLine="226" containingFunctionPresentation="method 'LinearEquationTestOperatorTrue'">
-            <startOffsets>
-              <option value="6758" />
-            </startOffsets>
-            <endOffsets>
-              <option value="6775" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
 </project>
