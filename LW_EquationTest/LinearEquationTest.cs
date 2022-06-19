@@ -289,5 +289,21 @@ namespace LW_EquationTest
             a = a * 2F;
             Assert.AreEqual(4F, a[1]);
         }
+        
+        [TestMethod]
+        public void LinearEquationTestOperatorMinus()
+        {
+            LinearEquation a = new LinearEquation(1, 0, 3);
+            a = -a;
+            Assert.AreEqual(-1, a[0]);
+        }
+        [TestMethod]
+        public void LinearEquationTestOperatorMinus1()
+        {
+            LinearEquation a = new LinearEquation(1, 0, 3);
+            a = -a;
+            Assert.AreEqual(0, a[1]);
+        }
+        
     }
 }

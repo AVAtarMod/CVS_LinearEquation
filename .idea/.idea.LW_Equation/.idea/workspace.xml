@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e14f4ec8-25c3-4270-b9db-6cad5b0f1b9f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/LW_Equation/LinearEquation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LW_Equation/LinearEquation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LW_EquationTest/LinearEquationTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LW_EquationTest/LinearEquationTest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,5 +60,24 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/LW_EquationTest/LinearEquationTest.cs</url>
+          <line>227</line>
+          <properties documentPath="C:\Users\fedor\Desktop\lab\LW_EquationTest\LinearEquationTest.cs" initialLine="226" containingFunctionPresentation="method 'LinearEquationTestOperatorTrue'">
+            <startOffsets>
+              <option value="6758" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6775" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
