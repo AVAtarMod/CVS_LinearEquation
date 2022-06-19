@@ -173,6 +173,13 @@ namespace LW_Equation
             for (int i = 0; i < size; i++)
                 coefficients.Add(a);
         }
-        
+        static public LinearEquation operator*(LinearEquation e, float f)
+        {
+            for (int i = 0; i < e.Size; i++)
+            {
+                e.coefficients[i] *= f;
+            }
+            return e;
+        }
     }
 }

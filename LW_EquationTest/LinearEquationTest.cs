@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LW_Equation;
 using System;
+using System.Collections.Generic;
 
 namespace LW_EquationTest
 {
@@ -282,14 +283,11 @@ namespace LW_EquationTest
         }
 
         [TestMethod]
-        public void LinearEquationTestMultiplyByNumber2()
+        public void LinearEquationTestOperatirEqMultFloat()
         {
-            LinearEquation a = new LinearEquation(2, 2, 4);
-            LinearEquation result = a.MultiplyByNumber(1.5F);
-            LinearEquation correct = new LinearEquation(3, 3, 6);
-            bool b = result.Equals(correct);
-
-            Assert.IsTrue(b);
+            LinearEquation a = new LinearEquation(1, 2, 3);
+            a = a * 2F;
+            Assert.AreEqual(4F, a[1]);
         }
     }
 }
