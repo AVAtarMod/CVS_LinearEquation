@@ -10,28 +10,36 @@ namespace LW_Equation
     {
         List<float> coefficients;
         public int Size => coefficients.Count;
+        public LinearEquation()
+        {
+            coefficients = new List<float>();
+        }
         public LinearEquation(float b, float aN, params float[] coefficients)
         {
             this.coefficients = new List<float>();
             this.coefficients.Add(b);
             this.coefficients.Add(aN);
             this.coefficients.AddRange(coefficients);
+            Normalization(ref this.coefficients);
         }
         public LinearEquation(List<float> coefficients)
         {
             this.coefficients = new List<float>();
             this.coefficients = coefficients;
+            Normalization(ref this.coefficients);
         }
         static public LinearEquation operator +(LinearEquation first, float second)
         {
             LinearEquation equation = first;
             equation.coefficients[0] += second;
+            Normalization(ref equation.coefficients);
             return equation;
         }
         static public LinearEquation operator -(LinearEquation first, float second)
         {
             LinearEquation equation = first;
             equation.coefficients[0] -= second;
+            Normalization(ref equation.coefficients);
             return equation;
         }
         public override bool Equals(object obj)
@@ -61,20 +69,47 @@ namespace LW_Equation
         {
             get => coefficients[i];
         }
+        private static void Normalization(ref List<float> coef)
+        {
+            int i = coef.Count - 1;
+            while (coef[i] == 0)
+            {
+                coef.RemoveAt(coef.Count - 1);
+                i--;
+            }
+        }
         static public LinearEquation operator +(LinearEquation first, LinearEquation second)
         {
-            int n = Math.Max(first.Size, second.Size);
-            List<float> coef = new List<float>(n);
-            for (int i = 0; i < n; i++)
-                coef[i] = first[i] * second[i];
+            int i;
+            List<float> coef = new List<float>();
+            if (first.Size < second.Size)
+            {
+                for (i = 0; i < first.Size; i++) coef.Add(first[i] + second[i]);
+                for (; i < second.Size; i++) coef.Add(second[i]);
+            }
+            else
+            {
+                for (i = 0; i < second.Size; i++) coef.Add(first[i] + second[i]);
+                for (; i < first.Size; i++) coef.Add(first[i]);
+            }
+            Normalization(ref coef);
             return new LinearEquation(coef);
         }
         static public LinearEquation operator -(LinearEquation first, LinearEquation second)
         {
-            int n = Math.Max(first.Size, second.Size);
-            List<float> coef = new List<float>(n);
-            for (int i = 0; i < n; i++)
-                coef[i] = first[i] / second[i];
+            int i;
+            List<float> coef = new List<float>();
+            if (first.Size < second.Size)
+            {
+                for (i = 0; i < first.Size; i++) coef.Add(first[i] - second[i]);
+                for (; i < second.Size; i++) coef.Add(-second[i]);
+            }
+            else
+            {
+                for (i = 0; i < second.Size; i++) coef.Add(first[i] - second[i]);
+                for (; i < first.Size; i++) coef.Add(first[i]);
+            }
+            Normalization(ref coef);
             return new LinearEquation(coef);
         }
     }

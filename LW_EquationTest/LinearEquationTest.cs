@@ -93,5 +93,38 @@ namespace LW_EquationTest
 
             Assert.IsInstanceOfType(result, typeof(ArgumentOutOfRangeException));
         }
+
+        [TestMethod]
+        public void LinearEquationTestAddition1()
+        {
+            LinearEquation a = new LinearEquation(1, 3);
+            LinearEquation b = new LinearEquation(1, 2);
+            LinearEquation r = a + b;
+            Assert.IsTrue(r[0] == 2 && r[1] == 5);
+        }
+        [TestMethod]
+        public void LinearEquationTestAddition2()
+        {
+            LinearEquation a = new LinearEquation(1, 0, 3);
+            LinearEquation b = new LinearEquation(2, 2);
+            LinearEquation r = a + b;
+            Assert.IsTrue(r[0] == 3 && r[1] == 2 && r[2] == 3);
+        }
+        [TestMethod]
+        public void LinearEquationTestDifference1()
+        {
+            LinearEquation a = new LinearEquation(1, 3);
+            LinearEquation b = new LinearEquation(1, 2);
+            LinearEquation r = a - b;
+            Assert.IsTrue(r[0] == 0 && r[1] == 1);
+        }
+        [TestMethod]
+        public void LinearEquationTestDifference2()
+        {
+            LinearEquation a = new LinearEquation(1, 0, 3);
+            LinearEquation b = new LinearEquation(2, 2);
+            LinearEquation r = a - b;
+            Assert.IsTrue(r[0] == -1 && r[1] == -2 && r[2] == 3);
+        }
     }
 }
