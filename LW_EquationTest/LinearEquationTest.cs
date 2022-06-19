@@ -191,5 +191,15 @@ namespace LW_EquationTest
 
             Assert.IsTrue(b);
         }
+        [TestMethod]
+        public void LinearEquationTestOpMinus()
+        {
+            LinearEquation a = new LinearEquation(2, -2, 4);
+            LinearEquation result = -a;
+            LinearEquation correct = new LinearEquation(-2, 2, -4);
+            bool b = result.Equals(correct);
+
+            Assert.IsTrue(b);
+        }
     }
 }
