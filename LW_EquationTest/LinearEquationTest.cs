@@ -126,5 +126,12 @@ namespace LW_EquationTest
             LinearEquation r = a - b;
             Assert.IsTrue(r[0] == -1 && r[1] == -2 && r[2] == 3);
         }
+        [TestMethod]
+        public void LinearEquationTestBool()
+        {
+            LinearEquation a = new LinearEquation(0, 3);
+            if(a) Assert.IsTrue(true);
+            else Assert.IsTrue(false);
+        }
     }
 }
