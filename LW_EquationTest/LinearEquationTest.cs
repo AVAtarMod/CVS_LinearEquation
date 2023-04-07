@@ -216,7 +216,7 @@ namespace LW_EquationTest
             //5x+2=0
             //x=-2/5
             float? rez = a.GetRoot(a);
-            Assert.AreEqual(rez, -0.4);
+            Assert.AreEqual(rez, (float)-0.4);
         }
     }
 }
