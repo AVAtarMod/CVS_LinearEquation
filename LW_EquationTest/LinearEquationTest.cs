@@ -238,9 +238,9 @@ namespace LW_EquationTest
             LinearEquation b = new LinearEquation();
             LinearEquation c = new LinearEquation();
             LinearEquation d = new LinearEquation();
-            Assert.AreEqual(a.ToString(),b.ToString());
-            Assert.AreEqual(c.ToString(),d.ToString());
-            Assert.AreEqual(a.ToString(),c.ToString());
+            Assert.AreNotEqual(a.ToString(),b.ToString());
+            Assert.AreNotEqual(c.ToString(),d.ToString());
+            Assert.AreNotEqual(a.ToString(),c.ToString());
         }
     }
 }

@@ -240,8 +240,8 @@ namespace LW_Equation
         public LinearEquation()
         {
             coefficients = new List<float>();
-            coefficients[0] = rand.Next(-100, 100);
-            coefficients[1] = rand.Next(-100, 100);
+            coefficients.Add(rand.Next(-100, 100));
+            coefficients.Add(rand.Next(-100, 100));
         }
     }
 }
