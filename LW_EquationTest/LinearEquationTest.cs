@@ -218,5 +218,17 @@ namespace LW_EquationTest
             float? rez = a.GetRoot(a);
             Assert.AreEqual(rez, (float)-0.4);
         }
+
+
+        [TestMethod]
+        public void LinearEquationTestToString()
+        {
+            LinearEquation a = new LinearEquation(1, -1, 0, 234, -343, 1, 2);
+            LinearEquation b = new LinearEquation(0, 0, 1, -1, -343, 1, 0);
+            string LinEq = a.ToString();
+            Assert.AreEqual(LinEq, "x-x+234x-343x+x+2=0");
+            LinEq = b.ToString();
+            Assert.AreEqual(LinEq, "x-x-343x+x=0");
+        }
     }
 }
