@@ -88,5 +88,47 @@ namespace LW_Equation
             get { return coefficients[i]; }
             set { coefficients[i] = value; }
         }
+
+        /// <summary>
+        /// Перегрузка оператора +
+        /// </summary>
+        /// <param name="a">левый операнд, уравнение</param>
+        /// <param name="b">правый операнд, уравнение</param>
+        /// <returns></returns>
+        public static LinearEquation operator +(LinearEquation a, LinearEquation b)
+        {
+            if (a.Size != b.Size) 
+                throw new IndexOutOfRangeException("Уравнения разной длинны");
+
+            //копируем уравнение
+            LinearEquation temp = a;
+
+            //складываем коэф
+            for (int i = 0; i < temp.Size; i++)
+                temp.coefficients[i] += b.coefficients[i];
+
+            return temp;
+        }
+
+        /// <summary>
+        /// Перегрузка оператора -
+        /// </summary>
+        /// <param name="a">левый операнд, уравнение</param>
+        /// <param name="b">правый операнд, уравнение</param>
+        /// <returns></returns>
+        public static LinearEquation operator -(LinearEquation a, LinearEquation b)
+        {
+            if (a.Size != b.Size)
+                throw new IndexOutOfRangeException("Уравнения разной длинны");
+
+            //копируем уравнение
+            LinearEquation temp = a;
+
+            //складываем коэф
+            for (int i = 0; i < temp.Size; i++)
+                temp.coefficients[i] -= b.coefficients[i];
+
+            return temp;
+        }
     }
 }
