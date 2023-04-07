@@ -13,7 +13,7 @@ namespace LW_Equation
     {
         List<float> coefficients;
         public int Size => coefficients.Count;
-
+        Random rand = new Random();
         /// <summary>
         /// Конструрирует уравнение вида aN*x + coefficients[0]y + ... + coefficients[N-2]z + coefficients[N-1] = 0
         /// </summary>
@@ -232,6 +232,16 @@ namespace LW_Equation
             //добавляем в конце =0
             str += "=0";
             return str;
+        }
+
+        /// <summary>
+        /// Коструктор, заполнение рандомными числами
+        /// </summary>
+        public LinearEquation()
+        {
+            coefficients = new List<float>();
+            coefficients[0] = rand.Next(-100, 100);
+            coefficients[1] = rand.Next(-100, 100);
         }
     }
 }
