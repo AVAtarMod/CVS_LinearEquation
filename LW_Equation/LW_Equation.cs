@@ -159,5 +159,13 @@ namespace LW_Equation
             else
                 return true;
         }
+
+        public float? GetRoot(LinearEquation a)
+        {
+            if (a.Size != 2)
+                return null;
+            else
+                return -a.coefficients[1] / coefficients[0];
+        }
     }
 }
