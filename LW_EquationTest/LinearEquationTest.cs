@@ -246,10 +246,32 @@ namespace LW_EquationTest
         [TestMethod]
         public void LinearEquationTestAddSpecificNumberInLinearEq()
         {
-            LinearEquation a = LinearEquation.SpecificLinearEq(5,3);
-            LinearEquation b = LinearEquation.SpecificLinearEq(5,3);
-            LinearEquation c = LinearEquation.SpecificLinearEq(4,3);
-            LinearEquation d = LinearEquation.SpecificLinearEq(3,1);
+            LinearEquation a = new LinearEquation(0, 1, 4);
+            LinearEquation b = new LinearEquation(1,-4, 3.3F);
+            LinearEquation c = new LinearEquation(1.1F, 4, 3,01F);
+            LinearEquation a1 = a * 5;
+            LinearEquation b1 = b * 0;
+            LinearEquation c1 = c * 1.5F;            
+            Assert.AreEqual(a1[0], 0);
+            Assert.AreEqual(a1[1], 5);
+            Assert.AreEqual(a1[2], 20);
+
+            Assert.AreEqual(b1[0], 0);
+            Assert.AreEqual(b1[1], 0);
+            Assert.AreEqual(b1[2], 0);
+
+            Assert.AreEqual(c1[0], 1.65F);
+            Assert.AreEqual(c1[1], 6F);
+            Assert.AreEqual(c1[2], 4.515F);
+        }
+
+        [TestMethod]
+        public void LinearEquationTestMultiplicationByNumber()
+        {
+            LinearEquation a = LinearEquation.SpecificLinearEq(5, 3);
+            LinearEquation b = LinearEquation.SpecificLinearEq(5, 3);
+            LinearEquation c = LinearEquation.SpecificLinearEq(4, 3);
+            LinearEquation d = LinearEquation.SpecificLinearEq(3, 1);
             Assert.AreEqual(a[0], b[0]);
             Assert.AreEqual(a[3], b[3]);
             Assert.AreEqual(a[4], b[4]);
