@@ -132,6 +132,35 @@ namespace LW_Equation
 
             return temp;
         }
+
+        /// <summary>
+        /// Умножение уравнения на число слева
+        /// </summary>
+        /// <param name="value">число</param>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public static LinearEquation operator *(float value, LinearEquation a)
+        {
+            for (int i = 0; i < a.Size; i++)
+                a.coefficients[i] *= value;
+            return a;
+        }
+
+        /// <summary>
+        /// Умножение уравнения на число справа
+        /// </summary>
+        /// <param name="value">число</param>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public static LinearEquation operator *(LinearEquation a, float value)
+        {
+            for (int i = 0; i < a.Size; i++)
+            { 
+                a.coefficients[i] *= value;
+                a.coefficients[i] = (float)Math.Round(a.coefficients[i], 2);
+            }
+            return a;
+        }
         /// <summary>
         /// неявное преобразование к bool 
         /// </summary>
