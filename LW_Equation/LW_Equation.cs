@@ -14,6 +14,7 @@ namespace LW_Equation
     {
         List<float> coefficients;
         public int Size => coefficients.Count;
+        static public Random rand = new Random();
         /// <summary>
         /// Конструрирует уравнение вида aN*x + coefficients[0]y + ... + coefficients[N-2]z + coefficients[N-1] = 0
         /// </summary>
@@ -237,12 +238,27 @@ namespace LW_Equation
         /// <summary>
         /// Коструктор, заполнение рандомными числами
         /// </summary>
+        /// <param name="count">Кол-во коэф. в уравнении</param>
+        /// <returns></returns>
         public static LinearEquation RandomLinearEq(int count)
         {
-            Random rand = new Random();
             LinearEquation a = new LinearEquation();
             for (int i = 0; i < count; i++)
                 a[i] = rand.Next(-100, 100);
+            return a;
+        }
+
+        /// <summary>
+        /// Коструктор, заполнение конкретным числом, заданным вторым параметром
+        /// </summary>
+        /// <param name="count">кол-во коэф.</param>
+        /// <param name="value">значение каждого коэф.</param>
+        /// <returns></returns>
+        public static LinearEquation SpecificLinearEq(int count, float value)
+        {
+            LinearEquation a = new LinearEquation();
+            for (int i = 0; i < count; i++)
+                a[i] = value;
             return a;
         }
     }
