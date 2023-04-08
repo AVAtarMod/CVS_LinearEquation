@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.ExceptionServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +14,6 @@ namespace LW_Equation
     {
         List<float> coefficients;
         public int Size => coefficients.Count;
-        Random rand = new Random();
         /// <summary>
         /// Конструрирует уравнение вида aN*x + coefficients[0]y + ... + coefficients[N-2]z + coefficients[N-1] = 0
         /// </summary>
@@ -95,7 +95,7 @@ namespace LW_Equation
         /// </summary>
         /// <param name="a">левый операнд, уравнение</param>
         /// <param name="b">правый операнд, уравнение</param>
-        /// <returns></returns>
+        /// <returns>возвращает сумму уравнений</returns>
         public static LinearEquation operator +(LinearEquation a, LinearEquation b)
         {
             if (a.Size != b.Size) 
@@ -116,7 +116,7 @@ namespace LW_Equation
         /// </summary>
         /// <param name="a">левый операнд, уравнение</param>
         /// <param name="b">правый операнд, уравнение</param>
-        /// <returns></returns>
+        /// <returns>возвращает разность уравнений</returns>
         public static LinearEquation operator -(LinearEquation a, LinearEquation b)
         {
             if (a.Size != b.Size)
@@ -134,7 +134,7 @@ namespace LW_Equation
         /// <summary>
         /// неявное преобразование к bool 
         /// </summary>
-        /// <param name="a">возвращает лист с коэффициенатами</param>
+        /// <param name="a">возвращает true, если есть корни, иначе false</param>
         public static implicit operator bool(LinearEquation a)
         {
             //если свободный член равен 0(последний в массиве), то уравнение имеет корни
@@ -165,7 +165,7 @@ namespace LW_Equation
         /// Решение уравнения с одним неизвестным
         /// </summary>
         /// <param name="a"></param>
-        /// <returns></returns>
+        /// <returns>Получение корней уравнения, уравнение с 1 неизвестным</returns>
         public float? GetRoot(LinearEquation a)
         {
             if (a.Size != 2)
@@ -237,11 +237,13 @@ namespace LW_Equation
         /// <summary>
         /// Коструктор, заполнение рандомными числами
         /// </summary>
-        public LinearEquation()
+        public static LinearEquation RandomLinearEq(int count)
         {
-            coefficients = new List<float>();
-            coefficients.Add(rand.Next(-100, 100));
-            coefficients.Add(rand.Next(-100, 100));
+            Random rand = new Random();
+            LinearEquation a = new LinearEquation();
+            for (int i = 0; i < count; i++)
+                a[i] = rand.Next(-100, 100);
+            return a;
         }
     }
 }

@@ -234,13 +234,29 @@ namespace LW_EquationTest
         [TestMethod]
         public void LinearEquationTestAddRandomNumberInLinearEq()
         {
-            LinearEquation a = new LinearEquation();
-            LinearEquation b = new LinearEquation();
-            LinearEquation c = new LinearEquation();
-            LinearEquation d = new LinearEquation();
+            LinearEquation a = LinearEquation.RandomLinearEq(5);
+            LinearEquation b = LinearEquation.RandomLinearEq(5);
+            LinearEquation c = LinearEquation.RandomLinearEq(4);
+            LinearEquation d = LinearEquation.RandomLinearEq(3);
             Assert.AreNotEqual(a.ToString(),b.ToString());
             Assert.AreNotEqual(c.ToString(),d.ToString());
             Assert.AreNotEqual(a.ToString(),c.ToString());
+        }
+
+        [TestMethod]
+        public void LinearEquationTestAddSpecificNumberInLinearEq()
+        {
+            LinearEquation a = LinearEquation.SpecificLinearEq(5,3);
+            LinearEquation b = LinearEquation.SpecificLinearEq(5,3);
+            LinearEquation c = LinearEquation.SpecificLinearEq(4,3);
+            LinearEquation d = LinearEquation.SpecificLinearEq(3,1);
+            Assert.AreEqual(a[0], b[0]);
+            Assert.AreEqual(a[3], b[3]);
+            Assert.AreEqual(a[4], b[4]);
+            Assert.AreEqual(b[3], c[3]);
+            Assert.AreEqual(b[3], c[3]);
+            Assert.AreNotEqual(a[0], d[0]);
+            Assert.AreNotEqual(a[1], d[1]);
         }
     }
 }
