@@ -242,9 +242,10 @@ namespace LW_Equation
         /// <returns></returns>
         public static LinearEquation RandomLinearEq(int count)
         {
-            LinearEquation a = new LinearEquation();
+            List<float> array = new List<float>();
             for (int i = 0; i < count; i++)
-                a[i] = rand.Next(-100, 100);
+                array.Add(rand.Next(-100, 100));
+            LinearEquation a = new LinearEquation(array);
             return a;
         }
 
@@ -256,9 +257,10 @@ namespace LW_Equation
         /// <returns></returns>
         public static LinearEquation SpecificLinearEq(int count, float value)
         {
-            LinearEquation a = new LinearEquation();
+            List<float> array = new List<float>();
             for (int i = 0; i < count; i++)
-                a[i] = value;
+                array.Add(value);
+            LinearEquation a = new LinearEquation(array);
             return a;
         }
     }
