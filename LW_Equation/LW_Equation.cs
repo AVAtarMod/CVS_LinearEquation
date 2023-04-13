@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace LW_Equation
 {
+    using System.Runtime.ExceptionServices;
+
     public class LinearEquation
     {
         public List<float> coefficients;
@@ -81,18 +83,6 @@ namespace LW_Equation
 
         public override bool Equals(object obj)
         {
-            //if (obj is LinearEquation equation)
-            //{
-            //    if (Size == equation.Size)
-            //        return true;
-            //    for (int i = 0; i < Size; i++)
-            //    {
-            //        if (this.coefficients[i] != equation.coefficients[i])
-            //            return true;
-            //    }
-            //    return false;
-            //}
-            //return true;
             if (obj != null)
             {
                 if (obj is LinearEquation linear_B)
@@ -107,7 +97,6 @@ namespace LW_Equation
                             else
                                 break;
                         }
-
                         if (i == Size)
                             return true;
                     }
@@ -126,6 +115,64 @@ namespace LW_Equation
             return !first.Equals(second);
         }
 
-        public float this[int i] => coefficients[i];
+        public float this[int i]
+        {
+            get => coefficients[i];
+            set => coefficients[i] = value;
+        }
+
+        static public LinearEquation operator +(LinearEquation first, LinearEquation second)
+        {
+            int size;
+            LinearEquation equation,plusEquation;
+            if (first.Size >= second.Size)
+            {
+                equation = first;
+                plusEquation = second;
+                size = second.Size;
+            }
+            else
+            {
+                equation = second;
+                plusEquation = first;
+                size = first.Size;
+            }
+            int k = 0;
+            while (k!=size)
+            {
+                equation[k] += plusEquation[k];
+                k++;
+            }
+
+            return equation;
+        }
+
+        static public LinearEquation operator -(LinearEquation first, LinearEquation second)
+        {
+            if (first.Equals(second))
+            {
+                return null;
+            }
+            int size;
+            LinearEquation equation, minusEquation;
+            if (first.Size >= second.Size)
+            {
+                equation = first;
+                minusEquation = second;
+                size = second.Size;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("Вычитаемое уровнение больше чем то из которого вычитаем");
+            }
+            int k = 0;
+            while (k != size)
+            {
+                equation[k] -= minusEquation[k];
+                k++;
+            }
+
+            return equation;
+        }
     }
 }

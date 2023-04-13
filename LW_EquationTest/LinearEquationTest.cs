@@ -172,5 +172,82 @@ namespace LW_EquationTest
 
             Assert.AreEqual(new LinearEquation(1, 2F), result);
         }
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqPlusEquation()
+        {
+            LinearEquation a = new LinearEquation(1, 3);
+            LinearEquation b = new LinearEquation(1, 3);
+            
+
+            LinearEquation result = a + b;
+
+            Assert.AreEqual(new LinearEquation(2, 6), result);
+        }
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqPlusEquation2()
+        {
+            LinearEquation a = new LinearEquation(1, 3,5,5.6f);
+            LinearEquation b = new LinearEquation(1, 3,5,5.6F);
+            
+
+            LinearEquation result = a + b;
+
+            Assert.AreEqual(new LinearEquation(2, 6,10,11.2f), result);
+        }
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqPlusEquation3()
+        {
+            LinearEquation a = new LinearEquation(1, 3,-2);
+            LinearEquation b = new LinearEquation(1, 3,4);
+            
+
+            LinearEquation result = a + b;
+
+            Assert.AreEqual(new LinearEquation(2, 6,2), result);
+        }
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqMinusEquation()
+        {
+            LinearEquation a = new LinearEquation(1, 3);
+            LinearEquation b = new LinearEquation(2,2);
+            
+
+            LinearEquation result = a - b;
+
+            Assert.AreEqual(new LinearEquation(-1, 1), result);
+        }
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqMinusEquation2()
+        {
+            LinearEquation a = new LinearEquation(1, 2);
+            LinearEquation b = new LinearEquation(1,2);
+            
+
+            LinearEquation result = a - b;
+
+            Assert.AreEqual(null, result);
+        }
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqMinusEquation3()
+        {
+            LinearEquation a = new LinearEquation(2, 2,3);
+            LinearEquation b = new LinearEquation(1,2);
+            
+
+            LinearEquation result = a - b;
+
+            Assert.AreEqual(new LinearEquation(1,0,3), result);
+        }
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqMinusEquation4()
+        {
+            LinearEquation a = new LinearEquation(1, 2);
+            LinearEquation b = new LinearEquation(2,2,3);
+            
+
+            LinearEquation result = a - b;
+
+            Assert.AreEqual(new LinearEquation(1,0,3), result);
+        }
     }
 }
