@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LW_Equation
 {
+    using System.Runtime.CompilerServices;
     using System.Runtime.ExceptionServices;
 
     public class LinearEquation
@@ -173,6 +174,13 @@ namespace LW_Equation
             }
 
             return equation;
+        }
+
+        public bool haveSolution()
+        {
+            if(Size==1 && coefficients[0]!=0)
+                return false;
+            return true;
         }
     }
 }

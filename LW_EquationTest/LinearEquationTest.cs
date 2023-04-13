@@ -243,11 +243,24 @@ namespace LW_EquationTest
         //{
         //    LinearEquation a = new LinearEquation(1, 2);
         //    LinearEquation b = new LinearEquation(2,2,3);
-            
+
 
         //    LinearEquation result = a - b;
 
         //    Assert.AreEqual(new LinearEquation(1,0,3), result);
         //}
+        [TestMethod]
+        public void LinearEquationTestOpeartorHaveSolution()
+        {
+            LinearEquation a = new LinearEquation(2, 2, 3);
+            LinearEquation b = new LinearEquation(0);
+            LinearEquation c = new LinearEquation(1);
+
+
+
+            Assert.AreEqual(true, a.haveSolution());
+            Assert.AreEqual(true, b.haveSolution());
+            Assert.AreEqual(false, c.haveSolution());
+        }
     }
 }
