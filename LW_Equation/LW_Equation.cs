@@ -182,5 +182,21 @@ namespace LW_Equation
                 return false;
             return true;
         }
+
+        public float solution()
+        {
+            if (Size == 2 && coefficients[1] != 0)
+            {
+                float result=(coefficients[1]*-1)/coefficients[0];
+                return result;
+            }
+            if (Size > 2)
+                throw new ArgumentOutOfRangeException("В уравнении больше чем одна неизвестная");
+            if (Size < 2)
+                throw new ArgumentException("В уравнении меньше чем 1 неизвестная");
+            {
+                throw new AggregateException("Коэффициент у неизвестного равен 0, а коэффициент у свободного не 0");
+            }
+        }
     }
 }

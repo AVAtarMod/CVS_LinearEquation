@@ -262,5 +262,18 @@ namespace LW_EquationTest
             Assert.AreEqual(true, b.haveSolution());
             Assert.AreEqual(false, c.haveSolution());
         }
+        [TestMethod]
+        public void LinearEquationTestOpeartorSolution()
+        {
+            LinearEquation a = new LinearEquation(2, 2);
+            LinearEquation b = new LinearEquation(5, -10);
+            LinearEquation c = new LinearEquation(1.5F, -15);
+
+
+
+            Assert.AreEqual(-1, a.solution());
+            Assert.AreEqual(2, b.solution());
+            Assert.AreEqual(10, c.solution());
+        }
     }
 }
