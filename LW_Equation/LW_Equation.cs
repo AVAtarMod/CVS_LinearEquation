@@ -72,10 +72,11 @@ namespace LW_Equation
             equation.coefficients[equation.Size-1] += second;
             return equation;
         }
+
         /// <summary>
         /// Вычитает second из свободного члена first
         /// </summary>
-        static public LinearEquation operator -(LinearEquation first, float second)
+        public static LinearEquation operator -(LinearEquation first, float second)
         {
             LinearEquation equation = first;
             equation.coefficients[equation.Size-1] -= second;
@@ -107,11 +108,11 @@ namespace LW_Equation
             return false;
         }
 
-        static public bool operator ==(LinearEquation first, LinearEquation second)
+        public static bool operator ==(LinearEquation first, LinearEquation second)
         {
             return first.Equals(second);
         }
-        static public bool operator !=(LinearEquation first, LinearEquation second)
+        public static bool operator !=(LinearEquation first, LinearEquation second)
         {
             return !first.Equals(second);
         }
@@ -122,7 +123,7 @@ namespace LW_Equation
             set => coefficients[i] = value;
         }
 
-        static public LinearEquation operator +(LinearEquation first, LinearEquation second)
+        public static LinearEquation operator +(LinearEquation first, LinearEquation second)
         {
             int size;
             LinearEquation equation,plusEquation;
@@ -148,7 +149,7 @@ namespace LW_Equation
             return equation;
         }
 
-        static public LinearEquation operator -(LinearEquation first, LinearEquation second)
+        public static LinearEquation operator -(LinearEquation first, LinearEquation second)
         {
             if (first.Equals(second))
             {
@@ -176,6 +177,10 @@ namespace LW_Equation
             return equation;
         }
 
+        /// <summary>
+        /// LinearEquation(1) => 1 = 0 (не имеет решений)
+        /// </summary>
+        /// <returns></returns>
         public bool haveSolution()
         {
             if(Size==1 && coefficients[0]!=0)
@@ -183,6 +188,19 @@ namespace LW_Equation
             return true;
         }
 
+
+        /// <summary>
+        /// LinearEquation(k,b) => kx+b=0
+        ///                        kx=-b
+        ///                        x=(-b)/k
+        /// LinearEquation(b) => b=0 => if(haveSolution) => x=00
+        ///
+        /// LinearEquation(1,2,3,4,...,k) => 1*(x1) + 2*(x2)+...+(k-1)*(xk-1) + k
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="AggregateException"></exception>
         public float solution()
         {
             if (Size == 2 && coefficients[1] != 0)
@@ -196,6 +214,58 @@ namespace LW_Equation
                 throw new ArgumentException("В уравнении меньше чем 1 неизвестная");
             {
                 throw new AggregateException("Коэффициент у неизвестного равен 0, а коэффициент у свободного не 0");
+            }
+        }
+
+        /// <summary>
+        /// LinearEquation(2, 2) => 2(x1) + 2
+        /// LinearEquation(1,2,3) => 1(x1) + 2(x2) + 3
+        /// LinearEquation(-1,2,-3,4) => -1(x1) + 2(x2) -3(x3) + 4
+        /// LinearEquation(-1,0,-3,4) => -1(x1) -3(x3) + 4
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            string equation="";
+            int i=1;
+            foreach (var k in this.coefficients)
+            {
+                if (i<Size && k!=0)
+                {
+                    if (k>0 && i!=1)
+                    {
+                        equation = equation + (" + " + k + "(x" + i + ")");
+                    }
+                    else
+                    {
+                        equation = equation + (" "+k + "(x" + i + ")");
+                    }
+                }
+                else if(k!=0)
+                {
+                    equation = equation + (" + " + k);
+                }
+                i++;
+            }
+            return equation;
+        }
+
+        /// <summary>
+        ///  LinearEquation(1,2,3) * 0 => null
+        ///  LinearEquation(1,2,3) * 1 => LinearEquation(1,2,3)
+        ///  LinearEquation(1,2,3) * k => LinearEquation(1k,2k,3k)
+        /// </summary>
+        /// <param name="x"></param>
+        public void multiplication(float x)
+        {
+            if(x == 0)
+                coefficients.Clear();
+            else if(x != 1)
+            {
+                for (int i = 0; i < Size; i++)
+                {
+                    coefficients[i] *= x;
+                }
             }
         }
     }

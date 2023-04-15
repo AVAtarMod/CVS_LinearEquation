@@ -275,5 +275,38 @@ namespace LW_EquationTest
             Assert.AreEqual(2, b.solution());
             Assert.AreEqual(10, c.solution());
         }
+        [TestMethod]
+        public void LinearEquationTestOpeartorToString()
+        {
+            LinearEquation a = new LinearEquation(2, 2);
+            LinearEquation b = new LinearEquation(1,2,3);
+            LinearEquation c = new LinearEquation(-1,2,-3,4);
+            LinearEquation d = new LinearEquation(-1,0,-3,4);
+
+
+
+            Assert.AreEqual(" 2(x1) + 2", a.ToString());
+            Assert.AreEqual(" 1(x1) + 2(x2) + 3", b.ToString());
+            Assert.AreEqual(" -1(x1) + 2(x2) -3(x3) + 4", c.ToString());
+            Assert.AreEqual(" -1(x1) -3(x3) + 4", d.ToString());
+        }
+        [TestMethod]
+        public void LinearEquationTestOpeartorMultiplication()
+        {
+            LinearEquation a = new LinearEquation(1,2,3);
+            LinearEquation b = new LinearEquation(1,2,3);
+            LinearEquation c = new LinearEquation(1,2,3);
+            LinearEquation d = new LinearEquation(1,2,3);
+
+            a.multiplication(0);
+            b.multiplication(1);
+            c.multiplication(-1);
+            d.multiplication(3);
+
+            Assert.AreEqual(0, a.Size);
+            Assert.AreEqual(new LinearEquation(1, 2, 3), b);
+            Assert.AreEqual(new LinearEquation(-1, -2, -3), c);
+            Assert.AreEqual(new LinearEquation(3, 6, 9), d);
+        }
     }
 }
