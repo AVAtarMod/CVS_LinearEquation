@@ -151,5 +151,18 @@ namespace LW_Equation
             else
                 return true;
         }
+
+        /// <summary>
+        /// Решение уравнения с одним неизвестным
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns>Получение корней уравнения, уравнение с 1 неизвестным</returns>
+        public float? GetRoot(LinearEquation a)
+        {
+            if (a.Size != 2)
+                return null;
+            else
+                return -a.coefficients[1] / coefficients[0];
+        }
     }
 }
