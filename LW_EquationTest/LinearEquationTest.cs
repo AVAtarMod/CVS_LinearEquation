@@ -222,7 +222,7 @@ namespace LW_EquationTest
             string LinEq = a.ToString();
             Assert.AreEqual(LinEq, "7x-x+3544x-3x+17x+22=0");
             LinEq = b.ToString();
-            Assert.AreEqual(LinEq, "5x-x-3x+x=0");
+            Assert.AreEqual(LinEq, "5x+x-x-3x+x=0");
         }
         [TestMethod]
         public void LinearEquationTestAddRandomNumberInLinearEq()
