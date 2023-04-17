@@ -196,5 +196,14 @@ namespace LW_Equation
             LinearEquation a = new LinearEquation(array);
             return a;
         }
+
+        public static LinearEquation SpecificLinearEq(int count, float value)
+        {
+            List<float> array = new List<float>();
+            for (int i = 0; i < count; i++)
+                array.Add(value);
+            LinearEquation a = new LinearEquation(array);
+            return a;
+        }
     }
 }
