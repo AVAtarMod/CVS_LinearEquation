@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.ExceptionServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,6 +14,7 @@ namespace LW_Equation
     {
         List<float> coefficients;
         public int Size => coefficients.Count;
+        static public Random rand = new Random();
 
         /// <summary>
         /// Конструирует уравнение вида aN*x + coefficients[0]y + ... + coefficients[N-2]z + coefficients[N-1] = 0
@@ -219,6 +224,19 @@ namespace LW_Equation
             //добавляем в конце =0
             str += "=0";
             return str;
+        }
+        /// <summary>
+        /// Коструктор, заполнение рандомными числами
+        /// </summary>
+        /// <param name="count">Кол-во коэф. в уравнении</param>
+        /// <returns></returns>
+        public static LinearEquation RandomLinearEq(int count)
+        {
+            List<float> array = new List<float>();
+            for (int i = 0; i < count; i++)
+                array.Add(rand.Next(-100, 100));
+            LinearEquation a = new LinearEquation(array);
+            return a;
         }
     }
 }
