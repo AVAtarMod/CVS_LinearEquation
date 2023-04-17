@@ -187,6 +187,7 @@ namespace LW_Equation
             str += "=0";
             return str;
         }
+        static public Random rand = new Random();
         public static LinearEquation RandomLinearEq(int count)
         {
             List<float> array = new List<float>();
