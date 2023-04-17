@@ -214,5 +214,15 @@ namespace LW_EquationTest
             float? rez = a.GetRoot(a);
             Assert.AreEqual(rez, (float)-1.4);
         }
+        [TestMethod]
+        public void LinearEquationTestToString()
+        {
+            LinearEquation a = new LinearEquation(7, -1, 0, 3544, -3, 17, 22);
+            LinearEquation b = new LinearEquation(5, 0, 1, -1, -3, 1, 0);
+            string LinEq = a.ToString();
+            Assert.AreEqual(LinEq, "7x-x+3544x-3x+17x+22=0");
+            LinEq = b.ToString();
+            Assert.AreEqual(LinEq, "5x-x-3x+x=0");
+        }
     }
 }
