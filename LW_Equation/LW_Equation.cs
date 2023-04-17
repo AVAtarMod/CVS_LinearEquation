@@ -123,5 +123,13 @@ namespace LW_Equation
             //иначе уравнение не имеет корней
             return false;
         }
+
+        public float? GetRoot(LinearEquation a)
+        {
+            if (a.Size != 2)
+                return null;
+            else
+                return -a.coefficients[1] / coefficients[0];
+        }
     }
 }
