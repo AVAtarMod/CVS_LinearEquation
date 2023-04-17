@@ -238,5 +238,20 @@ namespace LW_Equation
             LinearEquation a = new LinearEquation(array);
             return a;
         }
+        /// <summary>
+        /// Коструктор, заполнение конкретным числом, заданным вторым параметром
+        /// </summary>
+        /// <param name="count">кол-во коэф.</param>
+        /// <param name="value">значение каждого коэф.</param>
+        /// <returns></returns>
+        public static LinearEquation SpecificLinearEq(int count, float value)
+        {
+            List<float> array = new List<float>();
+            for (int i = 0; i < count; i++)
+                array.Add(value);
+            LinearEquation a = new LinearEquation(array);
+            return a;
+        }
+
     }
 }
