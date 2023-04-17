@@ -110,5 +110,18 @@ namespace LW_Equation
 
             return temp;
         }
+
+        public static implicit operator bool(LinearEquation a)
+        {
+            //если свободный член равен 0(последний в массиве), то уравнение имеет корни
+            if (a.coefficients[a.Size - 1] == 0)
+                return true;
+            //если хотя бы один коэф. не ноль, то уравнение имеет корни
+            for (int i = 0; i < a.Size - 1; i++)
+                if (a.coefficients[i] != 0)
+                    return true;
+            //иначе уравнение не имеет корней
+            return false;
+        }
     }
 }
