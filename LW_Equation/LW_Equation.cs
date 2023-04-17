@@ -164,5 +164,61 @@ namespace LW_Equation
             else
                 return -a.coefficients[1] / coefficients[0];
         }
+
+        /// <summary>
+        /// Преобразование уравнения к строке
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            string str = "";
+            bool first = true;
+            for (int i = 0; i < this.Size - 1; i++)
+            {
+                if (this.coefficients[i] != 0 && first)
+                {
+                    //если 1
+                    if (this.coefficients[i] == 1)
+                        str += "x";
+                    //если -1
+                    else if (this.coefficients[i] == -1)
+                        str += $"-x";
+                    //иначе ставим коэф.
+                    else
+                        str += $"{this.coefficients[i]}x";
+                    first = false;
+                }
+                //если не первый
+                else
+                {
+                    if (this.coefficients[i] < 0)
+                    {
+                        //если -1
+                        if (this.coefficients[i] == -1)
+                            str += $"-x";
+                        //иначе
+                        else
+                            str += $"{this.coefficients[i]}x";
+                    }
+                    //если коэф положительный
+                    else if (this.coefficients[i] != 0)
+                    {
+                        if (this.coefficients[i] == 1)
+                            str += $"+x";
+                        else
+                            str += $"+{this.coefficients[i]}x";
+                    }
+                }
+            }
+            //добавляем свободный член
+            if (this.coefficients[this.Size - 1] < 0)
+                str += $"{this.coefficients[this.Size - 1]}";
+            else if (this.coefficients[this.Size - 1] != 0)
+                str += $"+{this.coefficients[this.Size - 1]}";
+
+            //добавляем в конце =0
+            str += "=0";
+            return str;
+        }
     }
 }
