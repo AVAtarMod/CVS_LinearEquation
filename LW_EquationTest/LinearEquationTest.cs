@@ -226,5 +226,16 @@ namespace LW_EquationTest
             LinEq = b.ToString();
             Assert.AreEqual(LinEq, "x-x-343x+x=0");
         }
+        [TestMethod]
+        public void LinearEquationTestAddRandomNumberInLinearEq()
+        {
+            LinearEquation a = LinearEquation.RandomLinearEq(5);
+            LinearEquation b = LinearEquation.RandomLinearEq(5);
+            LinearEquation c = LinearEquation.RandomLinearEq(4);
+            LinearEquation d = LinearEquation.RandomLinearEq(3);
+            Assert.AreNotEqual(a.ToString(), b.ToString());
+            Assert.AreNotEqual(c.ToString(), d.ToString());
+            Assert.AreNotEqual(a.ToString(), c.ToString());
+        }
     }
 }
