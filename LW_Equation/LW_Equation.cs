@@ -131,5 +131,62 @@ namespace LW_Equation
             else
                 return -a.coefficients[1] / coefficients[0];
         }
+
+        public override string ToString()
+        {
+            string str = "";
+            //проверка на введённое первое значение в строку
+            bool first = true;
+            //пробегаемс по коэф при неизвестном
+            for (int i = 0; i < this.Size - 1; i++)
+            {
+                //если коэф. первый, то не ставим никаких знаков(если не 0)
+                if (this.coefficients[i] != 0 && first)
+                {
+                    //если 1
+                    if (this.coefficients[i] == 1)
+                        str += "x";
+                    //если -1
+                    else if (this.coefficients[i] == -1)
+                        str += $"-x";
+                    //иначе ставим коэф.
+                    else
+                        str += $"{this.coefficients[i]}x";
+                    first = false;
+                }
+                //если не первый
+                else
+                {
+                    //если отрицательный, то минус сам поставится
+                    if (this.coefficients[i] < 0)
+                    {
+                        //если -1
+                        if (this.coefficients[i] == -1)
+                            str += $"-x";
+                        //иначе
+                        else
+                            str += $"{this.coefficients[i]}x";
+                    }
+                    //если коэф положительный
+                    else if (this.coefficients[i] != 0)
+                    {
+                        if (this.coefficients[i] == 1)
+                            str += $"+x";
+                        else
+                            str += $"+{this.coefficients[i]}x";
+                    }
+                }
+            }
+            //добавляем свободный член
+            if (this.coefficients[this.Size - 1] < 0)
+                str += $"{this.coefficients[this.Size - 1]}";
+            else if (this.coefficients[this.Size - 1] != 0)
+                str += $"+{this.coefficients[this.Size - 1]}";
+
+            //добавляем в конце =0
+            str += "=0";
+            return str;
+        }
+
     }
 }
