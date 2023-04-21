@@ -227,5 +227,17 @@ namespace LW_EquationTest
             Assert.AreNotEqual(b.ToString(), c.ToString());
             Assert.AreNotEqual(a.ToString(), c.ToString());
         }
+        [TestMethod]
+        public void LinearEquationTestMultiplicationByNumber()
+        {
+            LinearEquation a = LinearEquation.SpecLinear(10, 5);
+            LinearEquation b = LinearEquation.SpecLinear(5, 5);
+            LinearEquation c = LinearEquation.SpecLinear(2, 10);
+            Assert.AreEqual(a[0], 5);
+            Assert.AreEqual(b[3], 5);
+            Assert.AreNotEqual(b[0], c[0]);
+            Assert.AreNotEqual(b[1], 1);
+        }
+
     }
 }
