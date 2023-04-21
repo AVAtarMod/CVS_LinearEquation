@@ -119,5 +119,47 @@ namespace LW_Equation
             else
                 return -a.coefficients[1] / coefficients[0];
         }
+        public override string ToString()
+        {
+            string str = "";
+            bool first = true;
+            for (int i = 0; i < this.Size - 1; i++)
+            {
+                if (this.coefficients[i] != 0 && first)
+                {
+                    if (this.coefficients[i] == 1)
+                        str += "x";
+                    else if (this.coefficients[i] == -1)
+                        str += $"-x";
+                    else
+                        str += $"{this.coefficients[i]}x";
+                    first = false;
+                }
+                else
+                {
+                    if (this.coefficients[i] < 0)
+                    {
+                        if (this.coefficients[i] == -1)
+                            str += $"-x";
+                        else
+                            str += $"{this.coefficients[i]}x";
+                    }
+                    else if (this.coefficients[i] != 0)
+                    {
+                        if (this.coefficients[i] == 1)
+                            str += $"+x";
+                        else
+                            str += $"+{this.coefficients[i]}x";
+                    }
+                }
+            }
+            if (this.coefficients[this.Size - 1] < 0)
+                str += $"{this.coefficients[this.Size - 1]}";
+            else if (this.coefficients[this.Size - 1] != 0)
+                str += $"+{this.coefficients[this.Size - 1]}";
+
+            str += "=0";
+            return str;
+        }
     }
 }
