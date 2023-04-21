@@ -170,5 +170,13 @@ namespace LW_Equation
             LinearEquation a = new LinearEquation(array);
             return a;
         }
+        public static LinearEquation SpecLinear(int count, float value)
+        {
+            List<float> ar = new List<float>();
+            for (int i = 0; i < count; i++)
+                ar.Add(value);
+            LinearEquation a = new LinearEquation(ar);
+            return a;
+        }
     }
 }
