@@ -24,7 +24,7 @@ namespace LW_Equation
         /// 
         /// <param name="aN">Последний коэффициент</param>
         /// <param name="coefficients">Остальные коэффициенты</param>
-        public LinearEquation( params float[] coefficients)
+        public LinearEquation(params float[] coefficients)
         {
             this.coefficients = new List<float>();
             this.coefficients.AddRange(coefficients);
@@ -87,6 +87,20 @@ namespace LW_Equation
             { 
                 coefficients[i] = value; 
             }
+        }
+        public static LinearEquation operator +(LinearEquation a, LinearEquation b)
+        {
+            LinearEquation temp = new LinearEquation(a.coefficients);
+            for (int i = 0; i < a.Size; i++)
+                temp.coefficients[i] = a.coefficients[i] + b.coefficients[i];
+            return temp;
+        }
+        public static LinearEquation operator -(LinearEquation a, LinearEquation b)
+        {
+            LinearEquation temp = new LinearEquation(a.coefficients);
+            for (int i = 0; i < a.Size; i++)
+                temp.coefficients[i] = a.coefficients[i] - b.coefficients[i];
+            return temp;
         }
     }
 }
