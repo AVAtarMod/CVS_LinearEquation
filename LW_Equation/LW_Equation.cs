@@ -161,5 +161,14 @@ namespace LW_Equation
             str += "=0";
             return str;
         }
+        static Random rand = new Random();
+        public static LinearEquation RandomLinear(int count)
+        {
+            List<float> array = new List<float>();
+            for (int i = 0; i < count; i++)
+                array.Add(rand.Next(-100, 100));
+            LinearEquation a = new LinearEquation(array);
+            return a;
+        }
     }
 }
