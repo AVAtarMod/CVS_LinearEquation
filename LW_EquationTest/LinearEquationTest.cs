@@ -217,5 +217,15 @@ namespace LW_EquationTest
             string LinEq = a.ToString();
             Assert.AreEqual(LinEq, "x-x+x+2=0");
         }
+        [TestMethod]
+        public void LinearEquationTestRandomLinear()
+        {
+            LinearEquation a = LinearEquation.RandomLinear(3);
+            LinearEquation b = LinearEquation.RandomLinear(2);
+            LinearEquation c = LinearEquation.RandomLinear(1);
+            Assert.AreNotEqual(a.ToString(), b.ToString());
+            Assert.AreNotEqual(b.ToString(), c.ToString());
+            Assert.AreNotEqual(a.ToString(), c.ToString());
+        }
     }
 }
