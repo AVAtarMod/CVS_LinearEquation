@@ -238,6 +238,18 @@ namespace LW_EquationTest
             Assert.AreNotEqual(b[0], c[0]);
             Assert.AreNotEqual(b[1], 1);
         }
+        [TestMethod]
+        public void LinearEquationTestOperatorYmn()
+        {
+            LinearEquation a = new LinearEquation(0, 1, 2);
+            LinearEquation b = new LinearEquation(1, -4, 1.5F);
+            LinearEquation a1 = a * 5;
+            LinearEquation b1 = b * 0;
+            Assert.AreEqual(a1[0], 0F);
+            Assert.AreEqual(a1[1], 5F);
 
+            Assert.AreEqual(b1[0], 0F);
+            Assert.AreEqual(b1[1], 0F);
+        }
     }
 }
