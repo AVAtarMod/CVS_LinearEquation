@@ -201,6 +201,7 @@ namespace LW_EquationTest
             Assert.AreEqual(false, b);
             Assert.AreEqual(true, c);
         }
+
         [TestMethod]
         public void LinearEquationTestGetRezult()
         {
@@ -209,5 +210,12 @@ namespace LW_EquationTest
             Assert.AreEqual(rez, (float)-1);
         }
 
+        [TestMethod]
+        public void LinearEquationToString()
+        {
+            LinearEquation a = new LinearEquation(1, -1, 0, 1, 2);
+            string LinEq = a.ToString();
+            Assert.AreEqual(LinEq, "x-x+x+2=0");
+        }
     }
 }
