@@ -112,5 +112,12 @@ namespace LW_Equation
 
             return false;
         }
+        public float? Get(LinearEquation a)
+        {
+            if (a.Size != 2)
+                return null;
+            else
+                return -a.coefficients[1] / coefficients[0];
+        }
     }
 }
