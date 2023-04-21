@@ -178,5 +178,14 @@ namespace LW_Equation
             LinearEquation a = new LinearEquation(ar);
             return a;
         }
+        public static LinearEquation operator *(LinearEquation a, float value)
+        {
+            for (int i = 0; i < a.Size; i++)
+            {
+                a.coefficients[i] *= value;
+                a.coefficients[i] = (float)Math.Round(a.coefficients[i], 2);
+            }
+            return a;
+        }
     }
 }
