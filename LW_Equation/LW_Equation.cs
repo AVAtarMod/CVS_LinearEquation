@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LW_Equation
 {
-    using System.Runtime.CompilerServices;
-    using System.Runtime.ExceptionServices;
+    using System.Numerics;
 
     public class LinearEquation
     {
@@ -37,6 +33,28 @@ namespace LW_Equation
         {
             this.coefficients = new List<float>();
             this.coefficients = coefficients;
+        }
+
+        public LinearEquation(char s, int count)
+        {
+            List<float> coef = new List<float>();
+            switch (s)
+            {
+                case 'r':
+                    {
+                        Random rnd = new Random();
+                        for (int i = 0; i < count; i++)
+                            coef.Add(rnd.Next(100));
+                    }
+                    break;
+
+                case 'o':
+                    {
+                        for(int i = 0; i < count; ++i)
+                            coef.Add(i);
+                    }
+                    break;
+            }
         }
 
         //static public bool operator ==(LinearEquation linear_A,LinearEquation obj)
