@@ -8,7 +8,7 @@ namespace LW_Equation
 {
     public class LinearEquation
     {
-        List<float> coefficients;
+        List<float> coefficients = new List<float>();
         public int Size => coefficients.Count;
 
         /// <summary>
@@ -24,14 +24,12 @@ namespace LW_Equation
         /// 
         /// <param name="aN">Последний коэффициент</param>
         /// <param name="coefficients">Остальные коэффициенты</param>
-        public LinearEquation(float aN, params float[] coefficients)
-        {
-            this.coefficients.AddRange(coefficients);
-            this.coefficients.Add(aN);
+        public LinearEquation(params float[] coefficients)
+        {        
+            this.coefficients.AddRange(coefficients);           
         }
         public LinearEquation(List<float> coefficients)
         {
-            this.coefficients = new List<float>();
             this.coefficients = coefficients;
         }
 
