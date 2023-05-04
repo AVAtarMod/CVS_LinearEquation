@@ -39,7 +39,8 @@ namespace LW_Equation
         static public LinearEquation operator +(LinearEquation first, float second)
         {
             LinearEquation equation = first;
-            equation.coefficients[0] *= second;
+            int lastc = equation.coefficients.Count - 1 ;
+            equation.coefficients[lastc] += second;
             return equation;
         }
         /// <summary>
@@ -48,7 +49,8 @@ namespace LW_Equation
         static public LinearEquation operator -(LinearEquation first, float second)
         {
             LinearEquation equation = first;
-            equation.coefficients[0] /= second;
+            int lastc = equation.coefficients.Count - 1;
+            equation.coefficients[lastc] -= second;
             return equation;
         }
         public override bool Equals(object obj)
