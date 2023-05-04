@@ -80,5 +80,16 @@ namespace LW_Equation
         {
             get { return coefficients[i]; }
         }
+        static public LinearEquation operator -(LinearEquation first,LinearEquation second)
+        {
+            if (first.Size != second.Size)
+                throw new IndexOutOfRangeException("Разная размерность");
+            List<float> result = new List<float>();
+            for (int i = 0; i < second.Size; i++)
+            {
+                result.Add(first[i] - second[i]);
+            }
+            return new LinearEquation(result);
+        }
     }
 }
