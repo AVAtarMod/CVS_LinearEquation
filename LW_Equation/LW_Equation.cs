@@ -108,5 +108,25 @@ namespace LW_Equation
             return new LinearEquation(result);
 
         }
+        static public implicit operator bool(LinearEquation first)
+        {
+            int lastk = first.Size - 1;
+
+            if (first[lastk] == 0)
+            {
+                return true;
+            }
+            else
+            {
+                for (int i = 0; i < lastk; i++)
+                {
+                    if (first[i] != 0)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
     }
 }
