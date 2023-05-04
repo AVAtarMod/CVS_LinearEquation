@@ -102,5 +102,20 @@ namespace LW_Equation
             }
             return new LinearEquation(result);
         }
+        static public implicit operator bool(LinearEquation first)
+        {
+            int lastCoef = first.Size - 1;
+            if (first[lastCoef] == 0)
+                return true;
+            else
+            {
+                for(int i = 0; i < lastCoef; i++)
+                {
+                    if (first[i] != 0)
+                        return true;
+                }
+                return false;
+            }
+        }
     }
 }
