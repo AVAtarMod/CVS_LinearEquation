@@ -172,5 +172,17 @@ namespace LW_EquationTest
 
             Assert.AreEqual(new LinearEquation(1, 2F), result);
         }
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqMinusFloat7()
+        {
+            LinearEquation a = new LinearEquation(1, 3);
+            LinearEquation b  = new LinearEquation(3,4);
+
+            LinearEquation result = a + b;
+
+            Assert.AreEqual(4, result[0]);
+            Assert.AreEqual(7, result[1]);
+        }
     }
+
 }
