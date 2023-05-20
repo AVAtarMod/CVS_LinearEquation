@@ -239,6 +239,17 @@ namespace LW_EquationTest
 
             Assert.IsTrue(b);
         }
+
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqMinusFloat13()
+        {
+            LinearEquation a = new LinearEquation(1, 2, 3);
+            a.Same_Coef(a,5);
+            string equation = a.Equation_ToString(a);
+            bool b = ((a[0] == 5) && (a[1] == 5) && (a[2] == 5));
+
+            Assert.IsTrue(b);
+        }
     }
 
 }
