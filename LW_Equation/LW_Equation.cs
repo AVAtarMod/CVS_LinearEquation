@@ -171,7 +171,7 @@ namespace LW_Equation
 
         public void Same_Coef(LinearEquation first, int a)
         {
-            
+
             for (int i = 0; i < first.Size; i++)
             {
                 first.coefficients[i] = a;
