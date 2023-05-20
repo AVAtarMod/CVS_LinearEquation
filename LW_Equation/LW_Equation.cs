@@ -131,15 +131,15 @@ namespace LW_Equation
         public int? Solution_Equation(LinearEquation first)
         {
             int solut = 0;
-            for(int i = -10000; i < 10000; i++)
+            for (int i = -10000; i < 10000; i++)
             {
-                if(first[0] * i + first[1] == 0)
+                if (first[0] * i + first[1] == 0)
                 {
                     solut = i;
                     return solut;
                 }
             }
-            
+
             return null;
         }
 
