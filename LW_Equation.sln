@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LW_Equation", "LW_Equation\LW_Equation.csproj", "{2F479738-3D10-4F3A-BB0F-FBF0DD0B97F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LW_Equation", "LW_Equation\LW_Equation.csproj", "{2F479738-3D10-4F3A-BB0F-FBF0DD0B97F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LW_EquationTest", "LW_EquationTest\LW_EquationTest.csproj", "{D9306BC3-C40A-49B4-A435-F05A6BD6F77B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LW_EquationTest", "LW_EquationTest\LW_EquationTest.csproj", "{D9306BC3-C40A-49B4-A435-F05A6BD6F77B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2F479738-3D10-4F3A-BB0F-FBF0DD0B97F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -44,5 +41,11 @@ Global
 		{D9306BC3-C40A-49B4-A435-F05A6BD6F77B}.Release|x64.Build.0 = Release|Any CPU
 		{D9306BC3-C40A-49B4-A435-F05A6BD6F77B}.Release|x86.ActiveCfg = Release|Any CPU
 		{D9306BC3-C40A-49B4-A435-F05A6BD6F77B}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1435FF13-6525-44A5-9584-4ADC0BF55D58}
 	EndGlobalSection
 EndGlobal

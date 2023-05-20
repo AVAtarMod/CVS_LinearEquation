@@ -204,6 +204,20 @@ namespace LW_EquationTest
             Assert.AreEqual(b, true);
             Assert.AreEqual(a, false);
         }
+
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqMinusFloat10()
+        {
+            LinearEquation a = new LinearEquation(1, 2);
+            int? b = a.Solution_Equation(a);
+
+            LinearEquation c = new LinearEquation(0, 2);
+            int? d = c.Solution_Equation(c);
+
+            Assert.AreEqual(d, null);
+            Assert.AreEqual(b, -2);
+        }
+
     }
 
 }
