@@ -176,7 +176,7 @@ namespace LW_EquationTest
         public void LinearEquationTestOpeartorEqMinusFloat7()
         {
             LinearEquation a = new LinearEquation(1, 3);
-            LinearEquation b  = new LinearEquation(3,4);
+            LinearEquation b = new LinearEquation(3, 4);
 
             LinearEquation result = a + b;
 
@@ -199,7 +199,7 @@ namespace LW_EquationTest
         public void LinearEquationTestOpeartorEqMinusFloat9()
         {
             LinearEquation a = new LinearEquation(0, 3);
-            LinearEquation b = new LinearEquation(2,4);
+            LinearEquation b = new LinearEquation(2, 4);
 
             Assert.AreEqual(b, true);
             Assert.AreEqual(a, false);
@@ -220,7 +220,7 @@ namespace LW_EquationTest
         [TestMethod]
         public void LinearEquationTestOpeartorEqMinusFloat11()
         {
-            LinearEquation a = new LinearEquation(1, 2,3,4);
+            LinearEquation a = new LinearEquation(1, 2, 3, 4);
             string equation = a.Equation_ToString(a);
 
             LinearEquation b = new LinearEquation(0, 1);
@@ -228,6 +228,16 @@ namespace LW_EquationTest
 
             Assert.AreEqual(equation2, "0x + 1 = 0");
             Assert.AreEqual(equation, "1x + 2y + 3z + 4 = 0");
+        }
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqMinusFloat12()
+        {
+            LinearEquation a = new LinearEquation(1,2,3);
+            a.Random_Coef(a);
+            string equation = a.Equation_ToString(a);
+            bool b = ((a[0] != 1) || (a[1] != 2) || (a[2] != 3));
+
+            Assert.IsTrue(b);
         }
     }
 

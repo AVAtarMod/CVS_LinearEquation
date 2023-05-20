@@ -150,10 +150,22 @@ namespace LW_Equation
             int size = first.Size;
             for (int i = 0; i < size - 1; i++)
             {
-                equation = equation + first[i].ToString() + variables[i] + " + ";
+                
+                equation = equation + first[i].ToString() + variables[i];
+                if (first[i + 1] >= 0)
+                    equation = equation + " + ";
+                else
+                    equation = equation + " ";
             }
             return equation + first[size - 1].ToString() + " = 0";
         }
-
+        public void Random_Coef(LinearEquation first)
+        {
+            Random r = new Random();
+            for(int i = 0;i< first.Size; i++)
+            {
+                first.coefficients[i] = r.Next(-100,100);
+            }
+        }
     }
 }
