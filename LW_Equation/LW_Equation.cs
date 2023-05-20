@@ -178,9 +178,9 @@ namespace LW_Equation
             }
         }
 
-        public void Multiplicaton_Of_Equation(LinearEquation first,float a)
+        public void Multiplicaton_Of_Equation(LinearEquation first, float a)
         {
-            for(int i = 0; i <first.Size; i++)
+            for (int i = 0; i < first.Size; i++)
             {
                 first.coefficients[i] = first.coefficients[i] * a;
             }
