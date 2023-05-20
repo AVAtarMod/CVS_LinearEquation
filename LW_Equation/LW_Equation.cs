@@ -159,12 +159,13 @@ namespace LW_Equation
             }
             return equation + first[size - 1].ToString() + " = 0";
         }
+
         public void Random_Coef(LinearEquation first)
         {
             Random r = new Random();
-            for(int i = 0;i< first.Size; i++)
+            for (int i = 0; i < first.Size; i++)
             {
-                first.coefficients[i] = r.Next(-100,100);
+                first.coefficients[i] = r.Next(-100, 100);
             }
         }
     }
