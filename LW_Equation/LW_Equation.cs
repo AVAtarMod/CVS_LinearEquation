@@ -146,13 +146,13 @@ namespace LW_Equation
         public string Equation_ToString(LinearEquation first)
         {
             string variables = "xyzfmbc";
-            string equation ="";
+            string equation = "";
             int size = first.Size;
-            for(int i = 0; i < size - 1; i++)
+            for (int i = 0; i < size - 1; i++)
             {
                 equation = equation + first[i].ToString() + variables[i] + " + ";
             }
-            return equation  +first[size-1].ToString() + " = 0";
+            return equation + first[size - 1].ToString() + " = 0";
         }
 
     }
