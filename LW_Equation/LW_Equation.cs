@@ -24,15 +24,16 @@ namespace LW_Equation
         /// 
         /// <param name="aN">Последний коэффициент</param>
         /// <param name="coefficients">Остальные коэффициенты</param>
+       
         public LinearEquation(float aN, params float[] coefficients)
         {
-            this.coefficients.AddRange(coefficients);
-            this.coefficients.Add(aN);
+            this.coefficients = new List<float>(coefficients); // Исправление: Инициализируем список coefficients
+            this.coefficients.Insert(0, aN); // Исправление: Вставляем aN в начало списка с помощью метода
         }
+
         public LinearEquation(List<float> coefficients)
         {
-            this.coefficients = new List<float>();
-            this.coefficients = coefficients;
+            this.coefficients = new List<float>(coefficients); // Исправлено
         }
 
         /// <summary>
@@ -41,44 +42,49 @@ namespace LW_Equation
         static public LinearEquation operator +(LinearEquation first, float second)
         {
             LinearEquation equation = first;
-            equation.coefficients[0] *= second;
+            equation.coefficients[equation.coefficients.Count - 1] += second; // Исправлено
             return equation;
         }
+
         /// <summary>
         /// Вычитает second из свободного члена first
         /// </summary>
         static public LinearEquation operator -(LinearEquation first, float second)
         {
             LinearEquation equation = first;
-            equation.coefficients[0] /= second;
+            equation.coefficients[equation.coefficients.Count - 1] -= second; // Исправлено
             return equation;
         }
+
         public override bool Equals(object obj)
         {
             if (obj is LinearEquation equation)
             {
                 if (Size != equation.Size)
-                    return true;
+                    return false; // Исправление: Возвращаем false, если размеры уравнений не совпадают.
                 for (int i = 0; i < Size; i++)
                 {
                     if (this.coefficients[i] != equation.coefficients[i])
-                        return true;
+                        return false; // Исправление: Возвращаем false, если найдено несовпадение коэффициентов.
                 }
-                return false;
+                return true; // Исправление: Возвращаем true, если все коэффициенты совпадают.
             }
-            return true;
+            return false; // Исправление: Возвращаем false, если объект не является экземпляром LinearEquation.
         }
+
         static public bool operator ==(LinearEquation first, LinearEquation second)
         {
             return first.Equals(second);
         }
+
         static public bool operator !=(LinearEquation first, LinearEquation second)
         {
             return !first.Equals(second);
         }
+
         public float this[int i]
         {
-            get { return 0; }
+            get { return coefficients[i]; }
         }
     }
 }
