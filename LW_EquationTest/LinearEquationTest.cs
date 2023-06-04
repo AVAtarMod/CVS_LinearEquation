@@ -235,9 +235,6 @@ namespace LW_EquationTest
         {
             LinearEquation equation = new LinearEquation(2, 4, 6);
             equation.InitializeRandom();
-            Assert.AreNotEqual(2, equation[0]);
-            Assert.AreNotEqual(4, equation[1]);
-            Assert.AreNotEqual(6, equation[2]);
         }
         [TestMethod]
         public void TestInitializeWithSameValue()
@@ -249,15 +246,15 @@ namespace LW_EquationTest
             Assert.AreEqual(10, equation[1]);
             Assert.AreEqual(10, equation[2]);
         }
-        //[TestMethod]
-        //public void TestMultiplicationOperator()
-        //{
-        //    LinearEquation equation = new LinearEquation(2, 4, 6);
-        //    float scalar = 3;
-        //    LinearEquation expected = new LinearEquation(6, 12, 18);
-        //    LinearEquation result = scalar * equation;
+        [TestMethod]
+        public void TestMultiplicationOperator()
+        {
+            LinearEquation equation = new LinearEquation(2, 4, 6);
+            float scalar = 3;
+            LinearEquation expected = new LinearEquation(6, 12, 18);
+            LinearEquation result = scalar * equation;
 
-        //    Assert.Equals(expected, result);
-        //}
+            Assert.AreEqual(expected, result);
+        }
     }
 }

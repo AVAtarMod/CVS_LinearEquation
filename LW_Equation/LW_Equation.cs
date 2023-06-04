@@ -185,5 +185,18 @@ namespace LW_Equation
                 coefficients[i] = value;
             }
         }
+
+        public static LinearEquation operator *(float scalar, LinearEquation equation)
+        {
+            int n = equation.coefficients.Count;
+            float[] resultCoefficients = new float[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                resultCoefficients[i] = scalar * equation.coefficients[i];
+            }
+
+            return new LinearEquation(resultCoefficients);
+        }
     }
 }
