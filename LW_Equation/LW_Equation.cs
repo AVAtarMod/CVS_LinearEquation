@@ -165,5 +165,17 @@ namespace LW_Equation
 
             return equationString;
         }
+
+        public void InitializeRandom()
+        {
+            Random random = new Random();
+
+            for (int i = 0; i < coefficients.Count - 1; i++)
+            {
+                coefficients[i] = random.Next(-10, 10);
+            }
+
+            coefficients[coefficients.Count - 1] = random.Next(-10, 10);
+        }
     }
 }

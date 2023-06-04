@@ -230,15 +230,15 @@ namespace LW_EquationTest
 
             Assert.AreEqual(expected, result);
         }
-        //[TestMethod]
-        //public void TestInitializeRandom()
-        //{
-        //    LinearEquation equation = new LinearEquation(2, 4, 6);
-        //    equation.InitializeRandom();
-        //    Assert.AreNotEqual(2, equation[0]);
-        //    Assert.AreNotEqual(4, equation[1]);
-        //    Assert.AreNotEqual(6, equation[2]);
-        //}
+        [TestMethod]
+        public void TestInitializeRandom()
+        {
+            LinearEquation equation = new LinearEquation(2, 4, 6);
+            equation.InitializeRandom();
+            Assert.AreNotEqual(2, equation[0]);
+            Assert.AreNotEqual(4, equation[1]);
+            Assert.AreNotEqual(6, equation[2]);
+        }
         //[TestMethod]
         //public void TestInitializeWithSameValue()
         //{
