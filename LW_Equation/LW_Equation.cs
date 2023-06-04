@@ -31,6 +31,11 @@ namespace LW_Equation
             this.coefficients.Insert(0, aN); // Исправление: Вставляем aN в начало списка с помощью метода
         }
 
+        public LinearEquation(params float[] coefficients)
+        {
+            this.coefficients = new List<float>(coefficients); // Исправление: Инициализируем список coefficients
+        }
+
         public LinearEquation(List<float> coefficients)
         {
             this.coefficients = new List<float>(coefficients); // Исправлено
@@ -100,7 +105,7 @@ namespace LW_Equation
                 resultCoefficients[i] = equation1.coefficients[i] + equation2.coefficients[i];
             }
 
-            return new LinearEquation(resultCoefficients[resultCoefficients.Length - 1], resultCoefficients);
+            return new LinearEquation(resultCoefficients);
         }
 
         public static LinearEquation operator -(LinearEquation equation1, LinearEquation equation2)
@@ -116,8 +121,21 @@ namespace LW_Equation
                 resultCoefficients[i] = equation1.coefficients[i] - equation2.coefficients[i];
             }
 
-            return new LinearEquation(resultCoefficients[resultCoefficients.Length - 1], resultCoefficients);
+            return new LinearEquation(resultCoefficients);
         }
 
+        public bool HasSolution()
+        {
+            if (coefficients.Count == 2)
+            {
+                float a = coefficients[0];
+                float b = coefficients[1];
+
+                return a != 0;
+            }
+
+            // Если количество неизвестных больше или меньше 1, считаем, что решения нет
+            return false;
+        }
     }
 }
