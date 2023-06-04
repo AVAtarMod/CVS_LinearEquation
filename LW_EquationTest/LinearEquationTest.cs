@@ -172,5 +172,97 @@ namespace LW_EquationTest
 
             Assert.AreEqual(new LinearEquation(1, 2F), result);
         }
+        [TestMethod]
+        public void TestAdditionOperator()
+        {
+            LinearEquation equation1 = new LinearEquation(1, 2, 3);
+            LinearEquation equation2 = new LinearEquation(4, 5, 6);
+            LinearEquation expected = new LinearEquation(5, 7, 9);
+            LinearEquation result = equation1 + equation2;
+
+            Assert.Equals(expected, result);
+        }
+
+        [TestMethod]
+        public void TestSubtractionOperator()
+        {
+            LinearEquation equation1 = new LinearEquation(1, 2, 3);
+            LinearEquation equation2 = new LinearEquation(4, 5, 6);
+            LinearEquation expected = new LinearEquation(-3, -3, -3);
+            LinearEquation result = equation1 - equation2;
+
+            Assert.Equals(expected, result);
+        }
+        [TestMethod]
+        public void TestBooleanOperatorWithSolution()
+        {
+            LinearEquation equation = new LinearEquation(2, 4);
+            bool result = equation;
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void TestBooleanOperatorWithoutSolution()
+        {
+            LinearEquation equation = new LinearEquation(0, 4);
+            bool result = equation;
+
+            Assert.IsFalse(result);
+        }
+        [TestMethod]
+        public void TestSolveSingleUnknown()
+        {
+            LinearEquation equation = new LinearEquation(2, 4);
+            float expected = -2f;
+            float result = equation.Solve();
+
+            Assert.Equals(expected, result);
+        }
+        [TestMethod]
+        public void TestSolveMultipleUnknowns()
+        {
+            LinearEquation equation = new LinearEquation(2, 4, 6);
+
+            Assert.ThrowsException<InvalidOperationException>(() => equation.Solve());
+        }
+        [TestMethod]
+        public void TestToString()
+        {
+            LinearEquation equation = new LinearEquation(2, 4, 6);
+            string expected = "2x1 + 4x2 + 6 = 0";
+            string result = equation.ToString();
+
+            Assert.Equals(expected, result);
+        }
+        [TestMethod]
+        public void TestInitializeRandom()
+        {
+            LinearEquation equation = new LinearEquation(2, 4, 6);
+            equation.InitializeRandom();
+            Assert.AreNotEqual(2, equation[0]);
+            Assert.AreNotEqual(4, equation[1]);
+            Assert.AreNotEqual(6, equation[2]);
+        }
+        [TestMethod]
+        public void TestInitializeWithSameValue()
+        {
+            LinearEquation equation = new LinearEquation(2, 4, 6);
+            equation.InitializeWithSameValue(10);
+
+            Assert.Equals(10, equation[0]);
+            Assert.Equals(10, equation[1]);
+            Assert.Equals(10, equation[2]);
+        }
+        [TestMethod]
+        public void TestMultiplicationOperator()
+        {
+            LinearEquation equation = new LinearEquation(2, 4, 6);
+            float scalar = 3;
+            LinearEquation expected = new LinearEquation(6, 12, 18);
+            LinearEquation result = scalar * equation;
+
+            Assert.Equals(expected, result);
+        }
     }
 }
