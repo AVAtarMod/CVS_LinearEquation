@@ -177,5 +177,13 @@ namespace LW_Equation
 
             coefficients[coefficients.Count - 1] = random.Next(-10, 10);
         }
+
+        public void InitializeWithSameValue(float value)
+        {
+            for (int i = 0; i < coefficients.Count; i++)
+            {
+                coefficients[i] = value;
+            }
+        }
     }
 }

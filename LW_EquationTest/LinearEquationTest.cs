@@ -239,16 +239,16 @@ namespace LW_EquationTest
             Assert.AreNotEqual(4, equation[1]);
             Assert.AreNotEqual(6, equation[2]);
         }
-        //[TestMethod]
-        //public void TestInitializeWithSameValue()
-        //{
-        //    LinearEquation equation = new LinearEquation(2, 4, 6);
-        //    equation.InitializeWithSameValue(10);
+        [TestMethod]
+        public void TestInitializeWithSameValue()
+        {
+            LinearEquation equation = new LinearEquation(2, 4, 6);
+            equation.InitializeWithSameValue(10);
 
-        //    Assert.Equals(10, equation[0]);
-        //    Assert.Equals(10, equation[1]);
-        //    Assert.Equals(10, equation[2]);
-        //}
+            Assert.AreEqual(10, equation[0]);
+            Assert.AreEqual(10, equation[1]);
+            Assert.AreEqual(10, equation[2]);
+        }
         //[TestMethod]
         //public void TestMultiplicationOperator()
         //{
