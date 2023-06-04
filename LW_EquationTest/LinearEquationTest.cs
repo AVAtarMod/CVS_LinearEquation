@@ -221,15 +221,15 @@ namespace LW_EquationTest
 
             Assert.ThrowsException<InvalidOperationException>(() => equation.Solve());
         }
-        //[TestMethod]
-        //public void TestToString()
-        //{
-        //    LinearEquation equation = new LinearEquation(2, 4, 6);
-        //    string expected = "2x1 + 4x2 + 6 = 0";
-        //    string result = equation.ToString();
+        [TestMethod]
+        public void TestToString()
+        {
+            LinearEquation equation = new LinearEquation(2, 4, 6);
+            string expected = "2x1 + 4x2 + 6 = 0";
+            string result = equation.ToString();
 
-        //    Assert.Equals(expected, result);
-        //}
+            Assert.AreEqual(expected, result);
+        }
         //[TestMethod]
         //public void TestInitializeRandom()
         //{

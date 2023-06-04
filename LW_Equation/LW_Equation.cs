@@ -150,5 +150,20 @@ namespace LW_Equation
 
             throw new InvalidOperationException("Solving the equation is not supported for equations with more than one unknown.");
         }
+
+        public override string ToString()
+        {
+            int n = coefficients.Count - 1;
+            string equationString = "";
+
+            for (int i = 0; i < n; i++)
+            {
+                equationString += $"{coefficients[i]}x{i + 1} + ";
+            }
+
+            equationString += $"{coefficients[n]} = 0";
+
+            return equationString;
+        }
     }
 }
