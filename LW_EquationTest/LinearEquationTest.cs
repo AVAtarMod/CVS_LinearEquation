@@ -205,22 +205,22 @@ namespace LW_EquationTest
             Assert.IsTrue(result1);
             Assert.IsFalse(result2);
         }
-        //[TestMethod]
-        //public void TestSolveSingleUnknown()
-        //{
-        //    LinearEquation equation = new LinearEquation(2, 4);
-        //    float expected = -2f;
-        //    float result = equation.Solve();
+        [TestMethod]
+        public void TestSolveSingleUnknown()
+        {
+            LinearEquation equation = new LinearEquation(2, 4);
+            float expected = -2f;
+            float result = equation.Solve();
 
-        //    Assert.Equals(expected, result);
-        //}
-        //[TestMethod]
-        //public void TestSolveMultipleUnknowns()
-        //{
-        //    LinearEquation equation = new LinearEquation(2, 4, 6);
+            Assert.AreEqual(expected, result);
+        }
+        [TestMethod]
+        public void TestSolveMultipleUnknowns()
+        {
+            LinearEquation equation = new LinearEquation(2, 4, 6);
 
-        //    Assert.ThrowsException<InvalidOperationException>(() => equation.Solve());
-        //}
+            Assert.ThrowsException<InvalidOperationException>(() => equation.Solve());
+        }
         //[TestMethod]
         //public void TestToString()
         //{

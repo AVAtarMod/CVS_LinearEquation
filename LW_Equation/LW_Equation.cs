@@ -137,5 +137,18 @@ namespace LW_Equation
             // Если количество неизвестных больше или меньше 1, считаем, что решения нет
             return false;
         }
+
+        public float Solve()
+        {
+            if (coefficients.Count == 2)
+            {
+                if (coefficients[0] == 0)
+                    throw new InvalidOperationException("The equation has no solution.");
+
+                return -coefficients[1] / coefficients[0];
+            }
+
+            throw new InvalidOperationException("Solving the equation is not supported for equations with more than one unknown.");
+        }
     }
 }
