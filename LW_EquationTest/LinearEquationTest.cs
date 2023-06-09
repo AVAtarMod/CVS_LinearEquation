@@ -205,5 +205,14 @@ namespace LW_EquationTest
             Assert.AreEqual(false, b);
             Assert.AreEqual(true, c);
         }
+        [TestMethod]
+        public void LinearEquationTestGetRezult()
+        {
+            LinearEquation a = new LinearEquation(5, 7);
+            //5x+7=0
+            //x=-7/5
+            float? rez = a.GetRoot(a);
+            Assert.AreEqual(rez, (float)-1.4);
+        }
     }
 }
