@@ -24,10 +24,10 @@ namespace LW_Equation
         /// 
         /// <param name="aN">Последний коэффициент</param>
         /// <param name="coefficients">Остальные коэффициенты</param>
-        public LinearEquation(float aN, params float[] coefficients)
+        public LinearEquation(params float[] coefficients)
         {
+            this.coefficients = new List<float>();
             this.coefficients.AddRange(coefficients);
-            this.coefficients.Add(aN);
         }
         public LinearEquation(List<float> coefficients)
         {
