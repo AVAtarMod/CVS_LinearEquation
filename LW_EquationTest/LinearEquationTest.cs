@@ -194,5 +194,16 @@ namespace LW_EquationTest
             Assert.AreEqual(9, c[1]);
             Assert.AreEqual(8, c[2]);
         }
+        [TestMethod]
+        public void LinearEquationTestOpeartorBool()
+        {
+            LinearEquation a = new LinearEquation(0, 0, 4);
+            LinearEquation b = new LinearEquation(1);
+            LinearEquation c = new LinearEquation(1, 4, 3);
+
+            Assert.AreEqual(false, a);
+            Assert.AreEqual(false, b);
+            Assert.AreEqual(true, c);
+        }
     }
 }
