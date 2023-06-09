@@ -250,5 +250,26 @@ namespace LW_EquationTest
             Assert.AreNotEqual(a[0], d[0]);
             Assert.AreNotEqual(a[1], 1);
         }
+        [TestMethod]
+        public void LinearEquationTestMultiplicationByNumber()
+        {
+            LinearEquation a = new LinearEquation(0, 1, 4);
+            LinearEquation b = new LinearEquation(1, -4, 3.3F);
+            LinearEquation c = new LinearEquation(1.1F, 4, 3.1F);
+            LinearEquation a1 = a * 5;
+            LinearEquation b1 = b * 0;
+            LinearEquation c1 = c * 1.5F;
+            Assert.AreEqual(a1[0], 0F);
+            Assert.AreEqual(a1[1], 5F);
+            Assert.AreEqual(a1[2], 20F);
+
+            Assert.AreEqual(b1[0], 0F);
+            Assert.AreEqual(b1[1], 0F);
+            Assert.AreEqual(b1[2], 0F);
+
+            Assert.AreEqual(c1[0], 1.65F);
+            Assert.AreEqual(c1[1], 6F);
+            Assert.AreEqual(c1[2], 4.65F);
+        }
     }
 }
