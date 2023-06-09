@@ -235,5 +235,20 @@ namespace LW_EquationTest
             Assert.AreNotEqual(c.ToString(), d.ToString());
             Assert.AreNotEqual(a.ToString(), c.ToString());
         }
+        [TestMethod]
+        public void LinearEquationTestAddSpecificNumberInLinearEq()
+        {
+            LinearEquation a = LinearEquation.SpecificLinearEq(5, 3);
+            LinearEquation b = LinearEquation.SpecificLinearEq(5, 3);
+            LinearEquation c = LinearEquation.SpecificLinearEq(4, 3);
+            LinearEquation d = LinearEquation.SpecificLinearEq(3, 1);
+            Assert.AreEqual(a[0], 3);
+            Assert.AreEqual(a[3], 3);
+            Assert.AreEqual(a[4], b[4]);
+            Assert.AreEqual(b[3], 3);
+            Assert.AreEqual(b[3], c[3]);
+            Assert.AreNotEqual(a[0], d[0]);
+            Assert.AreNotEqual(a[1], 1);
+        }
     }
 }
