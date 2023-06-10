@@ -22,13 +22,13 @@ namespace LW_Equation
             this.coefficients = new List<float>();
             this.coefficients = coefficients;
         }
-        public LinearEquation operator +(LinearEquation first, float second)
+        static public LinearEquation operator +(LinearEquation first, float second)
         {
             LinearEquation equation = first;
             equation.coefficients[0] *= second;
             return equation;
         }
-        public LinearEquation operator -(LinearEquation first, float second)
+        static public LinearEquation operator -(LinearEquation first, float second)
         {
             LinearEquation equation = first;
             equation.coefficients[0] /= second;
@@ -49,11 +49,11 @@ namespace LW_Equation
             }
             return true;
         }
-        public bool operator ==(LinearEquation first, LinearEquation second)
+        static public bool operator ==(LinearEquation first, LinearEquation second)
         {
             return first.Equals(second);
         }
-        public bool operator !=(LinearEquation first, LinearEquation second)
+        static public bool operator !=(LinearEquation first, LinearEquation second)
         {
             return !first.Equals(second);
         }
