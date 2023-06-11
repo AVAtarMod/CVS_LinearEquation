@@ -53,6 +53,12 @@ namespace LW_Equation
             equation.coefficients[0] /= second;
             return equation;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         public override bool Equals(object obj)
         {
             if (obj is LinearEquation equation)
