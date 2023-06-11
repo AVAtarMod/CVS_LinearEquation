@@ -225,9 +225,18 @@ namespace LW_EquationTest
         [TestMethod]
         public void LinearEquationTestRandomLinearEquation()
         {
-            LinearEquation a = new RandomLinearEquation(2);
-            LinearEquation b = new RandomLinearEquation(2);
+            LinearEquation a = LinearEquation.RandomLinearEquation(2);
+            LinearEquation b = LinearEquation.RandomLinearEquation(2);
             Assert.AreNotEqual(a, b);
+        }
+        public void LinearEquationTestSameLinearEquation()
+        {
+            LinearEquation a = LinearEquation.SameLinearEquation(2, 4);
+            LinearEquation b = LinearEquation.SameLinearEquation(2, 4);
+            for (int i = 0; i < a.Size; i++)
+            {
+                Assert.AreEqual(a[i], b[i]);
+            }
         }
     }
 }
