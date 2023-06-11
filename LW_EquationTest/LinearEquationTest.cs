@@ -172,6 +172,7 @@ namespace LW_EquationTest
 
             Assert.AreEqual(new LinearEquation(1, 2F), result);
         }
+        [TestMethod]
         public void LinearEquationTestOpeartorEqMinusFloat7()
         {
             LinearEquation a = new LinearEquation(1, 3);
@@ -182,6 +183,7 @@ namespace LW_EquationTest
             Assert.AreEqual(4, result[0]);
             Assert.AreEqual(7, result[1]);
         }
+        [TestMethod]
         public void LinearEquationTestOpeartorEqMinusFloat8()
         {
             LinearEquation a = new LinearEquation(1, 3);
@@ -192,6 +194,7 @@ namespace LW_EquationTest
             Assert.AreEqual(-2, result[0]);
             Assert.AreEqual(-1, result[1]);
         }
+        [TestMethod]
         public void LinearEquationTestOpeartorEqMinusFloat9()
         {
             LinearEquation a = new LinearEquation(0, 3);
@@ -199,6 +202,15 @@ namespace LW_EquationTest
 
             Assert.AreEqual(a, false);
             Assert.AreEqual(b, true);
+        }
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqMinusFloat10()
+        {
+            LinearEquation a = new LinearEquation(1, 3);
+            LinearEquation b = new LinearEquation(0,4);
+
+            Assert.AreEqual(a.GetSolution(a), -3);
+            Assert.AreEqual(b.GetSolution(b), null);
         }
     }
 }
