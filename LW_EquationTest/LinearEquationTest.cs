@@ -239,5 +239,14 @@ namespace LW_EquationTest
             bool isSame = ((a[0] == 2) && (a[1] == 2) && (a[2] == 2) && (a[3] == 2));
             Assert.IsTrue(isSame);
         }
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqMinusFloat14()
+        {
+            LinearEquation a = new LinearEquation(1, 2, 3);
+            a.Multiplication(a, 4);
+
+            bool isMultiplicate = ((a[0] == 4) && (a[1] == 8) && (a[2] == 12));
+            Assert.IsTrue(isMultiplicate);
+        }
     }
 }
