@@ -35,7 +35,6 @@ namespace LW_Equation
             this.coefficients = new List<float>();
             this.coefficients = coefficients;
         }
-
         /// <summary>
         /// Суммирует свободный член first с second
         /// </summary>
@@ -96,6 +95,15 @@ namespace LW_Equation
             return -a.coefficients[1] / coefficients[0];
         }
 
+        public static LinearEquation RandomLinearEquation(int size)
+        {
+            List<float> temp = new List<float>();
+            for (int i = 0; i < size; i++)
+            {
+                temp.Add((new Random()).Next(-100, 100));
+            }
+            return new LinearEquation(temp);
+        }
         public override string ToString()
         {
             string tempStr = "";
@@ -118,7 +126,6 @@ namespace LW_Equation
             else tempStr += "+" + this.coefficients[coefficients.Count - 1];
             return tempStr;
         }
-
         public override int GetHashCode()
         {
             return base.GetHashCode();
