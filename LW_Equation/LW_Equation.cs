@@ -117,5 +117,19 @@ namespace LW_Equation
                 return false;
             }
         }
+        public float? GetSolution(LinearEquation first)
+        {
+            if(first.Size > 2)
+                throw new IndexOutOfRangeException("Уравнение имеет более 1 неизвестной");
+            if (first[0] == 0)
+            {
+                return null;
+            }
+            else
+            {
+                float solution = -1 *first[1]/ first[0];
+                return solution;
+            }
+        }
     }
 }
