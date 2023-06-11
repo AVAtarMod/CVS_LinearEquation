@@ -221,5 +221,14 @@ namespace LW_EquationTest
             Assert.AreEqual(a.EquationToString(a), "0x + 3 = 0");
             Assert.AreEqual(b.EquationToString(b), "1x + 2y + 3z + 7 = 0");
         }
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqMinusFloat12()
+        {
+            LinearEquation a = new LinearEquation(1, 2, 3, 4,5,6);
+            a.InitializeRandom(a);
+
+            bool isRand = ((a[0] != 1) || (a[1] != 2) || (a[2] != 3) || (a[3] != 4) || (a[4] != 5) || (a[5] != 6) || (a[6] != 7));
+            Assert.IsTrue(isRand);
+        }
     }
 }
