@@ -229,6 +229,7 @@ namespace LW_EquationTest
             LinearEquation b = LinearEquation.RandomLinearEquation(2);
             Assert.AreNotEqual(a, b);
         }
+        [TestMethod]
         public void LinearEquationTestSameLinearEquation()
         {
             LinearEquation a = LinearEquation.SameLinearEquation(2, 4);
@@ -237,6 +238,15 @@ namespace LW_EquationTest
             {
                 Assert.AreEqual(a[i], b[i]);
             }
+        }
+        [TestMethod]
+        public void LinearEquationTestMultOnNum()
+        {
+            LinearEquation a = new LinearEquation(4, 5);
+            LinearEquation b = a * 5;
+
+            Assert.AreEqual(b[0], 20);
+            Assert.AreEqual(b[1], 25);
         }
     }
 }
