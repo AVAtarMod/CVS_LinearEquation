@@ -91,6 +91,11 @@ namespace LW_Equation
             return false;
         }
 
+        public float Solve(LinearEquation a)
+        {
+            return -a.coefficients[1] / coefficients[0];
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
