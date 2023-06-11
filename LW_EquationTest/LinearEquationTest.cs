@@ -207,5 +207,14 @@ namespace LW_EquationTest
             Assert.AreEqual(false, b);
             Assert.AreEqual(true, c);
         }
+
+        [TestMethod]
+        public void LinearEquationTestSolve()
+        {
+            LinearEquation a = new LinearEquation(5, -11);
+
+            float result = a.Solve(a);
+            Assert.AreEqual(a, 2.2f);
+        }
     }
 }
