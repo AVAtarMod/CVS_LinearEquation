@@ -26,6 +26,7 @@ namespace LW_Equation
         /// <param name="coefficients">Остальные коэффициенты</param>
         public LinearEquation(float aN, params float[] coefficients)
         {
+            this.coefficients = new List<float>();
             this.coefficients.Add(aN);
             this.coefficients.AddRange(coefficients);
         }
