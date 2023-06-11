@@ -22,7 +22,7 @@ namespace LW_Equation
         /// LinearEquation(1) => 1 = 0 (не имеет решений)
         /// </example>
         /// 
-        /// <param name="aN">Последний коэффициент</param>
+        /// <param name="aN">Первый коэффициент коэффициент</param>
         /// <param name="coefficients">Остальные коэффициенты</param>
         public LinearEquation(float aN, params float[] coefficients)
         {
