@@ -42,7 +42,7 @@ namespace LW_Equation
         static public LinearEquation operator +(LinearEquation first, float second)
         {
             LinearEquation equation = first;
-            equation.coefficients[0] *= second;
+            equation.coefficients[equation.coefficients.Count - 1] += second;
             return equation;
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace LW_Equation
         static public LinearEquation operator -(LinearEquation first, float second)
         {
             LinearEquation equation = first;
-            equation.coefficients[0] /= second;
+            equation.coefficients[equation.coefficients.Count - 1] -= second;
             return equation;
         }
 
@@ -59,7 +59,6 @@ namespace LW_Equation
         {
             return base.GetHashCode();
         }
-
         public override bool Equals(object obj)
         {
             if (obj is LinearEquation equation)
