@@ -222,5 +222,12 @@ namespace LW_EquationTest
             string aString = a.ToString();
             Assert.AreEqual(aString, "5x-11y+10z+2");
         }
+        [TestMethod]
+        public void LinearEquationTestRandomLinearEquation()
+        {
+            LinearEquation a = new RandomLinearEquation(2);
+            LinearEquation b = new RandomLinearEquation(2);
+            Assert.AreNotEqual(a, b);
+        }
     }
 }
