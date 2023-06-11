@@ -55,6 +55,32 @@ namespace LW_Equation
             return equation;
         }
 
+        public static LinearEquation operator +(LinearEquation first, LinearEquation second)
+        {
+            if (first.Size != second.Size)
+                throw new IndexOutOfRangeException("Уравнения разной длинны");
+
+            LinearEquation temp = first;
+
+            for (int i = 0; i < temp.Size; i++)
+                temp.coefficients[i] += second.coefficients[i];
+
+            return temp;
+        }
+
+        public static LinearEquation operator -(LinearEquation first, LinearEquation second)
+        {
+            if (first.Size != second.Size)
+                throw new IndexOutOfRangeException("Уравнения разной длинны");
+
+            LinearEquation temp = first;
+
+            for (int i = 0; i < temp.Size; i++)
+                temp.coefficients[i] -= second.coefficients[i];
+
+            return temp;
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
