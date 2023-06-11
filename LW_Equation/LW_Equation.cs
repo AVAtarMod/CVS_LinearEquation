@@ -150,5 +150,12 @@ namespace LW_Equation
                 first.coefficients[i] = rand.Next(-1000, 1000);
             }
         }
+        public void InitializeSame(LinearEquation first, int a)
+        {
+            for(int i = 0; i < first.Size; i++)
+            {
+                first.coefficients[i] = a;
+            }
+        }
     }
 }
