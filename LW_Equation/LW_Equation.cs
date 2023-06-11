@@ -142,5 +142,13 @@ namespace LW_Equation
             equation += first[first.Size - 1].ToString() + " = 0";
             return equation;
         }
+        public void InitializeRandom(LinearEquation first)
+        {
+            Random rand = new Random();
+            for(int i = 0; i < first.Size; i++)
+            {
+                first.coefficients[i] = rand.Next(-1000, 1000);
+            }
+        }
     }
 }
