@@ -157,5 +157,12 @@ namespace LW_Equation
                 first.coefficients[i] = a;
             }
         }
+        public void Multiplication(LinearEquation first, int a)
+        {
+            for (int i = 0; i < first.Size; i++)
+            {
+                first.coefficients[i] *= a;
+            }
+        }
     }
 }
