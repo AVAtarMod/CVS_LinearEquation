@@ -131,5 +131,16 @@ namespace LW_Equation
                 return solution;
             }
         }
+        public string EquationToString(LinearEquation first)
+        {
+            string names = "xyzabcdefghijklmn";
+            string equation = "";
+            for(int i = 0; i < first.Size - 1; i++)
+            {
+                equation += first[i].ToString() + names[i] + " + ";
+            }
+            equation += first[first.Size - 1].ToString() + " = 0";
+            return equation;
+        }
     }
 }
