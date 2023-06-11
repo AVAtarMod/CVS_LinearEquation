@@ -212,5 +212,14 @@ namespace LW_EquationTest
             Assert.AreEqual(a.GetSolution(a), -3);
             Assert.AreEqual(b.GetSolution(b), null);
         }
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqMinusFloat11()
+        {
+            LinearEquation a = new LinearEquation(0, 3);
+            LinearEquation b = new LinearEquation(1,2,3,7);
+
+            Assert.AreEqual(a.EquationToString(a), "0x + 3 = 0");
+            Assert.AreEqual(b.EquationToString(b), "1x + 2y + 3z + 7 = 0");
+        }
     }
 }
