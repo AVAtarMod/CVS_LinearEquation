@@ -212,9 +212,15 @@ namespace LW_EquationTest
         public void LinearEquationTestSolve()
         {
             LinearEquation a = new LinearEquation(5, -11);
-
             float result = a.Solve(a);
-            Assert.AreEqual(a, 2.2f);
+            Assert.AreEqual(result, 2.2f);
+        }
+        [TestMethod]
+        public void LinearEquationTestToString()
+        {
+            LinearEquation a = new LinearEquation(5, -11, 10, 2);
+            string aString = a.ToString();
+            Assert.AreEqual(aString, "5x-11y+10z+2");
         }
     }
 }
