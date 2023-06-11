@@ -230,5 +230,14 @@ namespace LW_EquationTest
             bool isRand = ((a[0] != 1) || (a[1] != 2) || (a[2] != 3) || (a[3] != 4) || (a[4] != 5) || (a[5] != 6) || (a[6] != 7));
             Assert.IsTrue(isRand);
         }
+        [TestMethod]
+        public void LinearEquationTestOpeartorEqMinusFloat13()
+        {
+            LinearEquation a = new LinearEquation(1, 2, 3, 4);
+            a.InitializeSame(a,2);
+
+            bool isSame = ((a[0] == 2) && (a[1] == 2) && (a[2] == 2) && (a[3] == 2));
+            Assert.IsTrue(isSame);
+        }
     }
 }
