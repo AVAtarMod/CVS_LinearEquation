@@ -104,6 +104,13 @@ namespace LW_Equation
             }
             return new LinearEquation(temp);
         }
+        public static LinearEquation SameLinearEquation(int size, int value)
+        {
+            List<float> temp = new List<float>();
+            for (int i = 0; i < size; i++)
+                temp.Add(value);
+            return new LinearEquation(temp);
+        }
         public override string ToString()
         {
             string tempStr = "";
