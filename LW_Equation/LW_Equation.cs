@@ -96,6 +96,29 @@ namespace LW_Equation
             return -a.coefficients[1] / coefficients[0];
         }
 
+        public override string ToString()
+        {
+            string tempStr = "";
+            string alphabet = "xyzqwertuiopasdfghjklzcvbnm";
+            for (int i = 0; i < this.coefficients.Count - 1; i++)
+            {
+                if (coefficients[i] < 0)
+                    tempStr += this.coefficients[i].ToString() + alphabet[i];
+                else
+                {
+                    if (i != 0)
+                        tempStr += "+" + this.coefficients[i].ToString() + alphabet[i];
+                    else tempStr += this.coefficients[i].ToString() + alphabet[i];
+                }
+            }
+            if (this.coefficients[coefficients.Count - 1] < 0)
+            {
+                tempStr += this.coefficients[coefficients.Count - 1];
+            }
+            else tempStr += "+" + this.coefficients[coefficients.Count - 1];
+            return tempStr;
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
