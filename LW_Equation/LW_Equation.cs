@@ -81,6 +81,16 @@ namespace LW_Equation
             return temp;
         }
 
+        public static implicit operator bool(LinearEquation a)
+        {
+            if (a.coefficients[a.Size - 1] == 0)
+                return true;
+            for (int i = 0; i < a.Size - 1; i++)
+                if (a.coefficients[i] != 0)
+                    return true;
+            return false;
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
