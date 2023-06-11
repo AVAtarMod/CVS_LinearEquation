@@ -54,6 +54,16 @@ namespace LW_Equation
             return equation;
         }
 
+        static public LinearEquation operator *(LinearEquation first, float num)
+        {
+            LinearEquation equation = first;
+            for (int i = 0; i < equation.coefficients.Count; i++)
+            {
+                equation.coefficients[i] *= num;
+            }
+            return equation;
+        }
+
         public static LinearEquation operator +(LinearEquation first, LinearEquation second)
         {
             if (first.Size != second.Size)
